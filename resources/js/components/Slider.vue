@@ -12,7 +12,7 @@
               <v-layout aligin-center row wrap>
                 <a href="#" class="img-shadow">
                   <template v-if="getImages(item).length > 0">
-                    <img :src="'/storage/'+getImages(product)[0].config.files.medium.filename"/>
+                    <img :src="'/storage/'+getImages(item)[0].config.files.medium.filename"/>
                   </template>
                   <template v-else>
                     <img src="/images/no-image-medium.png"/>
