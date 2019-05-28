@@ -34,7 +34,7 @@ class ProductController extends Controller
       $query->doesntHave('figure');
     }, 'productCategory.files' => function($query) {
       $query->doesntHave('figure');
-    }])->where('active',1)->where('special', 1)->inRandomOrder()->get();
+    }])->where('active',1)->where('special', 1)->get();
   }
 
   public function import(Request $request)
