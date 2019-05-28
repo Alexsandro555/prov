@@ -76,7 +76,7 @@ class SiteController extends Controller
       $query->where('active',1)->orderBy('sort');
     }, 'typeProducts.lineProducts' => function($query) {
       $query->where('active', 1)->orderBy('sort');
-    }])->where('active',1)->get();
+    }])->where('active',1)->orderBy('sort')->get();
   }
 
   public function detail($slug) {
