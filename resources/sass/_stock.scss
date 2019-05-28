@@ -1,0 +1,83 @@
+.stock-wrapper {
+  filter: drop-shadow(5px 5px 10px $color-white);
+  margin-bottom: 30px;
+}
+
+.stock {
+  top: 1px;
+  left: 1px;
+  width: 259px;
+  background: url('#{$path}/stock-bottom-line.png') bottom center repeat-x, url('#{$path}/stock-botom-layer.png') bottom center repeat-x,  url('#{$path}/stocks.png') center center no-repeat;
+  @include border-radius(10px 10px 0px 0px);
+  -webkit-clip-path: polygon(0% 0%, 45% 0%, 50% 5%, 55% 0%, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 45% 0%, 50% 5%, 55% 0%, 100% 0%, 100% 100%, 0% 100%);
+  min-height: 265px;
+  position: relative;
+  margin: auto;
+}
+
+.stock__content {
+  height: 270px;
+}
+
+.stock__pr {
+  color: $color-yell;
+  font-size: 2.5em;
+  font-family: $font-os-condenced-bold;
+  line-height: 1.2;
+}
+
+.stock__pr span {
+  font-size: 0.4em;
+  text-transform: uppercase;
+  background-color: $color-yell;
+  color: $color-green-dark;
+  padding: 0px 5px;
+}
+
+.container.grid-list-xs .layout .flex .stock__desc {
+  margin-top: 13px;
+  font-family: $font-os-condenced-bold;
+  font-size: 1.8em;
+  color: $color-white;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.stock__price {
+  color: $color-yell;
+  font-size: 1.6em;
+  font: $font-os-condenced-bold;
+
+}
+
+.stock__sub-price {
+  color: $color-white;
+  font-size: 0.8em;
+}
+
+.stock__btn {
+  font-size: 0.5em;
+}
+
+.stock__rocwell-banner {
+  margin: auto;
+  padding: 10px 20px 0px 20px;
+  font-size: 1.1em;
+}
+
+.stock__rocwell-banner--footer {
+  position:absolute;
+  width: 100%;
+  bottom:10px;
+  padding: 10px 20px 0px 20px;
+  font-size: 1.4em;
+  font-family: $font-os-condenced-bold;
+}
+
+.stock__btn {
+  @extend .content__buttom;
+  margin-top: 0px;
+  font-size: 0.8em;
+  display: inline-block;
+}

@@ -1,0 +1,58 @@
+.detail-characteristics__left-table {
+  float: left;
+}
+
+.detail-characteristics__right-table {
+  float: right;
+}
+
+.detail-characteristics__table {
+  color: white;
+  width: 380px;
+  border: none;
+  border-collapse: collapse;
+}
+
+.detail-characteristics__table tr{
+  line-height: 20px;
+}
+
+.detail-characteristics__table thead th {
+  text-align: left;
+}
+
+.detail-characteristics__table tbody tr:nth-child(2n+1) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+.detail-characteristics__table tbody tr td {
+  padding: 5px 10px;
+  font-family: $font-os-light;
+  font-size: 0.9em;
+}
+
+.detail-characteristics__table thead tr th {
+  padding: 5px 10px;
+  font-family: $font-os-light;
+  font-size: 0.9em;
+}
+
+
+//новые
+
+.detail-characteristics-marg {
+  margin-left: 70px;
+}
+
+
+.detail-characteristics-marg p {
+  display: block;
+  margin-right: 20px;
+  line-height: 20px;
+}
+
+.detail-characteristics .card__text{
+  //background-color: rgba(0, 120, 201, 0.1);
+  background-color: red;
+}

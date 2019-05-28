@@ -1,0 +1,113 @@
+.special-product-wrapper {
+  filter: drop-shadow(3px 3px 5px gray);
+  //margin-left: 0px;
+  margin-bottom: 30px;
+}
+
+.special-product {
+  top: 1px;
+  left: 1px;
+  width: 263px;
+  height: 390px;
+  @include border-radius(0px 0px 6px 6px);
+  display: block;
+  background: url('#{$path}/special-product__item-head-lay.png') top center no-repeat;
+  background-color: $color-white;
+  //margin: 0px 10px;
+  //padding-top: 20px;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 55% 100%, 50% 97%, 45% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 55% 100%, 50% 97%, 45% 100%, 0% 100%);
+  margin: 0 auto;
+  padding: 0px 0px 10px 0px;
+}
+
+.product {
+  @extend .special-product;
+  display: inline-block;
+  margin: 10px;
+}
+
+.special-product__header {
+  height: 82px;
+  line-height: 82px;
+}
+
+.special-product__header>a {
+  color: $color-green;
+  font-size: 1.1em;
+  font-family: $font-os-semibold;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1.25;
+  text-decoration: none;
+  padding: 0 30px;
+  //padding: 5px;
+}
+
+.special-product__img {
+  margin-top: 10px;
+  padding: 5px 10px;
+  height: 180px;
+  line-height: 180px;
+}
+
+.special-product__img>img {
+  vertical-align: middle;
+}
+
+.special-product__desc {
+  font-size: 1.1em;
+  font-family: sans-serif, $font-os;
+  border-bottom: 1px dashed $color-green;
+  padding-bottom: 20px;
+}
+
+.special-product__price {
+  font-family: $font-os-condenced-bold;
+  font-size: 0.9em;
+}
+
+.special-product__price .current-price {
+  color: $color-ultra-light;
+  font-size: 2.6em;
+}
+
+.special-product__price .old-price {
+  text-decoration: line-through;
+  font-weight: bold;
+}
+
+.special-product__cart {
+  margin-top: 5px;
+}
+
+.special-product__mcart {
+  padding-top: 5px;
+  background: url('#{$path}/product-cart-layout.png') right top no-repeat;
+}
+
+.rub {
+  font-size: 1.6em;
+}
+
+.product-wrapper {
+  @extend .special-product-wrapper;
+  display: inline-block;
+  position: relative;
+}
+
+.product {
+  @extend .special-product;
+}
+
+.product__new-label {
+  position: absolute;
+  z-index: 100;
+  margin-top: 70px;
+}
+
+.product__new-label-coal {
+  position: absolute;
+  z-index: 90;
+  margin-top: 115px;
+}

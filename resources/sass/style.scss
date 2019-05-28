@@ -1,0 +1,102 @@
+.application.theme--light.leader {
+  font-family: 'PT Sans', sans-serif;
+}
+
+@import 'variables';
+@import 'mixins';
+body {
+  //background: url('#{$path}/body-layer.png') top center no-repeat;
+}
+@import 'font';
+.logo {
+  height: 198px;
+  width: 178px;
+  float: right;
+}
+@import 'header';
+@import 'menu';
+@import '~cartScss/cart';
+
+
+.find {
+  padding-top: 19px;
+}
+
+@import 'slogan';
+@import 'phone';
+
+
+.animal-panel {
+  //position: absolute;
+  width: 1200px;
+  height: 151px;
+  margin-top: 253px;
+  margin-left: 30px;
+  color: black;
+  padding-left: 10px;
+}
+
+.animal-panel img {
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.inline {
+  display: inline-block;
+}
+
+@import 'menu-left';
+@import 'content';
+@import 'baner';
+@import 'product';
+@import 'about';
+@import 'news';
+@import 'delivery';
+@import 'stock';
+@import 'footer';
+@import 'detail';
+@import 'detailcharacteristics';
+@import '~articleScss/articles';
+@import 'breadcrumbs';
+@import 'brands';
+
+
+[v-cloak] .v-cloak--block {
+  display: block;
+  background: url('#{$path}/cat-preloader.gif') center center no-repeat, rgba(225, 154, 46, 1);
+  width: 100%;
+  height: 1200px;
+}
+
+[v-cloak] .v-cloak--hidden {
+  display: none;
+}
+
+.v-cloak--block {
+  display: none;
+}
+
+.abs-position {
+  position: absolute;
+  z-index: 100;
+  margin-top: -3px;
+}
+
+.figure-button {
+  display: inline-block;
+  padding: 5px 20px;
+  background-color: $color-green;
+  color: $color-white;
+  font-family: $font-os-condenced-bold;
+  text-decoration: none;
+  height: 31px;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 0%);
+  clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+  text-transform: uppercase;
+}

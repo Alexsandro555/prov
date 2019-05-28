@@ -1,0 +1,39 @@
+.application .theme--light.card, .theme--light .article--card {
+  min-height: 200px;
+  padding: 40px;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 45%, 99% 50%, 100% 55%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 45%, 99% 50%, 100% 55%, 100% 100%, 0% 100%);
+  @include border-radius(0px 13px 13px 0px);
+  background: url('#{$path}/article-block-line.png') left top repeat-y, rgba(255, 255, 255, 1);
+}
+
+.articles__content {
+  font-size: 1.1em;
+  border-bottom: 1px dashed $color-green-light;
+  width: 100%;
+}
+
+.articles__content a {
+  text-decoration: none;
+  font-size: 1.1em;
+  color: $color-green;
+}
+
+.article--button {
+  @extend .content__buttom;
+  color: $color-green;
+  border-color: #c8dac6;
+}
+
+.article__content {
+  color: black;
+  padding: 0px 60px;
+  @include border-radius(10px);
+  font-size: 1.2em;
+  text-align: justify;
+}
+
+.article__header {
+  @extend .content__header;
+  color: $color-green-dark;
+}

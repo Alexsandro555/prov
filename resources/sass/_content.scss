@@ -1,0 +1,75 @@
+.content-wrapper-top {
+  background: url('#{$path}/tree-layer-top.png') top center repeat;
+  height: 29px;
+}
+.content-wrapper {
+  min-height: 950px;
+  width: 100%;
+  background: url('#{$path}/tree-layer.png') top center repeat;
+  padding-bottom: 20px;
+}
+
+.content {
+  margin: auto;
+  //padding-top: 30px;
+  font-size: 0.9em;
+  width: $main-width;
+}
+
+.content h1 {
+  color: white;
+}
+
+.content__header {
+  text-transform: uppercase;
+  font-size: 2em;
+  font-family: $font-os-condenced-bold;
+  color: $color-white;
+  background: url('#{$path}/banner-header.png') left center no-repeat;
+  height: 100px;
+  line-height: 100px;
+  padding-left: 30px;
+  margin-left: 50px;
+}
+
+.content__subheader {
+  color: $color-yell;
+}
+
+.content__buttom {
+  margin-top: 30px;
+  display: inline-block;
+  background: none;
+  border: 2px solid $color-yell;
+  padding: 7px;
+  font-size: 1.3em;
+  color: $color-yell;
+  text-transform: uppercase;
+  @include border-radius(6px);
+  text-decoration: none;
+  font-family: $font-os-condenced-bold;
+  margin-right: 15px;
+  padding: 5px 10px;
+
+}
+
+.content__banner {
+  margin: 0px 20px;
+}
+
+.content--leftmargin310 {
+  margin-left: 310px;
+}
+
+.left-50 {
+  margin-left: 50px;
+}
+
+.content-discription  {
+  color: white;
+  font-size: 1.2em;
+}
+
+.content__info {
+  margin-top: -25px;
+}

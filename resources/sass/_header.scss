@@ -1,0 +1,44 @@
+.header {
+  height: 707px;
+}
+
+.chickens {
+  background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/chickens-layout.png') top center no-repeat;
+}
+
+.cows {
+   background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/cows-layout.png') top center no-repeat;
+ }
+
+.pigs {
+  background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/pigs-layout.png') top center no-repeat;
+}
+
+.rams {
+  background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/rams-layout.png') top center no-repeat;
+}
+
+.main-layout {
+  background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/header-layer.png') top center no-repeat;
+}
+
+.wrapper {
+  width: $main-width;
+  margin: auto;
+}
+
+.header--wrapper {
+  width: $main-width;
+  margin: auto;
+}
+
+.header-menu {
+  height: 57px;
+  background:  rgba(121,154,50,0.8);
+  width: 100%;
+}
+
+.header-menu__link {
+  text-decoration: none;
+  color: white;
+}

@@ -1,0 +1,41 @@
+.phone {
+  width: 400px;
+  height: 151px;
+  margin-top: 20px;
+  color: white;
+}
+
+.phone__sun {
+  width: 300px;
+  padding: 3px 8px;
+  background: $color-green-low-light;
+}
+
+.phone__number {
+  font-family: $font-os-condenced-bold;
+  font-size: 2.2em;
+  text-shadow: 1px 1px 1px black, 0 0 1em black;
+  text-transform: uppercase;
+}
+
+.phone__callback {
+  font-size: 0.9em;
+  display: inline-block;
+  background: none;
+  border: 2px solid $color-yell;
+  -mox-border-radius: 6px;
+  border-radius: 6px;
+  padding: 7px;
+  font-weight: bold;
+  color: $color-yell;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: $font-os-condenced-bold;
+  background: url('#{$path}/phone-img.png') left 4px center no-repeat;
+  padding-left: 30px;
+}
+
+.footer__address {
+  color: $color-white;
+  font-size: 1.2em;
+}

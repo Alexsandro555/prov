@@ -1,0 +1,194 @@
+.menu-left-img {
+  position: absolute;
+  z-index: 100;
+  margin-top: -70px;
+}
+
+.menu-left-wrappers.theme--light.v-sheet {
+  position: absolute;
+  margin-left: 0px;
+  width: 262px;
+  z-index: 100;
+  margin-top: -60px;
+  overflow: visible;
+  @include border-radius(0 0 10px 10px);
+}
+
+.menu-left-wrappers .v-list {
+  padding-top: 0px;
+}
+
+.theme--light .menu-left-wrappers .v-list {
+  background: url('#{$path}/menu-left-wrapper.png') repeat right top;
+}
+
+.menu-left-wrappers .v-list__group__items--no-action .v-list__tile {
+  padding-left: 20px;
+}
+
+.menu-left-wrappers .v-list__group__items .v-list__tile:hover {
+  background-color: $color-green-dark;
+}
+
+.menu-left-wrappers .v-list__group__items .v-list__tile:hover .v-list__tile__title {
+  color: $color-white;
+}
+
+.menu-left-item-el {
+  font-size: 0.9em;
+  font-family: $font-os-condenced-bold;
+  color: $color-green-light;
+}
+
+.menu-left-wrapper {
+  position: absolute;
+  margin-left: 0px;
+  width: 262px;
+  z-index: 1000;
+  overflow: visible;
+}
+
+.menu-left {
+  margin: -5px;
+  background: url('#{$path}/menu-left-wrapper.png') repeat right top;
+  @include border-radius(10px);
+  padding-bottom: 10px;
+}
+
+.menu-left__hr-img {
+  margin-left: -7px;
+}
+
+.menu-left__header {
+  font-size: 1.6em;
+  font-family: $font-os-condenced-bold;
+  text-transform: uppercase;
+  color: $color-white;
+  background: url('#{$path}/menu-left-header.png') no-repeat center center, $color-yell;
+  text-transform: uppercase;
+}
+
+.menu-left-wrappers .v-list__group__header {
+  background: url('#{$path}/menu-left-item-lay.png') repeat-x center center;
+  color: $color-white;
+  font-size: 1.2em;
+  font-family: $font-os-condenced-bold;
+  text-transform: uppercase;
+  width: 262px;
+}
+
+
+.theme--light .menu-left-wrappers  .v-list .v-list__group__header:hover {
+  background: url('#{$path}/menu-left-item-lay.png') repeat-x center center;
+}
+
+
+.list-menu-left {
+  padding-top: 0px;
+  @include border-radius(0px 0px 10px 10px);
+}
+
+.menu-left-h {
+  width: 262px;
+}
+
+
+.sub-menu {
+  background: url('#{$path}/menu-left-wrapper.png') repeat right top;
+  padding: 10px;
+  border: 3px solid $color-green-light;
+  @include border-radius(0px 0px 10px 10px);
+  position: relative;
+}
+
+
+
+.sub-menu__head>li {
+  margin-top:10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  display:inline-block;
+}
+
+.sub-menu__head li {
+  list-style: none;
+}
+
+.sub-menu__head a{
+  margin-left: 10px;
+  margin-top:5px;
+  color: $color-green-light;
+  text-decoration: underline;
+  font-family: $font-os-semibold;
+}
+
+.sub-menu__item a{
+  font-size: 0.8em;
+  color: $color-green-dark;
+}
+
+.application .theme--light.footer__menu.v-list, .theme--light .sub-menu .v-list {
+  background: none;
+}
+
+.sub-menu .v-list__tile {
+  font-family: $font-os;
+  font-size: 0.9em;
+  height:42px;
+}
+
+.sub-menu .v-list__tile>a {
+  color: $color-green-dark;
+}
+
+.sub-menu__header {
+  padding-left: 15px;
+  color: $color-green;
+}
+
+/*.theme--light.v-list .v-list__group--active:after,
+.application .theme--light.list .v-list__group--active:before,
+.application .theme--light.v-list .v-list__group__header:hover,
+.theme--light.v-list .v-list__tile--highlighted,
+.theme--light.v-list .v-list__tile--link:hover,
+.theme--light .v-list .v-list__group--active:after,
+.theme--light .v-list .v-list__group--active:before,
+.theme--light .v-list .v-list__group__header:hover,
+.theme--light .v-list .v-list__tile--highlighted,
+.theme--light .v-list .v-list__tile--link:hover {
+  background: rgba(0,0,0,0)
+}*/
+
+.menu-left__link {
+  text-decoration: none;
+  color: $color-green-light;
+}
+
+
+.theme--light .left-menu .v-icon {
+  color: $color-white;
+}
+
+.menu-left__footer {
+  position: relative;
+}
+
+.menu-left__social-icons {
+  position: absolute;
+  margin-top: 100px;
+  font-size: 0.7em;
+}
+
+.menu-left__social-icons-header {
+  text-transform: uppercase;
+  font-size: 2em;
+  font-family: $font-os-condenced-bold;
+  color: $color-white;
+  height: 5px;
+  line-height: 5px;
+}
+
+
+.sub-menu__list-tile {
+  width: 200px;
+}

@@ -1,0 +1,40 @@
+.abs-breadcrumbs {
+  position: absolute;
+  margin-top: 38px;
+  margin-left: 310px;
+  z-index: 100;
+}
+
+.breadcrumb {
+  list-style: none;
+}
+
+.breadcrumb li {
+  background: url('#{$path}/bradcrumb-arrow.png') left center no-repeat;
+  display: inline;
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
+.breadcrumb li.breadcrumb__item:nth-child(2n) {
+  //padding-left: 20px;
+}
+
+.breadcrumbs .wrapper li:nth-child(2n) {
+  padding-left: 20px;
+}
+
+.breadcrumb li:first-child {
+  background: none;
+  padding-left: 0px;
+}
+
+.breadcrumb li.active {
+  color: $color-white;
+}
+
+.breadcrumb li a {
+  //text-decoration: none;
+  color: $color-white;
+}
+

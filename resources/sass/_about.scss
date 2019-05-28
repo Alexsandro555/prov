@@ -1,0 +1,54 @@
+.tree {
+  background: url('#{$path}/tree-layer.png') top center repeat;
+}
+
+.about-wrapper {
+  background: url('#{$path}/about-layout.png') top center no-repeat;
+  -webkit-clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.about {
+  background-color: rgba(69,115,32,0.8);
+}
+
+.about__content {
+  margin: auto;
+  width: $main-width;
+  height: 600px;
+  padding-top: 100px;
+  color: $color-white;
+}
+
+.about__left {
+  margin-left: 40px;
+  font-size: 1.2em;
+}
+
+.about__cit {
+  background: url('#{$path}/cit.png') left center no-repeat;
+
+}
+
+.container.grid-list-xs .layout .flex.about__cit {
+  padding-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.about-official {
+  background-color: #003300;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: $color-white;
+}
+
+.about__header {
+  @extend .content__header;
+  background: url('#{$path}/yellow-header.png') left center no-repeat;
+}
+
+.low-font {
+  font-size: 1.8em;
+}
+

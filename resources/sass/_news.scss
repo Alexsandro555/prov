@@ -1,0 +1,35 @@
+.news__conent {
+  color: $color-white;
+  font-family: $font-os;
+  font-size: 1em;
+  margin-top:20px;
+  margin-left: 40px;
+}
+
+.news__date {
+  font-family: $font-os-condenced-bold;
+  font-size: 1.1em;
+}
+
+.news__date-d {
+  color: $color-green-dark;
+}
+
+.news__header {
+  background-color: $color-yell;
+  display: inline-block;
+  padding: 2px 20px;
+  color: $color-green-dark;
+
+
+}
+
+.news__header a {
+  color: black;
+  font-family: $font-os-condenced-bold;
+  font-size: 1.2em;
+}
+
+.news__button {
+  margin-left: 40px;
+}
