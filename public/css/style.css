@@ -1186,6 +1186,10 @@ ul.footer-top-menu:first-child {
   margin-left: 30px;
 }
 
+.detail-info.v-card.v-sheet {
+  background: url("/images/light-tree.png") top center repeat;
+}
+
 .detail-characteristics__left-table {
   float: left;
 }

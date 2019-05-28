@@ -18,13 +18,13 @@
   <div class="content-wrapper">
     <div class="content">
       <v-flex xs11 offset-xs1 md9 offset-md3>
-        <v-card style="min-height: 700px; font-size: 1.2em;">
+        <v-card class="detail-info" style="min-height: 700px; font-size: 1.2em;">
           <v-layout row wrap>
-            <v-flex xs5>
+            <v-flex pa-2 xs5>
               <detail-image :stock="{{$product->special?$product->special:'false'}}" :url="'/files/product-image/{{$product->id}}'" :id="{{$product->id}}"/>
               <!--<detail-image :url="'/files/product-image/{{$product->id}}'"/>-->
             </v-flex>
-            <v-flex class="detail__title text-xs-left" xs7 md7>
+            <v-flex class="detail__title text-xs-left" pa-2 xs7 md7>
               <h1>{{$product->title}}</h1>
               <p>
                                     <span class="detail__price">
