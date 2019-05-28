@@ -1182,10 +1182,6 @@ ul.footer-top-menu:first-child {
   background: url("/images/stock-bottom-line.png") top center repeat-x;
 }
 
-.detail__tabs {
-  margin-left: 30px;
-}
-
 .detail-info.v-card.v-sheet {
   background: url("/images/light-tree.png") top center repeat;
 }

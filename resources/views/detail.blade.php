@@ -24,7 +24,7 @@
               <detail-image :stock="{{$product->special?$product->special:'false'}}" :url="'/files/product-image/{{$product->id}}'" :id="{{$product->id}}"/>
               <!--<detail-image :url="'/files/product-image/{{$product->id}}'"/>-->
             </v-flex>
-            <v-flex class="detail__title text-xs-left" pa-2 xs7 md7>
+            <v-flex class="detail__title text-xs-left" px-5 xs7 md7>
               <h1>{{$product->title}}</h1>
               <p>
                                     <span class="detail__price">
@@ -41,7 +41,7 @@
                 </a>
               </div>
             </v-flex>
-            <v-flex class="detail__tabs" xs10>
+            <v-flex class="detail__tabs" pa-2 xs10>
               <br>
               <v-tabs class="detail-characteristics" color="green darken-4" dark slider-color="yellow">
                 <v-tab key="description">Опсание</v-tab>

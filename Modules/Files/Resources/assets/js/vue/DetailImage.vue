@@ -1,8 +1,5 @@
 <template>
   <div class="detail__image--wrapper">
-      <div v-if="stock" class="detail__image-label">
-        Акция!
-      </div>
       <div class="detail__image">
         <v-container v-if="loading" fill-height>
           <v-layout row wrap align-center>
