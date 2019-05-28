@@ -15,16 +15,16 @@ class ProductDatabaseSeeder extends Seeder
   public function run()
   {
     Model::unguard();
-    /*$this->call(TnvedTableSeeder::class);
+    $this->call(TnvedTableSeeder::class);
     $this->call(ProducerTableSeeder::class);
     $this->call(ProductCategoryTableSeeder::class);
-    $this->call(TypeProductTableSeeder::class);*/
+    $this->call(TypeProductTableSeeder::class);
     $this->call(LineProductTableSeeder::class);
-    /*$this->call(AttributeTypeTableSeeder::class);
+    $this->call(AttributeTypeTableSeeder::class);
     $this->call(AttributeUnitTableSeeder::class);
     $this->call(AttributeGroupTableSeeder::class);
     $this->call(AttributeTableSeeder::class);
-    $this->call(AttributeListTableSeeder::class);*/
+    /*$this->call(AttributeListTableSeeder::class);*/
     //$this->call(VibratorsTableSeeder::class);
   }
 }

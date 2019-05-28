@@ -104,6 +104,7 @@
     </div>
   </div>
   <div class="delivery-wrapper">
+    <div class="delivery">
     <v-content>
       <v-flex xs12 sm12 md12 lg12 xl12>
         <v-layout row wrap>
@@ -214,5 +215,6 @@
         </v-layout>
       </v-flex>
     </v-content>
+    </div>
   </div>
 @endsection

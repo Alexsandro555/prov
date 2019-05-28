@@ -18,12 +18,7 @@ class AttributeGroupTableSeeder extends Seeder
       Model::unguard();
 
       $arrAttributeGroups = [
-        ['title' => 'Механические свойства'],
-        ['title' => 'Электрические свойства'],
-        ['title' => 'Характеристики червячного зацепления'],
-        ['title' => 'Конструктивные размеры червячных редукторов серии NMRV c фланцами под двигатель'],
-        ['title' => 'Конструктивные особенности'],
-        ['title' => 'Габаритные и присоединительные размеры'],
+        ['title' => 'Характеристики'],
       ];
 
       foreach ($arrAttributeGroups as $arrAttributeGroup) {
