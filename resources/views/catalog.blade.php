@@ -29,7 +29,7 @@
           </v-layout>
           <v-flex xs12 class="text-xs-left">
             <v-container grid-list-md>
-              <v-layout align-center justify-center row wrap>
+              <v-layout align-center justify-left row wrap>
                 @if($model->lineProducts)
                   @foreach($model->lineProducts as $lineProduct)
                     <div class="special-product-wrapper">
