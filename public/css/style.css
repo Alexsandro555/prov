@@ -1183,7 +1183,7 @@ ul.footer-top-menu:first-child {
 }
 
 .detail-info.v-card.v-sheet {
-  background: url("/images/light-tree.png") top center repeat;
+  background: url("/images/detail-background-card.jpg") top left repeat;
 }
 
 .detail-characteristics__left-table {
@@ -1237,6 +1237,11 @@ ul.footer-top-menu:first-child {
 
 .detail-characteristics .card__text {
   background-color: red;
+}
+
+.detail-characteristics .v-window {
+  background-color: #ffffff;
+  min-height: 250px;
 }
 
 .application .theme--light.card,

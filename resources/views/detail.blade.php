@@ -44,39 +44,48 @@
             <v-flex class="detail__tabs" pa-2 xs10>
               <br>
               <v-tabs class="detail-characteristics" color="green darken-4" dark slider-color="yellow">
+                @foreach($groups as $group)
+                  <v-tab key="#tabs-group-{{$group->id}}">{{$group->title}}</v-tab>
+                @endforeach
                 <v-tab key="description">Опсание</v-tab>
-                <v-tab key="characteristics">Характеристики</v-tab>
+                @foreach($groups as $group)
+                  <v-tab-item class="tabs-content" key="tabs-group-{{$group->id}}">
+                    <v-card height="300px">
+                      <v-card-text class="text-xs-left">
+                        @foreach($product->attributes->filter(function($attribute, $key) use (&$group){
+                            return $attribute->attribute_group_id == $group->id;
+                          })->sortBy('sort')->chunk(10) as $chunkAttributes)
+                          <div class="tabs__characteristics">
+                            <dl class="tabs__characteristics-attributes">
+                              @foreach($chunkAttributes as $attribute)
+                                @if($attribute->attribute_type_id == 3)
+                                  <dt>{{$attribute->title}}</dt><dd class="tabs__characteristics--value">{{$attribute->pivot->integer_value}} {{$attribute->attribute_unit?$attribute->attribute_unit->title:""}}</dd>
+                                @endif
+                                @if($attribute->attribute_type_id == 4)
+                                  <dt>{{$attribute->title}}</dt><dd class="tabs__characteristics--value">{{$attribute->pivot->double_value}} {{$attribute->attribute_unit?$attribute->attribute_unit->title:""}}</dd>
+                                @endif
+                                @if($attribute->attribute_type_id == 5)
+                                  <dt>{{$attribute->title}}</dt><dd class="tabs__characteristics--value">{{$attribute->pivot->date_value}} {{$attribute->attribute_unit?$attribute->attribute_unit->title:""}}</dd>
+                                @endif
+                                @if($attribute->attribute_type_id == 7)
+                                  <dt>{{$attribute->title}}</dt><dd class="tabs__characteristics--value">{{$attribute->pivot->decimal_value}} {{$attribute->attribute_unit?$attribute->attribute_unit->title:""}}</dd>
+                                @endif
+                                @if($attribute->attribute_type_id == 8)
+                                  <dt>{{$attribute->title}}</dt><dd class="tabs__characteristics--value">{{Modules\Product\Entities\AttributeListValues::find($attribute->pivot->list_value)->title}} {{$attribute->attribute_unit?$attribute->attribute_unit->title:""}}</dd>
+                                @endif
+                              @endforeach
+                            </dl>
+                          </div>
+                        @endforeach
+                      </v-card-text>
+                    </v-card>
+                  </v-tab-item>
+                @endforeach
                 <v-tab-item key="description">
                   <br>
                   <span class="text-xs-left" style="color: white">
                                    {!! $product->description !!}
                                 </span>
-                </v-tab-item>
-                <v-tab-item key="characteristics">
-                  <br>
-                  <div class="detail-characteristics__left-table">
-                    <table class="detail-characteristics__table">
-                      <tbody>
-                      <?php $counter=1; ?>
-                      @foreach($product->attributes as $attribute)
-                        @if($attribute->pivot->value)
-                          <tr>
-                            <td>{{$attribute->title}}</td>
-                            <td  class="tbl-left">{{$attribute->pivot->value}}</td>
-                          </tr>
-                          <?php
-                          $counter++;
-                          if($counter>9)
-                          {
-                            echo "</tbody></table></div><div class='detail-characteristics__right-table'><table class='detail-characteristics__table'><tbody>";
-                            $counter=1;
-                          }
-                          ?>
-                        @endif
-                      @endforeach
-                      </tbody>
-                    </table>
-                  </div>
                 </v-tab-item>
               </v-tabs>
             </v-flex>
