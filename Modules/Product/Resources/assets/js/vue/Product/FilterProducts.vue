@@ -1,7 +1,7 @@
 <template>
   <v-container>
       <v-layout row wrap>
-        <v-flex xs10>
+        <v-flex xs10 v-if="attributes.length > 0">
           <v-container>
             <v-layout align-end justify-center fill-height col>
               <v-flex pa-2 v-for="attribute in attributes" :key="attribute.id">
@@ -25,35 +25,7 @@
         <v-flex xs12>
           <v-layout column wrap>
             <v-layout row wrap v-if="filteredProducts.length>0">
-              <div class="product-wrapper" v-for="product in getPagesElement">
-              <div class="product">
-                <div class="product-image-wrapper">
-                  <div class="product-image" @click="goPage('/catalog/detail/'+product.url_key)">
-                    <template v-if="getImages(product).length > 0">
-                      <img :src="'/storage/'+getImages(product)[0].config.files.medium.filename"/>
-                    </template>
-                    <template v-else>
-                      <img src="/images/no-image-medium.png"/>
-                    </template>
-                  </div>
-                </div>
-                <div class="product__title">
-                  <a :href="'/catalog/detail/'+product.url_key">
-                    {{product.title.substr(0, 27)+".."}}
-                  </a>
-                </div>
-                <v-layout row wrap>
-                  <v-flex xs8 text-xs-center>
-                    <br>
-                    <span class="product-price-wrapper">
-                    <span class="product-price">{{product.price}}</span> руб.</span>
-                  </v-flex>
-                  <v-flex xs4>
-                    <img @click="addCart(product.id)" src="/images/btn-sale.png"/>
-                  </v-flex>
-                </v-layout>
-              </div>
-            </div>
+              <slot :products="getPagesElement" :getImages="getImages" :addCart="addCart"></slot>
             </v-layout>
             <div v-else>
               <h2>Продукция с заданными параметрами не найдена</h2>
@@ -64,7 +36,7 @@
           </v-layout>
         </v-flex>
       </v-layout>
-    </v-container>
+  </v-container>
 </template>
 <script>
   import { mapActions, mapMutations } from 'vuex'

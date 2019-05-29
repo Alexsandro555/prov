@@ -1,31 +1,69 @@
 @extends('layouts.master')
 
+@section('breadcrumbs')
+  <div class="abs-breadcrumbs">
+    {{ Breadcrumbs::render() }}
+  </div>
+@endsection
+
 @section('menu')
   <div class="menu-wrapper wrapper">
     <div class="abs-position">
-      <left-menu :prop-toggle="true"></left-menu>
+      <left-menu/>
     </div>
   </div>
 @endsection
 
 @section('content')
-  <div class="content">
-    <div class="wrapper content__product-margin">
-      <div class="breadcrumbs">
-        <div class="wrapper">
-          <v-flex xs12 text-xs-left>
-            {{ Breadcrumbs::render() }}
+  <div class="content-wrapper">
+    <div class="content" style="position: relative">
+      <v-layout row wrap>
+        <v-flex xs11 offset-xs1 md9 offset-md3 text-xs-left>
+          <v-layout column wrap>
+            <p class="content__header text-md-left">
+              {{$model->title}}
+            </p>
+            <p class="content-discription">
+              {{$model->description}}
+            </p>
+          </v-layout>
+          <v-flex xs12 class="text-xs-left">
+            <filter-products :products="{{$products}}" :attributes="{{$attributes}}">
+              <template slot-scope="{products, getImages}">
+                <div v-for="product in products" :key="product.id" class="special-product-wrapper">
+                  <div class="special-product text-xs-center" align="center">
+                    <div class="special-product__header text-xs-center">
+                      <a :href="'/catalog/detail/'+product.url_key">@{{product.title.length>52?product.title.substr(0,50)+'...':product.title}}</a>
+                    </div>
+                    <div class="special-product__img">
+                      <v-layout aligin-center row wrap>
+                        <a href="#" class="img-shadow">
+                          <template v-if="getImages(product).length > 0">
+                            <img :src="'/storage/'+getImages(product)[0].config.files.medium.filename"/>
+                          </template>
+                          <template v-else>
+                            <img src="/images/no-image-medium.png"/>
+                          </template>
+                        </a>
+                      </v-layout>
+                    </div>
+                    <div class="special-product__desc text-xs-center">Сделан на заказ</div>
+                    <v-layout col wrap class="special-product__mcart">
+                      <v-flex xs8 class="special-product__price text-xs-center">
+                        <!--<span class="old-price">145 800</span> руб.<br>-->
+                        <span class="current-price">@{{Math.floor(product.price)}}</span> <span class="rub">руб.</span>
+                      </v-flex>
+                      <v-flex xs4 class="special-product__cart">
+                        <img @click="addCart(product.id)" src="/images/product-cart.png"/>
+                      </v-flex>
+                    </v-layout>
+                  </div>
+                </div>
+              </template>
+            </filter-products>
           </v-flex>
-        </div>
-      </div>
-      <v-flex xs12 text-xs-left class="top-20 bottom-20">
-        <p class="headsite">
-          <span>{{$model->title}}</span><br>
-        </p>
-        <v-layout row wrap>
-          <filter-products :products="{{$products}}" :attributes="{{$attributes}}"/>
-        </v-layout>
-      </v-flex>
+        </v-flex>
+      </v-layout>
     </div>
   </div>
 @endsection

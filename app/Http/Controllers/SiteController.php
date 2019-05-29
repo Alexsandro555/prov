@@ -46,7 +46,7 @@ class SiteController extends Controller
   {
     $model = TypeProduct::with(['lineProducts' => function($query) {
       $query->where('active',1);
-    }])->where('url_key', $slug)->first();
+    }])->where('url_key', $slug)->firstOrFail();
     /*$products = Product::with(['files', 'lineProduct.files' => function($query) {
       $query->doesntHave('figure');
     }, 'typeProduct.files' => function($query) {

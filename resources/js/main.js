@@ -54,7 +54,7 @@ const store = new Vuex.Store({
   }
 )
 
-import FilterProducts from '@/components/FilterProducts'
+import FilterProducts from '@product/vue/Product/FilterProducts'
 Vue.component('filter-products', FilterProducts)
 import NamvigationMenu  from '@/vue/NavigationMenu.vue'
 Vue.component('navigation-menu', NamvigationMenu)
