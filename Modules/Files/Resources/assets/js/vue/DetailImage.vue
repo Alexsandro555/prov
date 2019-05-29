@@ -15,15 +15,13 @@
           </div>
           <div v-if="items.length>0" class="thumbnails-slider">
             <carousel :items="3" :nav="false" :dots="false" :margin="5">
-              <div  v-for="item of items" :key="item.id">
-                <v-container fill-height>
+                <v-container v-for="item of items" :key="item.id" fill-height>
                   <v-layout row wrap align-center>
                     <v-flex class="text-xs-center">
                       <img @click="selectSlide(item.id)"  :src="'/storage/'+item.file"/>
                     </v-flex>
                   </v-layout>
                 </v-container>
-              </div>
               <template slot="prev"><img class="nav-arrow-left" src="/images/slider-left-arrow.png"/></template>
               <template slot="next">
                 <img  align="center" class="nav-arrow-right" src="/images/slider-right-arrow.png"/></template>
@@ -146,5 +144,36 @@
     font-size: 2em;
     color: $color-white;
     text-transform: uppercase;
+  }
+
+  .thumbnails-slider {
+    height: 120px;
+    width: 320px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: inline-block;
+    position:relative;
+  }
+
+  .thumbnails-slider .owl-carousel.owl-loaded{
+    width: 310px;
+    display: inline-block;
+  }
+
+  .thumbnails-slider .owl-item {
+    height: 103px;
+  }
+
+  .nav-arrow-left, .nav-arrow-right {
+    position: absolute;
+    margin-top: 30px;
+  }
+
+  .nav-arrow-left {
+    left: -15px;
+  }
+
+  .nav-arrow-right {
+    right: -15px;
   }
 </style>
