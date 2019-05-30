@@ -107,14 +107,14 @@
   }
 
   .detail__image {
-    width: 363px;
+    width: 392px;
     height: 450px;
     top: 1px;
     left: 1px;
     //background: url('#{$path}/product-corner.png') top left no-repeat;
     background-color: #ffffff;
-    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);
-    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);
+    /*-webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);*/
   }
 
   .image-wrapper {

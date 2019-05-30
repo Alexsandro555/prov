@@ -9,10 +9,10 @@
               <a :href="getUrl(item)">{{item.title.length>52?item.title.substr(0,50)+'...':item.title}}</a>
             </div>
             <div class="special-product__img">
-              <v-layout aligin-center row wrap>
-                <a href="#" class="img-shadow">
+              <v-layout fill-height text-xs-center>
+                <a :href="getUrl(item)" style="display: inline-block; text-align: center;  margin:0 auto;">
                   <template v-if="getImages(item).length > 0">
-                    <img :src="'/storage/'+getImages(item)[0].config.files.medium.filename"/>
+                    <img :src="'/storage/'+getImages(item)[0].config.files.medium.filename" style="margin: 0px auto;"/>
                   </template>
                   <template v-else>
                     <img src="/images/no-image-medium.png"/>

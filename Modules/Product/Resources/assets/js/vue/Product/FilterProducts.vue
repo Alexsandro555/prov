@@ -25,7 +25,7 @@
         <v-flex xs12>
           <v-layout column wrap>
             <v-layout row wrap v-if="filteredProducts.length>0">
-              <slot :products="getPagesElement" :getImages="getImages" :addCart="addCart"></slot>
+              <slot :products="getPagesElement" :getImages="getImages" :addCart="addCart" :getUrl="getUrl"></slot>
             </v-layout>
             <div v-else>
               <h2>Продукция с заданными параметрами не найдена</h2>
@@ -92,6 +92,11 @@
         const count = 1
         this.addCartItem({id, count})
         this.showCartModal()
+      },
+      getUrl(item) {
+        let url = '/catalog/detail/'
+        url = url + item.url_key
+        return url
       },
       selectItem(value,id) {
         this.page = 1
