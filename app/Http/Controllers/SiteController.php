@@ -81,7 +81,7 @@ class SiteController extends Controller
 
   public function detail($slug) {
     $groups = AttributeGroup::orderBy('sort', 'asc')->get();
-    $product = Product::with(['files', 'attributes.attributeListValue'])->where('url_key',$slug)->first();
+    $product = Product::with(['files', 'attributes.attributeListValue', 'lineProduct.attributes.attributeListValue'])->where('url_key',$slug)->first();
     return view('detail', compact('product', 'groups'));
   }
 

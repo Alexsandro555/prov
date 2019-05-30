@@ -6,6 +6,7 @@
           <v-tabs slot="extension" left v-model="tabs" slider-color="white" color="transparent">
             <v-tab href="#main" class="subheading">Основные параметры</v-tab>
             <v-tab href="#attributes" class="subheading">Тех. характеристики</v-tab>
+            <v-tab v-if="form.sku" href="#sku" class="subheading">Торговые предложения</v-tab>
           </v-tabs>
         </v-toolbar>
         <v-tabs-items v-model="tabs">
@@ -44,6 +45,10 @@
                         <v-checkbox
                           label="Актив."
                           v-model="form.active"
+                          :error-messages="messages.active"></v-checkbox>
+                        <v-checkbox
+                          label="Товар с торговыми предложениями"
+                          v-model="form.sku"
                           :error-messages="messages.active"></v-checkbox>
                         <v-text-field
                           name="sort"
@@ -125,9 +130,6 @@
                         </v-flex>
                       </v-form>
                     </v-flex>
-                    <v-flex v-if="form" xs12>
-                      <list-sku :id="Number(id)" :attributes="getAttributes"/>
-                    </v-flex>
                   </v-layout>
                 </v-container>
               </v-card-text>
@@ -135,6 +137,15 @@
           </v-tab-item>
           <v-tab-item key="attributes" v-if="form" :value="'attributes'">
             <product-attributes :attributes="getAttributes" :id="Number(id)"></product-attributes>
+          </v-tab-item>
+          <v-tab-item key="sku" :value="'sku'">
+            <v-flex v-if="form" xs12>
+              <v-card>
+                <v-card-text>
+                  <list-sku :id="Number(id)" :attributes="getAttributes"/>
+                </v-card-text>
+              </v-card>
+            </v-flex>
           </v-tab-item>
         </v-tabs-items>
       </v-flex>
@@ -255,7 +266,7 @@
         if (this.$refs.form.validate()) {
           this.isSending = true
           this.save(_.pick(this.form, [
-            'id', 'title', 'price', 'description','qty', 'active', 'sort', 'onsale', 'special', 'need_order', 'product_category_id', 'type_product_id', 'line_product_id', 'vendor', 'IEC'
+            'id', 'title', 'price', 'description','qty', 'active', 'sort', 'onsale', 'special', 'need_order', 'product_category_id', 'type_product_id', 'line_product_id', 'vendor', 'IEC', 'sku'
           ])).then(response => {
             this.isSending = false
             //this.$router.push('list-product')

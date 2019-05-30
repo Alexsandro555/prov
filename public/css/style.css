@@ -1279,7 +1279,7 @@ ul.footer-top-menu:first-child {
 }
 
 .detail__title h1 {
-  color: #56331d;
+  color: #ffbf00;
   font-family: "OpenSans-CondensedBold", sans-serif;
   margin-top: 20px;
   text-transform: uppercase;
@@ -1304,7 +1304,7 @@ ul.footer-top-menu:first-child {
 }
 
 .detail-info.v-card.v-sheet {
-  background: url("/images/detail-background-card.jpg") top left repeat;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .detail-characteristics__left-table {

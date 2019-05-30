@@ -1,5 +1,5 @@
 .detail__title h1{
-  color: $color-green-dark;
+  color: $color-yell;
   font-family: $font-os-condenced-bold;
   margin-top: 20px;
   text-transform: uppercase;
@@ -23,5 +23,6 @@
 }
 
 .detail-info.v-card.v-sheet {
-  background: url('#{$path}/detail-background-card.jpg') top left repeat;
+  //background: url('#{$path}/detail-background-card.jpg') top left repeat;
+  background-color: rgba(0, 0, 0, 0.2);
 }

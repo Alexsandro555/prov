@@ -18,10 +18,10 @@ class ProductDatabaseSeeder extends Seeder
     /*$this->call(TnvedTableSeeder::class);
     $this->call(ProducerTableSeeder::class);
     $this->call(ProductCategoryTableSeeder::class);
-    $this->call(TypeProductTableSeeder::class);*/
-    $this->call(LineProductTableSeeder::class);
+    $this->call(TypeProductTableSeeder::class);
+    $this->call(LineProductTableSeeder::class);*/
     $this->call(AttributeTypeTableSeeder::class);
-    $this->call(AttributeUnitTableSeeder::class);
+    /*$this->call(AttributeUnitTableSeeder::class);
     $this->call(AttributeGroupTableSeeder::class);
     $this->call(AttributeTableSeeder::class);
     /*$this->call(AttributeListTableSeeder::class);*/
