@@ -20,11 +20,11 @@
       <v-flex xs11 offset-xs1 md9 offset-md3>
         <v-card class="detail-info" style="min-height: 700px; font-size: 1.2em;">
           <v-layout row wrap>
-            <v-flex pa-2 xs5>
+            <v-flex pa-3 xs6>
               <detail-image :stock="{{$product->special?$product->special:'false'}}" :url="'/files/product-image/{{$product->id}}'" :id="{{$product->id}}"/>
               <!--<detail-image :url="'/files/product-image/{{$product->id}}'"/>-->
             </v-flex>
-            <v-flex class="detail__title text-xs-left" px-5 xs7 md7>
+            <v-flex class="detail__title text-xs-left" px-2 xs6 md6>
               <h1>{{$product->title}}</h1>
               <p>
                                     <span class="detail__price">
@@ -40,22 +40,24 @@
                   <img src="{{asset('images/btn-sale-image.png')}}" align="center"/>
                 </a>
               </div>
-              @foreach($product->lineProduct->attributes->filter(function($attribute, $key) { return $attribute->attribute_type_id === 8; })->sortBy('sort') as $attribute)
-                <v-select
-                  height="35px"
-                  color="black"
-                  dark
-                  :name="{{$attribute->id}}+'_id'"
-                  label="{{$attribute->title}}"
-                  :items="{{$attribute->attributeListValue->toJson()}}"
-                  item-text="title"
-                  item-value="id"
-                  no-data-text="Нет данных"
-                  value="{{$attribute->value}}"
+              <v-flex xs10>
+                @foreach($product->lineProduct->attributes->filter(function($attribute, $key) { return $attribute->attribute_type_id === 8; })->sortBy('sort') as $attribute)
+                  <v-select
+                    height="35px"
+                    color="black"
+                    dark
+                    :name="{{$attribute->id}}+'_id'"
+                    label="{{$attribute->title}}"
+                    :items="{{$attribute->attributeListValue->toJson()}}"
+                    item-text="title"
+                    item-value="id"
+                    no-data-text="Нет данных"
+                    value="{{$attribute->value}}"
                   ></v-select>
-              @endforeach
+                @endforeach
+              </v-flex>
             </v-flex>
-            <v-flex class="detail__tabs" pa-2 xs10>
+            <v-flex class="detail__tabs" pa-3 xs12>
               <br>
               <v-tabs class="detail-characteristics" color="green darken-4" dark slider-color="yellow">
                 @foreach($groups as $group)
@@ -64,8 +66,8 @@
                 <v-tab key="description">Опсание</v-tab>
                 @foreach($groups as $group)
                   <v-tab-item class="tabs-content" key="tabs-group-{{$group->id}}">
-                    <v-card height="300px">
-                      <v-card-text class="text-xs-left">
+                    <!--<v-card height="300px">
+                      <v-card-text class="text-xs-left">-->
                         @foreach($product->attributes->filter(function($attribute, $key) use (&$group){
                             return $attribute->attribute_group_id == $group->id;
                           })->sortBy('sort')->chunk(10) as $chunkAttributes)
@@ -91,15 +93,15 @@
                             </dl>
                           </div>
                         @endforeach
-                      </v-card-text>
-                    </v-card>
+                      <!--</v-card-text>
+                    </v-card>-->
                   </v-tab-item>
                 @endforeach
                 <v-tab-item key="description">
                   <br>
                   <span class="text-xs-left" style="color: white">
-                                   {!! $product->description !!}
-                                </span>
+                     {!! $product->description !!}
+                  </span>
                 </v-tab-item>
               </v-tabs>
             </v-flex>

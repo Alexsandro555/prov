@@ -1361,7 +1361,7 @@ ul.footer-top-menu:first-child {
 }
 
 .detail-characteristics .v-window {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.6);
   min-height: 250px;
 }
 
