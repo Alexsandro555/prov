@@ -52,7 +52,6 @@
                       <v-flex xs4 sm12>
                         {{str_limit(strip_tags($oneNews->content), $limit = 37, $end="...")}}
                       </v-flex>
-
                     </div>
                   @endforeach
                   <div class="text-xs-left">

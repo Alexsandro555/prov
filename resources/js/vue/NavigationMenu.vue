@@ -58,7 +58,7 @@
         window.location.href = url
       },
       getMenu() {
-        axios.get('/left-menu').then(response => response.data).then(response => {
+        axios.get('/menu-left').then(response => response.data).then(response => {
           this.menu = response
         }).catch(error => {
         })

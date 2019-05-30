@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="{{asset('css/vuetify.min.css')}}">
   <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
@@ -55,7 +54,23 @@
                       <v-flex xs4 class="hidden-md-and-down">
                         <v-layout row wrap>
                           <v-flex xs10>
-                            <cart-widget/>
+                            <cart-widget>
+                              <template slot-scope="{count, total}">
+                                <div class="cart-widget">
+                                  <table>
+                                    <tbody>
+                                    <tr>
+                                      <td rowspan="2"><a href="/cart"><img class="cart__img" src="/images/cart.png"/></a></td>
+                                      <td><span class="cart__col-yell">@{{count}}</span> товара на</td>
+                                    </tr>
+                                    <tr>
+                                      <td><span class="cart__col-yell">@{{total}}</span> руб.</td>
+                                    </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </template>
+                            </cart-widget>
                           </v-flex>
                           <v-flex xs2 justify-center>
                             <img class="find" src="{{asset('images/find.png')}}"/>

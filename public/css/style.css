@@ -156,7 +156,7 @@
 
 .cart h2 {
   text-align: center;
-  color: ffbf00;
+  color: #339900;
   font-family: "OpenSans-CondensedBold", sans-serif;
   text-transform: uppercase;
   padding-bottom: 10px;
@@ -172,18 +172,18 @@
   margin: auto;
   background-color: #ffff;
   -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);
+          clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);
 }
 
 .cart-table {
   width: 100%;
-  border: 0px solid ffbf00;
+  border: 0px solid #339900;
   border-collapse: collapse;
   text-align: left;
 }
 
 .cart-table th {
-  background-color: ffbf00;
+  background-color: #339900;
   color: #ffff;
   height: 30px;
 }
@@ -204,7 +204,7 @@
   font-size: 1.4em;
   font-family: "OpenSans-CondensedBold", sans-serif;
   text-decoration: none;
-  color: #56331d;
+  color: #339900;
 }
 
 .cart-table-counter {
@@ -213,7 +213,7 @@
 
 .cart-table-price {
   font-size: 1.5em;
-  color: #ffbf00;
+  color: #339900;
   font-family: "OpenSans-CondensedBold", sans-serif;
 }
 
@@ -350,8 +350,8 @@
 
 #baskets table thead,
 form div.content-right-order table thead {
-  background-color: #55982d;
-  color: white;
+  background-color: #339900;
+  color: #ffff;
 }
 
 #baskets table thead tr {
@@ -388,7 +388,7 @@ form div.content-right-order table tbody tr td:nth-child(2) span {
 
 #baskets table tfoot tr,
 form div.content-right-order table tfoot tr {
-  background-color: #55982d;
+  background-color: #339900;
   line-height: 45px;
   height: 45px;
 }
@@ -412,23 +412,46 @@ form div.content-right-order table tfoot tr td {
 }
 
 .cart-submit {
-  background-color: #55982d;
-  border: 2px solid #55982d;
+  background-color: #339900;
+  border: 2px solid #339900;
   border-radius: 2px;
-  color: #ffffff;
+  color: #ffff;
   font-weight: 600;
   height: 35px;
   width: 125px;
 }
 
 .cart-header {
-  background-color: #55982d;
+  background-color: #339900;
   color: black;
 }
 
 .cart-table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+.cart-widget {
+  width: 156px;
+  height: 55px;
+  background: #306b1c;
+  font-size: 1.2em;
+}
+
+.cart-widget table {
+  font-family: "OpenSans-Lisght", sans-serif;
+  padding-left: 10px;
+  padding-top: 5px;
+  color: white;
+  font-size: 0.8em;
+}
+
+.cart__col-yell {
+  color: #F3C042;
+}
+
+.cart__img {
+  padding-right: 10px;
 }
 
 .find {

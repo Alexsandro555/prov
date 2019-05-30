@@ -1,6 +1,9 @@
 .content-cart {
   background: url('#{$path}/tree-layer.png') top center repeat;
 }
+
+
+// start modal window
 .cart {
   display: block;
   padding: 40px;
@@ -8,20 +11,23 @@
 .cart h2 {
   text-align: center;
   color: $color-cart-main;
-  font-family: $font-os-condenced-bold;
+  font-family: $font-cart-main;
   text-transform: uppercase;
   padding-bottom: 10px;
 }
 .cart__content--wrapper {
-  filter: drop-shadow(5px 5px 10px $color-green-dark);
+  filter: drop-shadow(5px 5px 10px $color-cart-second);
 }
 .cart__content {
   width: 964px;
   margin: auto;
   background-color: $color-cart-background;
-  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);
   clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);
 }
+// end modal window
+
+
+// start cart main
 .cart-table {
   width: 100%;
   border: 0px solid $color-cart-main;
@@ -40,17 +46,17 @@
 
 .cart-table tr td {
   height: 100px;
-  border-bottom: 1px solid $color-green-low-light;
-  color: $color-green-dark;
+  border-bottom: 1px solid $color-cart-three;
+  color: $color-cart-second;
   font-size: 0.9em;
   padding: 10px;
 }
 
 .cart-table-title {
   font-size: 1.4em;
-  font-family: $font-os-condenced-bold;
+  font-family: $font-cart-main;
   text-decoration: none;
-  color: $color-green-dark;
+  color: $color-cart-main;
 }
 
 .cart-table-counter {
@@ -59,8 +65,8 @@
 
 .cart-table-price {
   font-size: 1.5em;
-  color: $color-yell;
-  font-family: $font-os-condenced-bold;
+  color: $color-cart-main;
+  font-family: $font-cart-main;
 }
 
 .cart-table-td-price {
@@ -180,49 +186,57 @@
   float: right;
   border-left: 1px solid lightgrey;
 }
-
+// end cart main
 
 
 // возможны дубли
 #baskets .cart-col
 {
-  margin-left:0px;
+  margin-left: 0px;
 }
+
 #baskets .div-plus,#baskets .div-minus
 {
   right:6px;
 }
+
 #baskets table thead
 {
   border-radius: 12px;
-
 }
+
 #baskets table thead,form div.content-right-order table thead
 {
-  background-color:#55982d;
-  color:white;
+  background-color: $color-cart-main;
+  color:$color-cart-text;
 }
+
+
 #baskets table thead tr
 {
   line-height: 45px;
   height:45px;
   padding: 0;
 }
+
 #baskets table tbody tr
 {
   border-bottom:1px solid #eee;
   vertical-align:middle;
 }
+
 #baskets table tbody tr td
 {
   position: relative;
   text-align: center;
   border: 0px;
 }
+
 #baskets table tbody tr td:nth-child(2)
 {
   text-align: left;
 }
+
 #baskets table tbody tr td:nth-child(2) span,form div.content-right-order table tbody tr td:nth-child(2) span
 {
   color:#aaa;
@@ -233,16 +247,20 @@
   cursor:hand;
   cursor:pointer;
 }
+
 #baskets table tfoot tr,form div.content-right-order table tfoot tr {
-  background-color:#55982d;
+  background-color:$color-cart-main;
   line-height:45px;
   height:45px;
 }
+
+
 #baskets table tfoot tr td,form div.content-right-order table tfoot tr td {
   font-weight: bold;
   font-size:13pt;
   color:white;
 }
+
 .callback_close {
   background: rgba(0, 0, 0, 0) url('/images/close.png') no-repeat scroll 0 0;
   cursor: pointer;
@@ -253,20 +271,45 @@
   width: 22px;
   z-index: 2147483647;
 }
+
+
 .cart-submit{
-  background-color: #55982d;
-  border: 2px solid #55982d;
+  background-color: $color-cart-main;
+  border: 2px solid $color-cart-main;
   border-radius: 2px;
-  color: #ffffff;
+  color: $color-cart-text;
   font-weight: 600;
   height: 35px;
   width: 125px;
 }
 .cart-header {
-  background-color: #55982d;
+  background-color: $color-cart-main;
   color: black;
 }
 .cart-table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+
+// start widget style
+.cart-widget {
+  width: 156px;
+  height: 55px;
+  background: rgba(48,107,28,1);
+  font-size: 1.2em;
+}
+.cart-widget table {
+  font-family: $font-os-light;
+  padding-left: 10px;
+  padding-top: 5px;
+  color: white;
+  font-size: 0.8em;
+}
+.cart__col-yell {
+  color: #F3C042;
+}
+.cart__img {
+  padding-right: 10px;
+}
+// end widget style
