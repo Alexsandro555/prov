@@ -2,7 +2,7 @@
   <div>
     <p>
       <span class="detail__price">
-          <span ref="price" class="detail__price--big">{{getPrice?getPrice.price:product.price}}</span>
+          <span ref="price" class="detail__price--big">{{!this.product.sku?this.product.price:(getPrice?getPrice.price:product.price)}}</span>
           ₽{{product.price_amount?'/'.product.price_amount:""}}
       </span><br>
       <v-chip v-if="product.vendor" color="yellow">арт. {{product.vendor}}</v-chip>
@@ -46,7 +46,7 @@
         return this.product.product_category.attributes.concat(this.product.type_product.attributes).concat(this.product.line_product.attributes)
       },
       getPrice() {
-        return !this.product.sku?this.product.price:this.product.prices.find(price => {
+        return this.product.prices.find(price => {
           let filtered =  _.omit(price, ['price'])
           return _.isEqual(_.values(filtered), _.values(this.attributesValue))
         })
