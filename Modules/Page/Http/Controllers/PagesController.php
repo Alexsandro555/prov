@@ -21,7 +21,7 @@ class PagesController extends Controller
   }
 
   public function show($slug) {
-    $page = Page::where('url_key', $slug)->firstOrFail();
-    return view('page::show', compact('page'));
+    $aritcle = Page::where('url_key', $slug)->firstOrFail();
+    return view('article::show', compact('article'));
   }
 }

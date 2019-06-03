@@ -2,14 +2,6 @@
 
 @section('title', $page->title)
 
-@section('menu')
-  <div class="menu-wrapper wrapper">
-    <div class="abs-position">
-      <left-menu></left-menu>
-    </div>
-  </div>
-@endsection
-
 @section('content')
   <div class="articles">
     <div class="wrapper top20">
