@@ -1380,6 +1380,7 @@ ul.footer-top-menu:first-child {
   font-size: 1.1em;
   border-bottom: 1px dashed #B16C3D;
   width: 100%;
+  padding-bottom: 30px;
 }
 
 .articles__content a {
