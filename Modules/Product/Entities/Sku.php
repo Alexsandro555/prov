@@ -48,4 +48,8 @@ class Sku extends Model
   public function attributes() {
     return $this->hasMany(AttributeSkuOption::class);
   }
+
+  public function skuAttributes() {
+    return $this->hasMany(AttributeSkuOption::class);
+  }
 }

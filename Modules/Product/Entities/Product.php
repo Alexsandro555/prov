@@ -77,4 +77,20 @@ class Product extends Model
   {
     return $this->hasManyDeep(Figure::class, [LineProduct::class, File::class], ['id', ['fileable_type', 'fileable_id'], 'file_id'], ['line_product_id', 'id', 'id']);
   }
+
+  public function getPricesAttribute()
+  {
+    $resultArr = [];
+    $this->skus->each(function($sku) use (&$resultArr) {
+      $arr = [];
+      $arr['price'] = $sku->price;
+      $sku->skuAttributes->each(function($attribute) use (&$arr) {
+        $arr[$attribute->id] = $attribute->attribute_list_value_id;
+      });
+      array_push($resultArr, $arr);
+    });
+    return $resultArr;
+  }
+
+  protected $appends = ['prices'];
 }

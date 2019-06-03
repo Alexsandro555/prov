@@ -26,36 +26,7 @@
             </v-flex>
             <v-flex class="detail__title text-xs-left" px-2 xs6 md6>
               <h1>{{$product->title}}</h1>
-              <p>
-                                    <span class="detail__price">
-                                        <span class="detail__price--big">{{$product->price}}</span> ₽{{$product->price_amount?'/'.$product->price_amount:""}}
-                                    </span><br>
-                @if($product->vendor)
-                  <v-chip color="yellow">арт. {{$product->vendor}}</v-chip>
-                @endif
-              </p>
-              <div class="figure-button__wrapper">
-                <a class="figure-button" @click="addCart({{$product->id}})" href="#">
-                  Заказать
-                  <img src="{{asset('images/btn-sale-image.png')}}" align="center"/>
-                </a>
-              </div>
-              <v-flex xs10>
-                @foreach($product->lineProduct->attributes->filter(function($attribute, $key) { return $attribute->attribute_type_id === 8; })->sortBy('sort') as $attribute)
-                  <v-select
-                    height="35px"
-                    color="black"
-                    dark
-                    :name="{{$attribute->id}}+'_id'"
-                    label="{{$attribute->title}}"
-                    :items="{{$attribute->attributeListValue->toJson()}}"
-                    item-text="title"
-                    item-value="id"
-                    no-data-text="Нет данных"
-                    value="{{$attribute->value}}"
-                  ></v-select>
-                @endforeach
-              </v-flex>
+              <calculate-price :product="{{$product}}"/>
             </v-flex>
             <v-flex class="detail__tabs" pa-3 xs12>
               <br>
