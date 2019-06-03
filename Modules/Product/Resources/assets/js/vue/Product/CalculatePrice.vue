@@ -13,7 +13,7 @@
         <img src="/images/btn-sale-image.png" align="center"/>
       </a>
     </div>
-    <v-flex xs10 v-if="product.line_product.attributes.length > 0">
+    <v-flex xs10 v-if="product.sku && product.line_product.attributes.length > 0">
       <v-select v-for="attribute in getAttributes"
         :key="attribute.id"
         height="35px"
