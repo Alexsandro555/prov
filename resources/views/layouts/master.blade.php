@@ -48,7 +48,7 @@
                       <v-flex md12 lg8 xl8 class="text-md-center">
                         <v-list class="top-menu text-xs-left text-md-center text-sm-left text-lg-center">
                           <v-list-tile class="top-menu__item"><a class="header-menu__link"  href="/delivery">доставка и оплата</a></v-list-tile>
-                          <v-list-tile class="top-menu__item"><a class="header-menu__link"  href="/contact">контакты</a></v-list-tile>
+                          <v-list-tile class="top-menu__item"><a class="header-menu__link"  href="/contacts">контакты</a></v-list-tile>
                         </v-list>
                       </v-flex>
                       <v-flex xs4 class="hidden-md-and-down">
@@ -122,11 +122,11 @@
                   <v-layout row wrap>
                     <v-flex xs9>
                       <v-list class="footer-top-menu text-xs-left">
-                        <v-list-tile class="footer-top-menu__item">О компании</v-list-tile>
-                        <v-list-tile class="footer-top-menu__item">Новости</v-list-tile>
-                        <v-list-tile class="footer-top-menu__item">Оборудование</v-list-tile>
-                        <v-list-tile class="footer-top-menu__item">Доставка и оплата</v-list-tile>
-                        <v-list-tile class="footer-top-menu__item">Контакты</v-list-tile>
+                        <v-list-tile class="footer-top-menu__item"><a class="header-menu__link"  href="/about">О компании</a></v-list-tile>
+                        <v-list-tile class="footer-top-menu__item"><<a class="header-menu__link"  href="/news/list">Новости</a></v-list-tile>
+                        <v-list-tile class="footer-top-menu__item"><a class="header-menu__link"  href="/sale">Акциия</a></v-list-tile>
+                        <v-list-tile class="footer-top-menu__item"><a class="header-menu__link"  href="/delivery">Доставка и оплата</a></v-list-tile>
+                        <v-list-tile class="footer-top-menu__item"><a class="header-menu__link"  href="/contacts">Контакты</a></v-list-tile>
                       </v-list>
                     </v-flex>
                     <v-flex xs3>
