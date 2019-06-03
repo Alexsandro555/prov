@@ -91,7 +91,7 @@ class CartController extends Controller
         $filename = "/images/no-image-small.png";
       }*/
 
-      Cart::add($product->id, $product->title, $request->count, $product->price,
+      Cart::add($product->id, $product->title, $request->count, $request->price?$request->price:$product->price,
         [
           'type'=>$product->productCategory->title,
           'slug'=> '/catalog/detail/'.$product->url_key,

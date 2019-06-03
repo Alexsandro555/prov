@@ -2,7 +2,7 @@
   <div>
     <p>
       <span class="detail__price">
-          <span class="detail__price--big">{{getPrice?getPrice.price:product.price}}</span>
+          <span ref="price" class="detail__price--big">{{getPrice?getPrice.price:product.price}}</span>
           ₽{{product.price_amount?'/'.product.price_amount:""}}
       </span><br>
       <v-chip v-if="product.vendor" color="yellow">арт. {{product.vendor}}</v-chip>
@@ -31,6 +31,9 @@
   </div>
 </template>
 <script>
+  import { mapActions, mapMutations } from 'vuex'
+  import {ACTIONS, MUTATIONS} from '@cart/constants'
+
   export default {
     props: {
       product: {
@@ -69,6 +72,13 @@
       })
     },
     methods: {
+      addCart(id) {
+        const count = 1
+        this.addCartItem({id, count, price:this.$refs.price.innerHTML })
+        this.showCartModal()
+      },
+      ...mapActions('cart',{addCartItem: ACTIONS.ADD_CART}),
+      ...mapMutations('cart', {showCartModal: MUTATIONS.SHOW_MODAL})
     }
   }
 </script>
