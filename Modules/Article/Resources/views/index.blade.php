@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="content-wrapper articles">
-        <v-content>
+        <v-content class="content">
             <v-layout row wrap>
                 <v-flex xs12 class="text-xs-center">
                     @foreach($articles as $article)
