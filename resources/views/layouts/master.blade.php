@@ -36,7 +36,7 @@
                         <v-list-tile class="top-menu__item">
                           <a class="header-menu__link"  href="/article/list">статьи</a>
                         </v-list-tile>
-                        <v-list-tile class="top-menu__item">оборудование</v-list-tile>
+                        <v-list-tile class="top-menu__item">Акции</v-list-tile>
                       </v-list>
                     </v-layout>
                   </v-flex>
@@ -47,8 +47,8 @@
                     <v-layout row wrap>
                       <v-flex md12 lg8 xl8 class="text-md-center">
                         <v-list class="top-menu text-xs-left text-md-center text-sm-left text-lg-center">
-                          <v-list-tile class="top-menu__item">доставка и оплата</v-list-tile>
-                          <v-list-tile class="top-menu__item">контакты</v-list-tile>
+                          <v-list-tile class="top-menu__item"><a class="header-menu__link"  href="/delivery">доставка и оплата</a></v-list-tile>
+                          <v-list-tile class="top-menu__item"><a class="header-menu__link"  href="/contact">контакты</a></v-list-tile>
                         </v-list>
                       </v-flex>
                       <v-flex xs4 class="hidden-md-and-down">
