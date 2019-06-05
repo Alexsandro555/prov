@@ -164,7 +164,7 @@
                                                         </span>
                         </v-flex>
                         <v-flex xs4 class="footer__address text-xs-right">
-                          <v-flex offset-md4 class="text-xs-left footer__address--margbot10 footer-right">
+                          <v-flex offset-md4 class="text-xs-right footer__address--margbot10 footer-right">
                                                             <span class="footer__address--margin30">
                                                                  <img align="top" src="{{asset('images/footer-mail-img.png')}}"/>
                                                                  <span class="footer__mail">info@mail.ru</span>
@@ -180,7 +180,7 @@
                                 <img align="middle" class="footer__logo" src="{{asset('images/logo-small.png')}}"/>&nbsp;&nbsp;&nbsp;
                               </v-flex>
                               <v-flex xs5>
-                                <span class="footer__copyright">© Copyright 2018</span><br>
+                                <span class="footer__copyright text-xs-right">© Copyright 2018</span><br>
                               </v-flex>
                             </v-layout>
 
