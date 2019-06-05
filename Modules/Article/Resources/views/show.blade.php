@@ -7,7 +7,7 @@
     <v-content class="content">
       <v-layout row wrap>
         <v-flex xs12 class="text-xs-left">
-          <v-card>
+          <v-card class="py-5">
             <p class="article__header text-md-left">
               {{$article->title}}
             </p>

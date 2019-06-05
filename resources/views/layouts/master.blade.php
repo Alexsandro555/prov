@@ -73,7 +73,16 @@
                             </cart-widget>
                           </v-flex>
                           <v-flex xs2 justify-center>
-                            <img class="find" src="{{asset('images/find.png')}}"/>
+                            <v-menu  :close-on-content-click="false" offset-x>
+                              <template slot="activator">
+                                <img class="find" src="{{asset('images/find.png')}}"/>
+                              </template>
+                              <v-list>
+                                <v-list-tile>
+                                  <v-text-field name="find" label="Введите поисковый запрос"  @keyup.enter="search"  v-model="searchText"></v-text-field>
+                                </v-list-tile>
+                              </v-list>
+                            </v-menu>
                           </v-flex>
                         </v-layout>
                       </v-flex>
@@ -165,11 +174,11 @@
                         </v-flex>
                         <v-flex xs4 class="footer__address text-xs-right">
                           <v-flex offset-md4 class="text-xs-right footer__address--margbot10 footer-right">
-                                                            <span class="footer__address--margin30">
+                                                            <span>
                                                                  <img align="top" src="{{asset('images/footer-mail-img.png')}}"/>
-                                                                 <span class="footer__mail">info@mail.ru</span>
+                                                                 <span class="footer__mail"> {{config('info.email')}}</span>
                                                             </span><br>
-                            <span class="footer__address--margin30">
+                            <span>
                                                                 <img align="top" src="{{asset('images/footer-map-marker-img.png')}}"/>
                               {{config('info.address')}}
                                                             </span>
@@ -179,8 +188,8 @@
                               <v-flex xs6>
                                 <img align="middle" class="footer__logo" src="{{asset('images/logo-small.png')}}"/>&nbsp;&nbsp;&nbsp;
                               </v-flex>
-                              <v-flex xs5>
-                                <span class="footer__copyright text-xs-right">© Copyright 2018</span><br>
+                              <v-flex xs5 text-xs-right>
+                                <span>© Copyright 2019</span><br>
                               </v-flex>
                             </v-layout>
 
