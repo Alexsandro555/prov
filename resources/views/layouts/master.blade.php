@@ -95,7 +95,7 @@
                     <div class="phone text-xs-right">
                       Работаем с <b>{{config('info.time_start')}}</b> до <b>{{config('info.time_end')}}</b><br>
                       <span class="phone__number">{{config('info.telephone')}}</span><br>
-                      <a class="phone__callback" href="#">Заказать звонок</a>
+                      <a class="phone__callback" @click="showCallback" href="#">Заказать звонок</a>
                     </div>
                   </v-flex>
                 </v-layout>
@@ -160,7 +160,7 @@
                                                         <span class="footer__phone footer-right">
                                                             Работаем с <b>{{config('info.time_start')}}</b> до <b>{{config('info.time_end')}}</b><br>
                                                             <span class="phone__number">{{config('info.telephone')}}</span><br>
-                                                            <a class="phone__callback text-xs-center" href="#">Заказать звонок</a>
+                                                            <a class="phone__callback text-xs-center" @click="showCallback" href="#">Заказать звонок</a>
                                                         </span>
                         </v-flex>
                         <v-flex xs4 class="footer__address text-xs-right">
@@ -196,6 +196,7 @@
       </v-layout>
     </v-container>
     <cart-modal></cart-modal>
+    <callback/>
   </v-app>
 </div>
 <script src="{{mix('/js/main.js')}}" type="application/javascript"></script>

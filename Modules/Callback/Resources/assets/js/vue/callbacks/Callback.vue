@@ -104,7 +104,8 @@
 <style scoped>
   .callbackwindow {
     position: fixed;
-    background-color: #1f1e3f;
+    background-color: #346e1d;
+    //background-color: #1f1e3f;
     width: 20%;
     right: 0;
     height: 100%;

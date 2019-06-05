@@ -5,6 +5,10 @@ window.Vue = Vue
 
 //===========Vuex==========================================
 import Vuex from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
+import {ACTIONS, MUTATIONS} from '@cart/constants'
+import mutations from "./vuex/mutations";
+import getters from "./vuex/getters";
 Vue.use(Vuex)
 
 //==========Vuetify========================================
@@ -15,23 +19,19 @@ import 'vuetify/dist/vuetify.min.css'
 import createStore from "./vuex/states";
 Vue.use(Vuetify)
 
+//=========LeftMenu========================================
 import LeftMenu from '@/components/menu/LeftMenu'
 Vue.component('left-menu', LeftMenu)
 
+//========DetailImage======================================
 import DetailImage from '@file/vue/DetailImage'
 Vue.component('detail-image', DetailImage)
 
-import { mapActions, mapMutations } from 'vuex'
-import {ACTIONS, MUTATIONS} from '@cart/constants'
-
+//========Cart==============================================
 import CartWidget from '@cart/vue/Widget'
-import mutations from "./vuex/mutations";
-import getters from "./vuex/getters";
 Vue.component('cart-widget',CartWidget)
-
 import CartModal from '@cart/vue/CartModal'
 Vue.component('cart-modal', CartModal)
-
 import CartPage from '@cart/vue/Cart'
 Vue.component('cart-page', CartPage)
 
