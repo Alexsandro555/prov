@@ -123,8 +123,8 @@
                     <v-flex xs9>
                       <v-list class="footer-top-menu text-xs-left">
                         <v-list-tile class="footer-top-menu__item"><a class="header-menu__link"  href="/about">О компании</a></v-list-tile>
-                        <v-list-tile class="footer-top-menu__item"><<a class="header-menu__link"  href="/news/list">Новости</a></v-list-tile>
-                        <v-list-tile class="footer-top-menu__item"><a class="header-menu__link"  href="/sale">Акциия</a></v-list-tile>
+                        <v-list-tile class="footer-top-menu__item"><a class="header-menu__link"  href="/news/list">Новости</a></v-list-tile>
+                        <v-list-tile class="footer-top-menu__item"><a class="header-menu__link"  href="/sale">Акция</a></v-list-tile>
                         <v-list-tile class="footer-top-menu__item"><a class="header-menu__link"  href="/delivery">Доставка и оплата</a></v-list-tile>
                         <v-list-tile class="footer-top-menu__item"><a class="header-menu__link"  href="/contacts">Контакты</a></v-list-tile>
                       </v-list>

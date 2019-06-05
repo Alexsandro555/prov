@@ -13,7 +13,7 @@
         <img src="/images/btn-sale-image.png" align="center"/>
       </a>
     </div>
-    <v-flex xs10 v-if="product.sku && product.line_product.attributes.length > 0">
+    <v-flex xs10 v-if="product.sku && getAttributes.length > 0">
       <v-select v-for="attribute in getAttributes"
         :key="attribute.id"
         height="35px"
@@ -42,8 +42,17 @@
       }
     },
     computed: {
+      getProductCategoryAttributes() {
+        return (this.product.product_category && this.product.product_category.attributes) || []
+      },
+      getTypeProductAttributes() {
+        return (this.product.type_product && this.product.type_product.attributes) || []
+      },
+      getLineProductAttributes() {
+        return (this.product.line_product && this.product.line_product.attributes) || []
+      },
       getAttributes() {
-        return this.product.product_category.attributes.concat(this.product.type_product.attributes).concat(this.product.line_product.attributes)
+        return this.getProductCategoryAttributes.concat(this.getTypeProductAttributes).concat(this.getLineProductAttributes)
       },
       getPrice() {
         return this.product.prices.find(price => {
@@ -65,10 +74,6 @@
           obj[attribute.id] = attribute.attribute_list_value[0].id
           this.attributesValue = Object.assign({}, this.attributesValue, obj)
         }
-      })
-
-      this.prices = this.product.prices.map(price => {
-        return _.omit(price, ['price'])
       })
     },
     methods: {
