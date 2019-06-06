@@ -4,10 +4,10 @@
 
 @section('content')
   <div class="content-wrapper  text-xs-left">
-    <v-content class="content">
+   <v-content>
       <v-layout row wrap>
-        <v-flex xs12 class="text-xs-left">
-          <v-card class="py-5">
+        <div class="content text-xs-left">
+          <v-card class="py-5 article-card" min-width="1200">
             <p class="article__header text-md-left">
               {{$article->title}}
             </p>
@@ -15,7 +15,7 @@
               {!! $article->content !!}
             </div>
           </v-card>
-        </v-flex>
+        </div>
       </v-layout>
     </v-content>
   </div>

@@ -4,11 +4,11 @@
 
 @section('content')
     <div class="content-wrapper articles">
-        <v-content class="content">
+        <v-content>
             <v-layout row wrap>
-                <v-flex xs12 class="text-xs-center">
+                <div class="content text-xs-center">
                     @foreach($articles as $article)
-                        <v-card class="article--card">
+                        <v-card class="article--card" min-width="1200">
                             <v-container>
                                 <v-layout row wrap>
                                     <v-flex xs8 text-xs-left>
@@ -43,7 +43,7 @@
                             <br>
                         </p>
                     @endforeach
-                </v-flex>
+                </div>
             </v-layout>
         </v-content>
     </div>
