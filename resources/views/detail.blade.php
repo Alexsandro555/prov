@@ -34,7 +34,7 @@
                 @foreach($groups as $group)
                   <v-tab key="#tabs-group-{{$group->id}}">{{$group->title}}</v-tab>
                 @endforeach
-                <v-tab key="description">Опсание</v-tab>
+                <v-tab key="description">Описание</v-tab>
                 @foreach($groups as $group)
                   <v-tab-item class="tabs-content" key="tabs-group-{{$group->id}}">
                     <!--<v-card height="300px">

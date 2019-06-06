@@ -13,24 +13,25 @@
         </v-list>
       </v-toolbar>
       <v-list>
-        <v-list-tile>О компании</v-list-tile>
-        <v-list-tile>Новости</v-list-tile>
-        <v-list-tile>Оборудование</v-list-tile>
-        <v-list-tile>Доставка и оплата</v-list-tile>
-        <v-list-tile>Контакты</v-list-tile>
-        <v-subheader>Рубрикатор</v-subheader>
+        <v-list-tile @click="goToPage(`/about`)">О компании</v-list-tile>
+        <v-list-tile @click="goToPage(`/news/list`)">Новости</v-list-tile>
+        <v-list-tile @click="goToPage(`/sale`)">Акции</v-list-tile>
+        <v-list-tile @click="goToPage(`/delivery`)">Доставка и оплата</v-list-tile>
+        <v-list-tile @click="goToPage(`/article/list`)">Статьи</v-list-tile>
+        <v-list-tile @click="goToPage(`/contacts`)">Контакты</v-list-tile>
+        <!--<v-subheader>Рубрикатор</v-subheader>-->
       </v-list>
       <v-divider></v-divider>
       <template v-for="itemMenu in menu">
         <v-toolbar :key="itemMenu.id" flat>
           <v-list class="pa-0">
-            <v-list-tile>
+            <v-list-tile @click="goToPage(`/catalog/${itemMenu.url_key}`)">
               {{itemMenu.title}}
             </v-list-tile>
           </v-list>
         </v-toolbar>
         <v-list v-for="subItem in itemMenu.type_products" :key="'sub'+subItem.id">
-          <v-list-tile @click="goToPage('/catalog/'+subItem.url_key)">
+          <v-list-tile @click="goToPage(`/catalog/${itemMenu.url_key}/${subItem.url_key}`)">
             {{subItem.title}}
           </v-list-tile>
         </v-list>

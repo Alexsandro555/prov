@@ -19,107 +19,112 @@
     <v-container fluid grid-list-xs text-xs-center>
       <v-layout column wrap>
           <header ref="header" :class="{header: true, chickens: chickens, cows: cows, pigs: pigs, rams:rams, 'main-layout': main}">
-            <v-flex xs1>
-              <navigation-menu/>
-            </v-flex>
-            <div class="header-menu hidden-sm-and-down">
-              <v-flex xl12 lg12 md12 sm12 xs12 class="wrapper">
-                <v-layout row wrap>
-                  <v-flex xl4 lg4 md5 sm7 xs6>
-                    <v-layout row wrap>
-                      <v-list class="top-menu text-xs-left text-lg-left">
-                        <v-list-tile class="top-menu__item">
-                          <a class="header-menu__link"  href="/about">
-                            о компании
-                          </a>
-                        </v-list-tile>
-                        <v-list-tile class="top-menu__item">
-                          <a class="header-menu__link"  href="/article/list">статьи</a>
-                        </v-list-tile>
-                        <v-list-tile class="top-menu__item">Акции</v-list-tile>
-                      </v-list>
-                    </v-layout>
-                  </v-flex>
-                  <v-flex xl2 lg2 md2 class="hidden-sm-and-down">
-                    <a href="/"><img src="{{asset('images/logo-layer.png')}}"/></a>
-                  </v-flex>
-                  <v-flex xl6 lg6 md5 sm5 xs6>
-                    <v-layout row wrap>
-                      <v-flex md12 lg8 xl8 class="text-md-center">
-                        <v-list class="top-menu text-xs-left text-md-center text-sm-left text-lg-center">
-                          <v-list-tile class="top-menu__item"><a class="header-menu__link"  href="/delivery">доставка и оплата</a></v-list-tile>
-                          <v-list-tile class="top-menu__item"><a class="header-menu__link"  href="/contacts">контакты</a></v-list-tile>
+              <div class="header-menu">
+                <div class="wrapper">
+                  <v-layout row wrap>
+                    <v-flex xs1 class="hidden-md-and-up">
+                      <navigation-menu/>
+                    </v-flex>
+                    <v-flex xl4 lg4 md5 sm7 xs6 class="hidden-sm-and-down">
+                      <v-layout row wrap>
+                        <v-list class="top-menu text-xs-left text-lg-left">
+                          <v-list-tile class="top-menu__item">
+                            <a class="header-menu__link"  href="/about">
+                              о компании
+                            </a>
+                          </v-list-tile>
+                          <v-list-tile class="top-menu__item">
+                            <a class="header-menu__link"  href="/article/list">статьи</a>
+                          </v-list-tile>
+                          <v-list-tile class="top-menu__item">Акции</v-list-tile>
                         </v-list>
-                      </v-flex>
-                      <v-flex xs4 class="hidden-md-and-down">
-                        <v-layout row wrap>
-                          <v-flex xs10>
-                            <cart-widget>
-                              <template slot-scope="{count, total}">
-                                <div class="cart-widget">
-                                  <table>
-                                    <tbody>
-                                    <tr>
-                                      <td rowspan="2"><a href="/cart"><img class="cart__img" src="/images/cart.png"/></a></td>
-                                      <td><span class="cart__col-yell">@{{count}}</span> товара на</td>
-                                    </tr>
-                                    <tr>
-                                      <td><span class="cart__col-yell">@{{total}}</span> руб.</td>
-                                    </tr>
-                                    </tbody>
-                                  </table>
-                                </div>
-                              </template>
-                            </cart-widget>
-                          </v-flex>
-                          <v-flex xs2 justify-center>
-                            <v-menu  :close-on-content-click="false" offset-x>
-                              <template slot="activator">
-                                <img class="find" src="{{asset('images/find.png')}}"/>
-                              </template>
-                              <v-list>
-                                <v-list-tile>
-                                  <v-text-field name="find" label="Введите поисковый запрос"  @keyup.enter="search"  v-model="searchText"></v-text-field>
-                                </v-list-tile>
-                              </v-list>
-                            </v-menu>
-                          </v-flex>
-                        </v-layout>
-                      </v-flex>
-                    </v-layout>
-                  </v-flex>
-                </v-layout>
-              </v-flex>
-            </div>
-            <div class="wrapper">
-              <v-flex sm12>
-                <v-layout row wrap>
-                  <v-flex sm4 class="hidden-md-and-down">
-                    <div class="main-slogan">
-                      Инновационные <span class="sub-slogan">системы кормления</span><br>
-                      <span class="main-slogan__from">от европейских производителей</span>
-                    </div>
-                  </v-flex>
-                  <v-flex sm3 offset-sm3 class="hidden-md-and-down">
-                    <div class="phone text-xs-right">
-                      Работаем с <b>{{config('info.time_start')}}</b> до <b>{{config('info.time_end')}}</b><br>
-                      <span class="phone__number">{{config('info.telephone')}}</span><br>
-                      <a class="phone__callback" @click="showCallback" href="#">Заказать звонок</a>
-                    </div>
-                  </v-flex>
-                </v-layout>
-              </v-flex>
-            </div>
-            <div class="wrapper">
-              <div class="animal-panel hidden-md-and-down">
-                <a href="#"><img @click.stop="changeSlide('chickens')" src="{{asset('images/chicken-img-panel.png')}}"/></a>
-                <a href="#"><img @click.stop="changeSlide('cows')" src="{{asset('images/cow-img-panel.png')}}"/></a>
-                <a href="#"><img @click.stop="changeSlide('pigs')" src="{{asset('images/pig-img-panel.png')}}"/></a>
-                <a href="#"><img @click.stop="changeSlide('rams')" src="{{asset('images/bar-img-panel.png')}}"/></a>
+                      </v-layout>
+                    </v-flex>
+                    <v-flex xl2 lg2 md2>
+                      <a href="/"><img src="{{asset('images/logo-layer.png')}}"/></a>
+                    </v-flex>
+                    <v-flex xl6 lg6 md5 sm5 xs6 class="hidden-sm-and-down">
+                      <v-layout row wrap>
+                        <v-flex md12 lg8 xl8 class="text-md-center">
+                          <v-list class="top-menu text-xs-left text-md-center text-sm-left text-lg-center">
+                            <v-list-tile class="top-menu__item"><a class="header-menu__link"  href="/delivery">доставка и оплата</a></v-list-tile>
+                            <v-list-tile class="top-menu__item"><a class="header-menu__link"  href="/contacts">контакты</a></v-list-tile>
+                          </v-list>
+                        </v-flex>
+                        <v-flex xs4 class="hidden-md-and-down">
+                          <v-layout row wrap>
+                            <v-flex xs10>
+                              <cart-widget>
+                                <template slot-scope="{count, total}">
+                                  <div class="cart-widget">
+                                    <table>
+                                      <tbody>
+                                      <tr>
+                                        <td rowspan="2"><a href="/cart"><img class="cart__img" src="/images/cart.png"/></a></td>
+                                        <td><span class="cart__col-yell">@{{count}}</span> товара на</td>
+                                      </tr>
+                                      <tr>
+                                        <td><span class="cart__col-yell">@{{total}}</span> руб.</td>
+                                      </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </template>
+                              </cart-widget>
+                            </v-flex>
+                            <v-flex xs2 justify-center>
+                              <v-menu  :close-on-content-click="false" offset-x>
+                                <template slot="activator">
+                                  <img class="find" src="{{asset('images/find.png')}}"/>
+                                </template>
+                                <v-list>
+                                  <v-list-tile>
+                                    <v-text-field name="find" label="Введите поисковый запрос"  @keyup.enter="search"  v-model="searchText"></v-text-field>
+                                  </v-list-tile>
+                                </v-list>
+                              </v-menu>
+                            </v-flex>
+                          </v-layout>
+                        </v-flex>
+                      </v-layout>
+                    </v-flex>
+                  </v-layout>
+                </v-flex>
               </div>
-              @yield('breadcrumbs')
-            </div>
-          <!--<img class="header__img" src="{{asset('images/header-layer.png')}}"/>-->
+            <!--<v-layout align-center justify-start column fill-height>
+              <v-flex xs12 text-align-center>
+                <a href="/"><img src="{{asset('images/logo-layer.png')}}"/></a>
+              </v-flex>
+            </v-layout>-->
+              <div class="wrapper header-slogan">
+                <v-flex sm12>
+                  <v-layout row wrap>
+                    <v-flex sm4 class="hidden-md-and-down">
+                      <div class="main-slogan">
+                        Инновационные <span class="sub-slogan">системы кормления</span><br>
+                        <span class="main-slogan__from">от европейских производителей</span>
+                      </div>
+                    </v-flex>
+                    <v-flex sm3 offset-sm3 class="hidden-md-and-down">
+                      <div class="phone text-xs-right">
+                        Работаем с <b>{{config('info.time_start')}}</b> до <b>{{config('info.time_end')}}</b><br>
+                        <span class="phone__number">{{config('info.telephone')}}</span><br>
+                        <a class="phone__callback" @click="showCallback" href="#">Заказать звонок</a>
+                      </div>
+                    </v-flex>
+                  </v-layout>
+                </v-flex>
+              </div>
+              <div class="wrapper">
+                <div class="animal-panel hidden-md-and-down">
+                  <a href="#"><img @click.stop="changeSlide('chickens')" src="{{asset('images/chicken-img-panel.png')}}"/></a>
+                  <a href="#"><img @click.stop="changeSlide('cows')" src="{{asset('images/cow-img-panel.png')}}"/></a>
+                  <a href="#"><img @click.stop="changeSlide('pigs')" src="{{asset('images/pig-img-panel.png')}}"/></a>
+                  <a href="#"><img @click.stop="changeSlide('rams')" src="{{asset('images/bar-img-panel.png')}}"/></a>
+                </div>
+                @yield('breadcrumbs')
+              </div>
+            <!--<img class="header__img" src="{{asset('images/header-layer.png')}}"/>-->
           </header>
           <div class="content-wrapper-top"></div>
           @yield('menu')
@@ -166,22 +171,22 @@
                     <v-flex xs11 offset-xs1 sm11 md3 class="text-xs-left text-md-right">
                       <v-layout column wrap>
                         <v-flex xs8>
-                                                        <span class="footer__phone footer-right">
-                                                            Работаем с <b>{{config('info.time_start')}}</b> до <b>{{config('info.time_end')}}</b><br>
-                                                            <span class="phone__number">{{config('info.telephone')}}</span><br>
-                                                            <a class="phone__callback text-xs-center" @click="showCallback" href="#">Заказать звонок</a>
-                                                        </span>
+                          <span class="footer__phone footer-right">
+                              Работаем с <b>{{config('info.time_start')}}</b> до <b>{{config('info.time_end')}}</b><br>
+                              <span class="phone__number">{{config('info.telephone')}}</span><br>
+                              <a class="phone__callback text-xs-center" @click="showCallback" href="#">Заказать звонок</a>
+                          </span>
                         </v-flex>
                         <v-flex xs4 class="footer__address text-xs-right">
                           <v-flex offset-md4 class="text-xs-right footer__address--margbot10 footer-right">
-                                                            <span>
-                                                                 <img align="top" src="{{asset('images/footer-mail-img.png')}}"/>
-                                                                 <span class="footer__mail"> {{config('info.email')}}</span>
-                                                            </span><br>
                             <span>
-                                                                <img align="top" src="{{asset('images/footer-map-marker-img.png')}}"/>
+                                 <img align="top" src="{{asset('images/footer-mail-img.png')}}"/>
+                                 <span class="footer__mail"> {{config('info.email')}}</span>
+                            </span><br>
+                            <span>
+                              <img align="top" src="{{asset('images/footer-map-marker-img.png')}}"/>
                               {{config('info.address')}}
-                                                            </span>
+                            </span>
                           </v-flex>
                           <v-flex xs12 class="text-xs-right">
                             <v-layout row wrap>
@@ -192,7 +197,6 @@
                                 <span>© Copyright 2019</span><br>
                               </v-flex>
                             </v-layout>
-
                           </v-flex>
                         </v-flex>
                       </v-layout>

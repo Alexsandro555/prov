@@ -1,5 +1,5 @@
 @if ($breadcrumbs->count())
-    <ol class="breadcrumb">
+    <ol class="breadcrumb hidden-sm-and-down">
         @foreach ($breadcrumbs as $breadcrumb)
             @if ($breadcrumb->url() && $loop->remaining)
                 <li class="breadcrumb__item"><a href="{{ $breadcrumb->url() }}">{{ $breadcrumb->title() }}</a></li>

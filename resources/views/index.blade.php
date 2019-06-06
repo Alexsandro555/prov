@@ -61,10 +61,10 @@
                 </v-flex>
                 <v-flex class="text-xs-left about__main-info" xs10 sm10 md6>
                   <p class="about__header text-md-left">О компании <span class="content__subheader hidden-sm-and-down">и оборудовании</span></p>
-                  <v-flex class="about__left" xs3 sm6 md12>
+                  <v-flex class="about__left" xs12 sm12 md12>
                     Наша компания предлагает огромный выбор спецоборудования для элеваторов, мельниц и комбикормовых заводов. Клиентами компании являются птицефабрики, зерноперерабатывающие организации и многие другие аграрные предприятия.
                   </v-flex>
-                  <v-flex class="about__left about__cit" xs3 sm6 md12>
+                  <v-flex class="about__left about__cit" hidden-sm-and-down>
                     Главная задача нашей компании – максимальное расширение ассортимента и пополнение базы постоянных клиентов. Мы не ставим цель получить большую разовую прибыль. Мы выстраиваем с клиентами долгосрочные и взаимовыгодные отношения, в полном объеме выполняя взятые на себя обязательства.
                   </v-flex>
                   <a class="about-official about__left" href="#">Посетить оффициальный сайт</a>
@@ -166,7 +166,7 @@
           </v-flex>
           <v-flex class="delivery__left" xs12 sm12 md4 lg6 xl6>
             <v-layout row wrap>
-              <v-flex xs10 sm10 md10 lg10 xl10>
+              <v-flex xs10 sm10 md10 lg10 xl10 hidden-sm-and-down>
                 <p class="delivery__header text-xs-left">Наши <span class="delivery__subheader">бренды</span></p>
                 <div class="brands">
                   <div class="brands__content">
@@ -180,10 +180,10 @@
                   </div>
                 </div>
               </v-flex>
-              <v-flex xs10 sm10 md10 lg10 xl10>
+              <v-flex pa-2 xs12 sm12 md10 lg10 xl10>
                 <p class="delivery__header text-xs-left">Доставка и <span class="delivery__subheader">оплата</span></p>
               </v-flex>
-              <v-flex xs11 sm5 md8 lg12 xl12 class="delivery__desc text-xs-left text-xs-left text-md-left">
+              <v-flex pa-2 xs12 sm12 md8 lg12 xl12 class="delivery__desc text-xs-left text-xs-left text-md-left">
                 <p>
                   Осуществляется отправка товара через транспортные компании «Деловые линии», «ПЭК», «КИТ», «Байкал-Сервис».
                 </p>

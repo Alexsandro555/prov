@@ -14,7 +14,7 @@
 
 .about__content {
   margin: auto;
-  width: $main-width;
+  max-width: $main-width;
   height: 600px;
   padding-top: 100px;
   color: $color-white;

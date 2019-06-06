@@ -4,7 +4,7 @@
 
 .footer-wrapper {
   margin: 0 auto;
-  width: $main-width;
+  max-width: $main-width;
   background: url('#{$path}/stock-bottom-line.png') bottom center repeat-x;
 }
 

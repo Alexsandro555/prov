@@ -60,17 +60,29 @@
   background: url("/images/header-shadow-top.png") top center repeat-x, url("/images/rams-layout.png") top center no-repeat;
 }
 
-.main-layout {
-  background: url("/images/header-shadow-top.png") top center repeat-x, url("/images/header-layer.png") top center no-repeat;
+/*.main-layout {
+  background: url('/images/header-shadow-top.png') top center repeat-x, url('/images/header-layer.png') top left no-repeat;
+}*/
+
+@media (min-width: 961px) {
+  .main-layout {
+    background: url("/images/header-shadow-top.png") top center repeat-x, url("/images/header-layer.png") top center no-repeat;
+  }
+}
+
+@media (max-width: 960px) {
+  .main-layout {
+    background: url("/images/header-shadow-top.png") top center repeat-x, url("/images/header-layer-medium.png") top left no-repeat;
+  }
 }
 
 .wrapper {
-  width: 1200px;
+  max-width: 1200px;
   margin: auto;
 }
 
 .header--wrapper {
-  width: 1200px;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -83,6 +95,10 @@
 .header-menu__link {
   text-decoration: none;
   color: white;
+}
+
+.header-slogan {
+  margin-top: -120px;
 }
 
 .menu ul {
@@ -755,7 +771,7 @@ form div.content-right-order table tfoot tr td {
 .content {
   margin: auto;
   font-size: 0.9em;
-  width: 1200px;
+  max-width: 1200px;
 }
 
 .content h1 {
@@ -945,7 +961,7 @@ form div.content-right-order table tfoot tr td {
 
 .about__content {
   margin: auto;
-  width: 1200px;
+  max-width: 1200px;
   height: 600px;
   padding-top: 100px;
   color: #ffff;
@@ -1023,7 +1039,7 @@ form div.content-right-order table tfoot tr td {
 
 .delivery {
   margin: auto;
-  width: 1200px;
+  max-width: 1200px;
 }
 
 .delivery__header {
@@ -1177,7 +1193,7 @@ p.delivery__header {
 
 .footer-wrapper {
   margin: 0 auto;
-  width: 1200px;
+  max-width: 1200px;
   background: url("/images/stock-bottom-line.png") bottom center repeat-x;
 }
 
@@ -1481,6 +1497,7 @@ ul.footer-top-menu:first-child {
   position: absolute;
   z-index: 100;
   margin-top: -3px;
+  margin-left: -600px;
 }
 
 .figure-button {
