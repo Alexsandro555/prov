@@ -157,7 +157,7 @@
                             <v-list>
                               @foreach($chunkTypeProduct as $typeProduct)
                                 <v-list-tile>
-                                  <a href="/catalog/{{$typeProduct->url_key}}">{{$typeProduct->title}}</a>
+                                  <a href="/catalog/{{$typeProduct->product_category->url_key}}/{{$typeProduct->url_key}}">{{$typeProduct->title}}</a>
                                 </v-list-tile>
                               @endforeach
                             </v-list>
