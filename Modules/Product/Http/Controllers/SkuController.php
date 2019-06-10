@@ -41,4 +41,11 @@ class SkuController extends Controller
     $this->model->attr()->sync($options);
     return ['sku' => $this->model, 'attribute_sku_options' => $this->model->attributes];
   }
+
+  public function delete()
+  {
+    $sku = Sku::findOrFail(request('id'));
+    $sku->delete();
+    return $sku;
+  }
 }

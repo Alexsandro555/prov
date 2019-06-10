@@ -15,17 +15,17 @@
             <td>{{ props.item.id }}</td>
             <td class="text-xs-left">{{ props.item.sku }}</td>
             <td class="text-xs-left">{{ props.item.price }}</td>
-            <td class="justify-center layout px-0">
+            <td class="text-xs-right layout px-0">
               <!--<v-btn @click="goToPage(props.item)" icon class="mx-0">
                 <v-icon>find_in_page</v-icon>
               </v-btn>-->
-              <v-btn icon class="mx-0" @click="onEdit(props.item.id)">
+              <!--<v-btn icon class="mx-0" @click="onEdit(props.item.id)">
                 <v-icon color="teal">edit</v-icon>
-              </v-btn>
-              <!--<v-btn :disabled="props.item.url_key === 'po-umolchaniyu'" icon class="mx-0"
+              </v-btn>-->
+              <v-btn icon class="mx-0"
                      @click="deleteItem(props.item)">
                 <v-icon color="pink">delete</v-icon>
-              </v-btn>-->
+              </v-btn>
             </td>
           </template>
           <template slot="no-data">

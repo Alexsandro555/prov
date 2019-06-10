@@ -71,9 +71,10 @@ export default {
   [GLOBAL.UPDATE_ITEM]: ({commit}, objField) => {
     commit('SET_VARIABLE',{module: ''})
   },
-  [GLOBAL.DELETE]: ({ commit, state, getters }, id) => {
+  [GLOBAL.DELETE]: ({ commit, state, getters, dispatch }, id) => {
     api.delete({url: getters.config.load, id})
       .then(response => {
+        dispatch('successSaveNotification', 'Успешно удалено!', {root: true})
         commit(PRIVATE.DELETE, response)
       })
   },

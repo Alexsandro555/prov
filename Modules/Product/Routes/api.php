@@ -114,6 +114,7 @@ Route::middleware('auth:api')->prefix('skus')->group(function() {
   Route::get('/', 'SkuController@index');
   Route::post('/default', 'SkuController@save');
   Route::patch('/', 'SkuController@update');
+  Route::delete('/', 'SkuController@delete');
 });
 
 Route::middleware('auth:api')->prefix('attribute_sku_options')->group(function() {
