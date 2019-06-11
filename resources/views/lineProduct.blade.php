@@ -24,7 +24,7 @@
               {{$model->title}}
             </p>
             <p class="content-discription">
-              {{$model->description}}
+              {!! $model->description !!}
             </p>
           </v-layout>
           <v-flex xs12 class="text-xs-left">
