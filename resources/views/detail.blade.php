@@ -70,7 +70,7 @@
                 @endforeach
                 <v-tab-item key="description">
                   <br>
-                  <span class="text-xs-left" style="color: white">
+                  <span class="text-xs-left" style="color: black; padding: 10px;">
                      {!! $product->description !!}
                   </span>
                 </v-tab-item>
