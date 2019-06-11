@@ -170,14 +170,14 @@
                 <p class="delivery__header text-xs-left">Наши <span class="delivery__subheader">бренды</span></p>
                 <div class="brands">
                   <div class="brands__content">
-                    <img src="{{asset('images/multifan.png')}}"/>
+                    <img src="{{asset('images/lubing.gif')}}"/>
                   </div>
                   <div class="brands__content">
-                    <img src="{{asset('images/roxell.png')}}"/>
+                    <img src="{{asset('images/barbiery.png')}}"/>
                   </div>
-                  <div class="brands__content">
+                  <!--<div class="brands__content">
                     <img src="{{asset('images/munters.png')}}"/>
-                  </div>
+                  </div>-->
                 </div>
               </v-flex>
               <v-flex pa-2 xs12 sm12 md10 lg10 xl10>

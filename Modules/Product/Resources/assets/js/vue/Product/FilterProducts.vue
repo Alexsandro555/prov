@@ -28,7 +28,7 @@
               <slot :products="getPagesElement" :getImages="getImages" :addCart="addCart" :getUrl="getUrl"></slot>
             </v-layout>
             <div v-else>
-              <h2>Продукция с заданными параметрами не найдена</h2>
+              <h2 class="not-found-product">Продукция с заданными параметрами не найдена</h2>
             </div>
             <div class="text-xs-center">
               <v-pagination v-if="colPages > 1" v-model="page" :length="colPages"></v-pagination>

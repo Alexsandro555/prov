@@ -945,6 +945,10 @@ form div.content-right-order table tfoot tr td {
   margin-top: 115px;
 }
 
+.not-found-product {
+  color: #ffffff;
+}
+
 .tree {
   background: url("/images/tree-layer.png") top center repeat;
 }
