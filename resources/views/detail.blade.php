@@ -69,10 +69,9 @@
                   </v-tab-item>
                 @endforeach
                 <v-tab-item key="description">
-                  <br>
-                  <span class="text-xs-left" style="color: black; padding: 10px;">
+                  <div class="text-xs-left" style="color: black; padding: 10px;">
                      {!! $product->description !!}
-                  </span>
+                  </div>
                 </v-tab-item>
               </v-tabs>
             </v-flex>
