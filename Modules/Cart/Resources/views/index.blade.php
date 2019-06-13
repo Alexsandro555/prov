@@ -1,9 +1,11 @@
 @extends('layouts.master')
 
+
 @section('content')
-    <div class="content">
-        <div class="wrapper content-cart-wrapper">
+    <div class="content-wrapper text-xs-center">
+        <div class="content">
             <cart-page/>
         </div>
     </div>
-@stop
+@endsection
+
