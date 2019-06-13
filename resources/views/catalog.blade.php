@@ -39,11 +39,11 @@
                         </div>
                         <div class="special-product__img">
                           <v-layout fill-height text-xs-center>
-                            @if($model->files->count() > 0)
-                              @foreach($model->files->random()->config as $filesItem)
+                            @if($lineProduct->files->count() > 0)
+                              @foreach($lineProduct->files->random()->config as $filesItem)
                                 @foreach($filesItem as $key => $fileItem)
                                   @if($key == 'medium')
-                                    <a href="/catalog/{{$model->url_key}}" style="display: inline-block; text-align: center;  margin:0 auto;">
+                                    <a href="/catalog/{{$model->product_category->url_key}}/{{$model->url_key}}/{{$lineProduct->url_key}}" style="display: inline-block; text-align: center;  margin:0 auto;">
                                       <img src="/storage/{{$fileItem['filename']}}" style="margin: 0px auto;"/>
                                     </a>
                                   @endif
@@ -71,7 +71,7 @@
                               @foreach($typeProduct->random()->config as $filesItem)
                                 @foreach($filesItem as $key => $fileItem)
                                   @if($key == 'medium')
-                                    <a href="/catalog/{{$typeProduct->url_key}}" style="display: inline-block; text-align: center;  margin:0 auto;">
+                                    <a href="/catalog/{{$model->url_key}}/{{$typeProduct->url_key}}" style="display: inline-block; text-align: center;  margin:0 auto;">
                                       <img src="/storage/{{$fileItem['filename']}}" style="margin: 0px auto;"/>
                                     </a>
                                   @endif
