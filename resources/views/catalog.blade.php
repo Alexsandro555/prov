@@ -68,7 +68,7 @@
                         <div class="special-product__img">
                           <v-layout fill-height text-xs-center>
                             @if($typeProduct->files->count() > 0)
-                              @foreach($typeProduct->random()->config as $filesItem)
+                              @foreach($typeProduct->files->random()->config as $filesItem)
                                 @foreach($filesItem as $key => $fileItem)
                                   @if($key == 'medium')
                                     <a href="/catalog/{{$model->url_key}}/{{$typeProduct->url_key}}" style="display: inline-block; text-align: center;  margin:0 auto;">
