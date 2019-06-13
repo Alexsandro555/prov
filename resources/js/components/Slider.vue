@@ -27,7 +27,9 @@
                 <span class="current-price">{{Math.floor(item.price)}}</span> <span class="rub">руб.</span>
               </v-flex>
               <v-flex xs4 class="special-product__cart">
-                <img @click="addCart(item.id)" src="/images/product-cart.png"/>
+                <a :href="getUrl(item)">
+                  <img src="/images/product-cart.png"/>
+                </a>
               </v-flex>
             </v-layout>
           </div>
