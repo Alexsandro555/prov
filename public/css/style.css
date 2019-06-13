@@ -789,7 +789,6 @@ form div.content-right-order table tfoot tr td {
   height: 100px;
   line-height: 100px;
   padding-left: 30px;
-  margin-left: 50px;
 }
 
 .content__subheader {
@@ -813,10 +812,6 @@ form div.content-right-order table tfoot tr td {
   font-family: "OpenSans-CondensedBold", sans-serif;
   margin-right: 15px;
   padding: 5px 10px;
-}
-
-.content__banner {
-  margin: 0px 20px;
 }
 
 .content--leftmargin310 {
