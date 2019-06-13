@@ -37,6 +37,23 @@
                         <div class="special-product__header text-xs-center">
                           <a href="/catalog/{{$model->product_category->url_key}}/{{$model->url_key}}/{{$lineProduct->url_key}}">{{str_limit($lineProduct->title, $limit = 27, $end="...")}}</a>
                         </div>
+                        <div class="special-product__img">
+                          <v-layout fill-height text-xs-center>
+                            @if($model->files->count() > 0)
+                              @foreach($model->files->random()->config as $filesItem)
+                                @foreach($filesItem as $key => $fileItem)
+                                  @if($key == 'medium')
+                                    <a href="/catalog/{{$model->url_key}}" style="display: inline-block; text-align: center;  margin:0 auto;">
+                                      <img src="/storage/{{$fileItem['filename']}}" style="margin: 0px auto;"/>
+                                    </a>
+                                  @endif
+                                @endforeach
+                              @endforeach
+                            @else
+                              <img src="{{asset('images/no-image-medium.png')}}" style="margin: 0px auto;"/>
+                            @endif
+                          </v-layout>
+                        </div>
                       </div>
                     </div>
                   @endforeach
@@ -47,6 +64,23 @@
                       <div class="special-product text-xs-center" align="center">
                         <div class="special-product__header text-xs-center">
                           <a href="/catalog/{{$model->url_key}}/{{$typeProduct->url_key}}">{{str_limit($typeProduct->title, $limit = 27, $end="...")}}</a>
+                        </div>
+                        <div class="special-product__img">
+                          <v-layout fill-height text-xs-center>
+                            @if($model->files->count() > 0)
+                              @foreach($model->files->random()->config as $filesItem)
+                                @foreach($filesItem as $key => $fileItem)
+                                  @if($key == 'medium')
+                                    <a href="/catalog/{{$model->url_key}}" style="display: inline-block; text-align: center;  margin:0 auto;">
+                                      <img src="/storage/{{$fileItem['filename']}}" style="margin: 0px auto;"/>
+                                    </a>
+                                  @endif
+                                @endforeach
+                              @endforeach
+                            @else
+                              <img src="{{asset('images/no-image-medium.png')}}" style="margin: 0px auto;"/>
+                            @endif
+                          </v-layout>
                         </div>
                       </div>
                     </div>

@@ -856,6 +856,11 @@ form div.content-right-order table tfoot tr td {
   padding: 0px 0px 10px 0px;
 }
 
+.special-product:first-child,
+.product:first-child {
+  margin-left: 0px;
+}
+
 .product {
   display: inline-block;
   margin: 10px;

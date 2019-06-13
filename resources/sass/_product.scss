@@ -1,6 +1,5 @@
 .special-product-wrapper {
   filter: drop-shadow(3px 3px 5px gray);
-  //margin-left: 0px;
   margin-bottom: 30px;
   margin-left: 10px;
 }
@@ -14,12 +13,14 @@
   display: block;
   background: url('#{$path}/special-product__item-head-lay.png') top center no-repeat;
   background-color: $color-white;
-  //margin: 0px 10px;
-  //padding-top: 20px;
   -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 55% 100%, 50% 97%, 45% 100%, 0% 100%);
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 55% 100%, 50% 97%, 45% 100%, 0% 100%);
   margin: 0 auto;
   padding: 0px 0px 10px 0px;
+}
+
+.special-product:first-child  {
+  margin-left: 0px;
 }
 
 .product {
