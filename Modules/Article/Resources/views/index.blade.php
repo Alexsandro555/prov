@@ -21,7 +21,7 @@
                         </div>
                         <a class="article--button" href="/article/{{$article->url_key}}">Подробнее</a>
                       </v-flex>
-                      <v-flex>
+                      <v-flex class="hidden-md-and-down">
                         @if($article->files->count()>0)
                           @foreach($article->files as $fileRecord)
                             @foreach($fileRecord->config as $files)
