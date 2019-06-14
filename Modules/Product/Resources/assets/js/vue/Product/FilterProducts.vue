@@ -60,6 +60,9 @@
         page: 1
       }
     },
+    mounted() {
+      console.log('Products: ', this.products)
+    },
     computed: {
       getPagesElement() {
         return _.slice(this.filteredProducts,(this.page-1)*16,this.page*16)
@@ -112,21 +115,6 @@
           }
         })
         this.filteredProducts = [...filteredProducts]
-        /*let filteredProducts = [...this.products]
-        this.attributes.forEach(attributeFiltered => {
-          if(attributeFiltered.value) {
-            filteredProducts = filteredProducts.filter(product => {
-              return product.attributes.find(attribute => attribute.id === attributeFiltered.id && attribute.pivot.list_value === attributeFiltered.value)
-            })
-          }
-        })
-        this.filteredProducts = filteredProducts.filter(product => {
-          return product.attributes.find(attribute => attribute.id === id && attribute.pivot.list_value === value)
-        })
-        Vue.set(this.attributes.find(attribute => attribute.id === id), 'value', value)*/
-        /*this.filteredProducts = this.filteredProducts.filter(product => {
-          return product.attributes.find(attribute => attribute.id === id && attribute.pivot.list_value === value)
-        })*/
       },
       reset() {
         this.page = 1
