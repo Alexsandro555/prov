@@ -22,7 +22,6 @@
           <v-layout row wrap>
             <v-flex pa-3 xs6>
               <detail-image :stock="{{$product->special?$product->special:'false'}}" :url="'/files/product-image/{{$product->id}}'" :id="{{$product->id}}"/>
-              <!--<detail-image :url="'/files/product-image/{{$product->id}}'"/>-->
             </v-flex>
             <v-flex class="detail__title text-xs-left" px-2 xs6 md6>
               <h1>{{$product->title}}</h1>

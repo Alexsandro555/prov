@@ -60,9 +60,6 @@
         page: 1
       }
     },
-    mounted() {
-      console.log('Products: ', this.products)
-    },
     computed: {
       getPagesElement() {
         return _.slice(this.filteredProducts,(this.page-1)*16,this.page*16)
