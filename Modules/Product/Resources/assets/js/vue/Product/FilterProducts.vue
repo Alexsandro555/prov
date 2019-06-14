@@ -71,7 +71,7 @@
     methods: {
       getImages(product) {
         let files = []
-        if(product.product_category && product.product_category.files.length > 0) {
+        /*if(product.product_category && product.product_category.files.length > 0) {
           files = _.concat(files,product.product_category.files)
         }
         if(product.type_product && product.type_product.files.length > 0) {
@@ -79,7 +79,7 @@
         }
         if(product.line_product && product.line_product.files.length > 0) {
           files = _.concat(files, product.line_product.files)
-        }
+        }*/
         if(product.files.length > 0) {
           files = _.concat(files, product.files)
         }
