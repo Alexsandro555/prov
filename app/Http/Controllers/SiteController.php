@@ -54,7 +54,11 @@ class SiteController extends Controller
     }, 'productCategory.files' => function($query) {
       $query->doesntHave('figure');
     }])->where('type_product_id', $model->id)->paginate(30);*/
-    return view('catalog', compact('model'));
+    //return view('catalog', compact('model'));
+
+    $products = Product::with(['attributes','files'])->where('type_product_id', $model->id)->where('active',1)->get();
+    $attributes = Attribute::with(['attributeListValue'])->where('attribute_type_id', 8)->where('filtered', 1)->where('active',1)->get();
+    return view('lineProduct', compact('model', 'products', 'attributes'));
   }
 
   public function lineProduct($slugProductCategory, $slugTypeProduct, $slug)
