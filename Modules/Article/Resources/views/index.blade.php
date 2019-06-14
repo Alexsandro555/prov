@@ -3,10 +3,10 @@
 @section('title', 'статьи')
 
 @section('content')
-    <div class="content-wrapper articles">
-      <div class="content">
-        <v-content>
-          <v-layout column wrap>
+  <div class="content-wrapper articles">
+    <div class="content">
+      <v-content>
+        <v-layout column wrap>
             <v-flex xs12 class="text-xs-center">
               @foreach($articles as $article)
                 <v-card class="article--card">
@@ -40,14 +40,12 @@
                     </v-layout>
                   </v-container>
                 </v-card>
-                <p>
-                  <br>
-                </p>
+                <p><br></p>
               @endforeach
             </v-flex>
           </v-layout>
-        </v-content>
-      </div>
+      </v-content>
     </div>
+  </div>
 @endsection
 

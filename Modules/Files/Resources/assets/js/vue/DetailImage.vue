@@ -58,6 +58,7 @@
     mounted() {
       axios.get(this.url).then(response => {
         this.elements = response.data
+        console.log(response.data)
         response.data.forEach(element => {
           this.items.push({'id': element.id, 'file': element.config.files.small.filename});
         });
