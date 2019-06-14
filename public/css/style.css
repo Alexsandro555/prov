@@ -60,10 +60,6 @@
   background: url("/images/header-shadow-top.png") top center repeat-x, url("/images/rams-layout.png") top center no-repeat;
 }
 
-/*.main-layout {
-  background: url('/images/header-shadow-top.png') top center repeat-x, url('/images/header-layer.png') top left no-repeat;
-}*/
-
 @media (min-width: 961px) {
   .main-layout {
     background: url("/images/header-shadow-top.png") top center repeat-x, url("/images/header-layer.png") top center no-repeat;
@@ -711,19 +707,6 @@ form div.content-right-order table tfoot tr td {
   color: #346e1d;
 }
 
-/*.theme--light.v-list .v-list__group--active:after,
-.application .theme--light.list .v-list__group--active:before,
-.application .theme--light.v-list .v-list__group__header:hover,
-.theme--light.v-list .v-list__tile--highlighted,
-.theme--light.v-list .v-list__tile--link:hover,
-.theme--light .v-list .v-list__group--active:after,
-.theme--light .v-list .v-list__group--active:before,
-.theme--light .v-list .v-list__group__header:hover,
-.theme--light .v-list .v-list__tile--highlighted,
-.theme--light .v-list .v-list__tile--link:hover {
-  background: rgba(0,0,0,0)
-}*/
-
 .menu-left__link {
   text-decoration: none;
   color: #B16C3D;
@@ -779,8 +762,7 @@ form div.content-right-order table tfoot tr td {
 }
 
 .content__header,
-.about__header,
-.article__header {
+.about__header {
   text-transform: uppercase;
   font-size: 2em;
   font-family: "OpenSans-CondensedBold", sans-serif;
@@ -1397,7 +1379,7 @@ ul.footer-top-menu:first-child {
 }
 
 .articles__content {
-  font-size: 1.1em;
+  font-size: 16px;
   border-bottom: 1px dashed #B16C3D;
   width: 100%;
   padding-bottom: 30px;
@@ -1419,7 +1401,6 @@ ul.footer-top-menu:first-child {
   padding: 0px 60px;
   -mox-border-radius: 10px;
   border-radius: 10px;
-  font-size: 1.2em;
   text-align: justify;
 }
 

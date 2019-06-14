@@ -4,19 +4,17 @@
 
 @import 'variables';
 @import 'mixins';
-body {
-  //background: url('#{$path}/body-layer.png') top center no-repeat;
-}
 @import 'font';
+
 .logo {
   height: 198px;
   width: 178px;
   float: right;
 }
+
 @import 'header';
 @import 'menu';
 @import '~cartScss/cart';
-
 
 .find {
   padding-top: 19px;
@@ -25,9 +23,7 @@ body {
 @import 'slogan';
 @import 'phone';
 
-
 .animal-panel {
-  //position: absolute;
   width: 1200px;
   height: 151px;
   margin-top: 253px;
@@ -63,7 +59,6 @@ body {
 @import '~articleScss/articles';
 @import 'breadcrumbs';
 @import 'brands';
-
 
 [v-cloak] .v-cloak--block {
   display: block;

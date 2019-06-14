@@ -77,11 +77,9 @@
   width: 262px;
 }
 
-
 .theme--light .menu-left-wrappers  .v-list .v-list__group__header:hover {
   background: url('#{$path}/menu-left-item-lay.png') repeat-x center center;
 }
-
 
 .list-menu-left {
   padding-top: 0px;
@@ -92,7 +90,6 @@
   width: 262px;
 }
 
-
 .sub-menu {
   background: url('#{$path}/menu-left-wrapper.png') repeat right top;
   padding: 10px;
@@ -100,8 +97,6 @@
   @include border-radius(0px 0px 10px 10px);
   position: relative;
 }
-
-
 
 .sub-menu__head>li {
   margin-top:10px;
@@ -146,24 +141,10 @@
   color: $color-green;
 }
 
-/*.theme--light.v-list .v-list__group--active:after,
-.application .theme--light.list .v-list__group--active:before,
-.application .theme--light.v-list .v-list__group__header:hover,
-.theme--light.v-list .v-list__tile--highlighted,
-.theme--light.v-list .v-list__tile--link:hover,
-.theme--light .v-list .v-list__group--active:after,
-.theme--light .v-list .v-list__group--active:before,
-.theme--light .v-list .v-list__group__header:hover,
-.theme--light .v-list .v-list__tile--highlighted,
-.theme--light .v-list .v-list__tile--link:hover {
-  background: rgba(0,0,0,0)
-}*/
-
 .menu-left__link {
   text-decoration: none;
   color: $color-green-light;
 }
-
 
 .theme--light .left-menu .v-icon {
   color: $color-white;
@@ -187,7 +168,6 @@
   height: 5px;
   line-height: 5px;
 }
-
 
 .sub-menu__list-tile {
   width: 200px;

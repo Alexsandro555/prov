@@ -2,7 +2,6 @@
   height: 707px;
 }
 
-
 .chickens {
   background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/chickens-layout.png') top center no-repeat;
 }
@@ -18,12 +17,6 @@
 .rams {
   background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/rams-layout.png') top center no-repeat;
 }
-
-
-/*.main-layout {
-  background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/header-layer.png') top left no-repeat;
-}*/
-
 
 @media (min-width: 961px) {
   .main-layout {
