@@ -263,6 +263,7 @@
           this.save(this.form).then(response => {
             this.isSending = false
             this.form.selectedRemainAttr = null
+            document.location.reload(true);
           })
         }
       },
@@ -275,6 +276,7 @@
           this.isSending = true
           this.removeBindAttributes(data).then(response => {
             this.isSending = false
+            document.location.reload(true);
           })
         }
       },
@@ -287,6 +289,7 @@
           }
           this.removeBindAttributes(data).then(response => {
             this.isSending = false
+            document.location.reload(true);
           })
         }
       },
@@ -299,6 +302,7 @@
           }
           this.removeBindAttributes(data).then(response => {
             this.isSending = false
+            document.location.reload(true);
           })
         }
       },

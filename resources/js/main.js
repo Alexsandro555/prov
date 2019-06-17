@@ -63,6 +63,10 @@ Vue.component('leader-slider', LeaderSlider)
 import CalculatePrice from '@product/vue/Product/CalculatePrice'
 Vue.component('calculate-price', CalculatePrice)
 
+// Order
+//import OrderForm from '@order/vue/OrderForm'
+//Vue.component('order-form', OrderForm)
+
 const app = new Vue({
   el: '#app',
   data: {
