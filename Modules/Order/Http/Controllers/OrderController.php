@@ -58,7 +58,16 @@ class OrderController extends Controller
   public function store(OrderRequest $request)
   {
     $cartProducts = $this->cartRepository->getAll()['products'];
-    $productIds = [];
+    if(!empty($cartProducts)) {
+      $order = $this->orderRepository->create($request->all());
+      foreach($cartProducts as $cartProduct) {
+        $order->products()->attach();
+      }
+    } else {
+      return response()->json(['emptyCart' => 'Корзина не должна быть пустой'], 422);
+    }
+
+    /*$productIds = [];
     foreach($cartProducts as $key => $cartProduct)
     {
       array_push($productIds, $cartProduct->id);
@@ -71,7 +80,7 @@ class OrderController extends Controller
     }
     else {
       return redirect()->back()->withErrors(['emptyCart' => 'Корзина не должна быть пустой']);
-    }
+    }*/
   }
 
   /**

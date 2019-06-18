@@ -102,7 +102,7 @@ class FilesController extends Controller
   {
     // TODO: требуется выполнить оптимизацию #1 проблема
     $product = Product::findOrFail($id);
-    /*return File::with('typeFile', 'figure')->where(function ($query) use (&$product) {
+    return File::with('typeFile', 'figure')->where(function ($query) use (&$product) {
       $query->where('fileable_id', $product->product_category_id)->where('fileable_type', ProductCategory::class);
     })->orWhere(function ($query) use (&$product) {
       $query->where('fileable_id', $product->type_product_id)->where('fileable_type', TypeProduct::class);
@@ -110,10 +110,10 @@ class FilesController extends Controller
       $query->where('fileable_id', $product->line_product_id)->where('fileable_type', LineProduct::class);
     })->orWhere(function ($query) use (&$product) {
       $query->where('fileable_id', $product->id)->where('fileable_type', Product::class);
-    })->get();*/
-    return File::with('typeFile', 'figure')->where(function ($query) use (&$product) {
-      $query->where('fileable_id', $product->id)->where('fileable_type', Product::class);
     })->get();
+    /*return File::with('typeFile', 'figure')->where(function ($query) use (&$product) {
+      $query->where('fileable_id', $product->id)->where('fileable_type', Product::class);
+    })->get();*/
   }
 
   public function figure($id, $type = 'medium', $product_id = null)

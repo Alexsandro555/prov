@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="order-form">
     <v-form ref="form" lazy-validation v-model="valid">
       <v-text-field
         name="fio"
@@ -20,7 +20,7 @@
       </v-text-field>
       <v-text-field
         name="company_name"
-        label="Название компании"
+        label="Телефон"
         v-model="form.telephone"
         :counter="15"
         :rules="getRules({required: true, max: 15})"
@@ -30,30 +30,71 @@
         name="email"
         label="Email"
         v-model="form.email"
-        :counter="15"
-        :rules="getRules({required: true, max: 15})"
+        :counter="50"
+        :rules="getRules({required: true, max: 50})"
         :error-messages="messages.email">
       </v-text-field>
+      <v-textarea
+        name="note"
+        label="Примечание"
+        v-model="form.note"
+        :error-messages="messages.note">
+      </v-textarea>
+      <v-flex xs2>
+        <v-btn text-xs-left
+               large
+               :class="{primary: valid, 'red': !valid}"
+               :disabled="isSending"
+               @click.prevent="onSubmit">
+          Заказать
+        </v-btn>
+      </v-flex>
     </v-form>
   </div>
 </template>
 <script>
-  import {ValidationConvert} from '@/vue/Validations'
+  import { ValidationConvert } from '@/vue/Validations'
+  import { mapState } from 'vuex'
+  import axios from 'axios'
 
   export default {
     props: {},
     data() {
       return {
         valid: false,
-        form: {}
+        isSending: false,
+        form: {},
+        validationConvert: new ValidationConvert(),
       }
+    },
+    computed: {
+      ...mapState('initializer', ['messages']),
     },
     mounted() {
     },
     methods: {
       getRules(validations) {
         return validations ? this.validationConvert.ruleValidations(validations) : []
-      }
+      },
+      onSubmit() {
+        if (this.$refs.form.validate()) {
+          this.isSending = true
+          axios.post('/order', this.form)
+            .then(response => response.data)
+            .then(response => {
+
+            })
+            .catch(error => {
+              this.isSending = false
+          })
+        }
+      },
     }
   }
 </script>
+
+<style scoped>
+  .order-form {
+    width: 100%;
+  }
+</style>

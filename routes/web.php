@@ -23,7 +23,9 @@ Route::get('/admin', ['uses' => '\Modules\Auth\Http\Controllers\AdminController@
 
 Route::get('/find/{text?}', ['uses' => 'FindController@index', 'as' => 'find']);
 
-Route::get('/test', ['uses' => 'SiteController@products', 'as' => 'test.products']);
+Route::get('/test', function() {
+  $var = 10;
+});
 
 //Route::get('/news/{slug}', '\Modules\News\Http\Controllers\NewsController@show');
 //Route::get('/{slug}', '\Modules\Page\Http\Controllers\PageController@show');

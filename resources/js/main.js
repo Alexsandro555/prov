@@ -42,12 +42,17 @@ Vue.component('callback', Callback)
 
 import sliderFullPage from '@/vuex/slider-full-page/state'
 
+
+// Initializer
+import initializer from '@initializer/vuex/initializer/state'
+
 import cart from '@cart/vuex/store'
 const store = new Vuex.Store({
   modules: {
     cart,
     callback,
-    sliderFullPage
+    sliderFullPage,
+    initializer
   },
   mutations,
   getters
@@ -64,13 +69,16 @@ import CalculatePrice from '@product/vue/Product/CalculatePrice'
 Vue.component('calculate-price', CalculatePrice)
 
 // Order
-//import OrderForm from '@order/vue/OrderForm'
-//Vue.component('order-form', OrderForm)
+import OrderForm from '@order/vue/OrderForm'
+Vue.component('order-form', OrderForm)
 
 const app = new Vue({
   el: '#app',
   data: {
     searchText: '',
+  },
+  created() {
+    store.dispatch('initializer/init')
   },
   computed: {
     chickens() {
