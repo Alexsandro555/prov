@@ -47,16 +47,16 @@ class SiteController extends Controller
     $model = TypeProduct::with(['lineProducts' => function($query) {
       $query->where('active',1);
     }])->where('url_key', $slug)->firstOrFail();
-    /*$products = Product::with(['files', 'lineProduct.files' => function($query) {
+    $products = Product::with(['files', 'lineProduct.files' => function($query) {
       $query->doesntHave('figure');
     }, 'typeProduct.files' => function($query) {
       $query->doesntHave('figure');
     }, 'productCategory.files' => function($query) {
       $query->doesntHave('figure');
-    }])->where('type_product_id', $model->id)->paginate(30);
-    //return view('catalog', compact('model'));*/
+    }])->where('type_product_id', $model->id)->get();
+    //return view('catalog', compact('model'));
 
-    $products = Product::with(['attributes','files'])->where('type_product_id', $model->id)->where('active',1)->get();
+    //$products = Product::with(['attributes','files'])->where('type_product_id', $model->id)->where('active',1)->get();
     $attributes = Attribute::with(['attributeListValue'])->where('attribute_type_id', 8)->where('filtered', 1)->where('active',1)->get();
     return view('lineProduct', compact('model', 'products', 'attributes'));
   }

@@ -47,7 +47,7 @@
                         </a>
                       </v-layout>
                     </div>
-                    <div class="special-product__desc text-xs-center">Сделан на заказ</div>
+                    <div class="special-product__desc text-xs-center">Наличие на складе</div>
                     <v-layout col wrap class="special-product__mcart">
                       <v-flex xs8 class="special-product__price text-xs-center">
                         <!--<span class="old-price">145 800</span> руб.<br>-->
