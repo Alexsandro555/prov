@@ -739,6 +739,10 @@ form div.content-right-order table tfoot tr td {
   width: 200px;
 }
 
+.container {
+  margin: 0px 24px;
+}
+
 .content-wrapper-top {
   background: url("/images/tree-layer-top.png") top center repeat;
   height: 29px;
