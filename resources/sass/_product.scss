@@ -116,3 +116,10 @@
 .not-found-product {
   color: #ffffff;
 }
+
+.product-order-req {
+    @extend .content__buttom;
+    margin-top: 7px;
+    color: $color-green;
+    border-color: #c8dac6;
+}

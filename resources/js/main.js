@@ -118,6 +118,10 @@ const app = new Vue({
     showCallback() {
       this.$store.commit('SET_VARIABLE', {module: 'callback', variable: 'isVisible', value: true})
     },
+    discoverDiscount(commentText='') {
+      this.$store.commit('SET_VARIABLE', {module: 'callback', variable: 'isVisible', value: true})
+      this.$store.commit('SET_VARIABLE', {module: 'callback', variable: 'form.comment', value: commentText})
+    },
     ...mapActions('cart',{addCartItem: ACTIONS.ADD_CART}),
     ...mapMutations('cart', {showCartModal: MUTATIONS.SHOW_MODAL})
   }

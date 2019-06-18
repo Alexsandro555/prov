@@ -782,6 +782,7 @@ form div.content-right-order table tfoot tr td {
 }
 
 .content__buttom,
+.product-order-req,
 .stock__btn,
 .article--button {
   margin-top: 30px;
@@ -933,6 +934,12 @@ form div.content-right-order table tfoot tr td {
 
 .not-found-product {
   color: #ffffff;
+}
+
+.product-order-req {
+  margin-top: 7px;
+  color: #346e1d;
+  border-color: #c8dac6;
 }
 
 .tree {

@@ -1,39 +1,8 @@
 <template>
   <div>
-    <carousel name="carousel" :style="{ height: '428px'}" :pagination-enabled=false :navigation-enabled=true
-              :per-page=perpage :per-page-custom="perCustom">
+    <carousel name="carousel" :style="{ height: '428px'}" :pagination-enabled=false :navigation-enabled=true :per-page=perpage :per-page-custom="perCustom">
       <slide v-for="item in items" :key="item.id">
-        <div class="special-product-wrapper">
-          <div class="special-product text-xs-center" align="center">
-            <div class="special-product__header text-xs-center">
-              <a :href="getUrl(item)">{{item.title.length>52?item.title.substr(0,50)+'...':item.title}}</a>
-            </div>
-            <div class="special-product__img">
-              <v-layout fill-height text-xs-center>
-                <a :href="getUrl(item)" style="display: inline-block; text-align: center;  margin:0 auto;">
-                  <template v-if="getImages(item).length > 0">
-                    <img :src="'/storage/'+getImages(item)[0].config.files.medium.filename" style="margin: 0px auto;"/>
-                  </template>
-                  <template v-else>
-                    <img src="/images/no-image-medium.png"/>
-                  </template>
-                </a>
-              </v-layout>
-            </div>
-            <div class="special-product__desc text-xs-center">В наличии на складе</div>
-            <v-layout col wrap class="special-product__mcart">
-              <v-flex xs8 class="special-product__price text-xs-center">
-                <!--<span class="old-price">145 800</span> руб.<br>-->
-                <span class="current-price">{{Math.floor(item.price)}}</span> <span class="rub">руб.</span>
-              </v-flex>
-              <v-flex xs4 class="special-product__cart">
-                <a :href="getUrl(item)">
-                  <img src="/images/product-cart.png"/>
-                </a>
-              </v-flex>
-            </v-layout>
-          </div>
-        </div>
+          <slot :product="item" :getImages="getImages" :addCart="addCart" :getUrl="getUrl"></slot>
       </slide>
     </carousel>
   </div>
@@ -75,14 +44,6 @@
         const count = 1
         this.addCartItem({id, count})
         this.showCartModal()
-      },
-      getImage(files) {
-        if (files.length > 0) {
-          return '/storage/' + files[0].config.files.medium.filename
-        }
-        else {
-          return '/images/no-image-medium.png'
-        }
       },
       getImages(product) {
         let files = []

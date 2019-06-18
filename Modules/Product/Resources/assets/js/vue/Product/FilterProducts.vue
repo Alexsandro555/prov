@@ -25,7 +25,9 @@
         <v-flex xs12>
           <v-layout column wrap>
             <v-layout row wrap v-if="filteredProducts.length>0">
-              <slot :products="getPagesElement" :getImages="getImages" :addCart="addCart" :getUrl="getUrl"></slot>
+              <template v-for="product in getPagesElement">
+                <slot :product="product" :getImages="getImages" :addCart="addCart" :getUrl="getUrl"></slot>
+              </template>
             </v-layout>
             <div v-else>
               <h2 class="not-found-product">Продукция с заданными параметрами не найдена</h2>
