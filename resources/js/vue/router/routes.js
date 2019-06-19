@@ -32,6 +32,7 @@ import AttibutesAutoLoading from '@product/vue/Attribute/AttributesAutoLoading'
 import ProductImport from '@product/vue/Product/ProductImport'
 import Images from '@file/vue/Images'
 import EditImages from '@file/vue/EditImages'
+import Orders from '@order/vue/Orders'
 //const EditProducer = () => import('@product/vue/Producer/EditProducer')
 
 import store from '@/vuex/states'
@@ -238,6 +239,11 @@ export const routes = [
         name: 'edit-images',
         component: EditImages,
         props: true
+      },
+      {
+        path: '/orders',
+        ame: 'Orders',
+        component: Orders
       }
     ]
   }

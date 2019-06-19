@@ -8,7 +8,7 @@ interface OrderRepository
 
   public function getById($id);
 
-  public function create(array $attributes);
+  public function create();
 
   public function update($id, array $attributes);
 

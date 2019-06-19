@@ -1,5 +1,8 @@
 <template>
   <div class="order-form">
+    <v-alert v-if="messages.emptyCart" type="error" :value="true">
+      {{messages.emptyCart}}
+    </v-alert>
     <v-form ref="form" lazy-validation v-model="valid">
       <v-text-field
         name="fio"
@@ -82,7 +85,7 @@
           axios.post('/order', this.form)
             .then(response => response.data)
             .then(response => {
-
+              window.location.href = '/order/'+response.number
             })
             .catch(error => {
               this.isSending = false

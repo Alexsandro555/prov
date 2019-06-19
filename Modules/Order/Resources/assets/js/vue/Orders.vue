@@ -41,11 +41,15 @@
                 </template>
                 <template slot="expand" slot-scope="props">
                   <v-card flat>
+                    <v-card-title>
+                      <h3>Приобретенная продукция</h3>
+                    </v-card-title>
                     <v-card-text>
                       <tr v-for="product in props.item.products">
                         <td>{{ product.id }}</td>
                         <td class="text-xs-left">{{ product.title }}</td>
-                        <td class="text-xs-left">{{ product.price }}</td>
+                        <td class="text-xs-left">{{ product.pivot.price }}</td>
+                        <td class="text-xs-left">{{ product.pivot.qty }}</td>
                       </tr>
                     </v-card-text>
                   </v-card>

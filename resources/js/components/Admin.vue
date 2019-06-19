@@ -114,6 +114,10 @@
             path: '/callbacks'
           },
           {
+            text: 'Заказы',
+            path: '/orders'
+          },
+          {
             text: 'Загрузка атрибутов',
             path: '/attributes/loading'
           },

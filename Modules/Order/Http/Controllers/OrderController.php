@@ -9,6 +9,8 @@ use Modules\Order\Repositories\OrderRepository;
 use Modules\Catalog\Entities\Product;
 use Modules\Cart\Repositories\CartRepository;
 use Modules\Order\Entities\Order;
+use Illuminate\Support\Facades\Mail;
+use Modules\Order\Emails\OrderShipped;
 
 class OrderController extends Controller
 {
@@ -58,29 +60,22 @@ class OrderController extends Controller
   public function store(OrderRequest $request)
   {
     $cartProducts = $this->cartRepository->getAll()['products'];
-    if(!empty($cartProducts)) {
-      $order = $this->orderRepository->create($request->all());
+    if($cartProducts->count() > 0) {
+      $order = $this->orderRepository->create();
       foreach($cartProducts as $cartProduct) {
-        $order->products()->attach();
+        $order->products()->attach($cartProduct->id, ['qty' => $cartProduct->qty, 'price' => $cartProduct->price]);
       }
-    } else {
-      return response()->json(['emptyCart' => 'Корзина не должна быть пустой'], 422);
-    }
-
-    /*$productIds = [];
-    foreach($cartProducts as $key => $cartProduct)
-    {
-      array_push($productIds, $cartProduct->id);
-    }
-    if(count($productIds)>0) {
-      $order = $this->orderRepository->create($request->all());
-      $order->products()->attach($productIds);
       $this->cartRepository->deleteAll();
-      return view('order::success', ['number' => $order->number]);
+      Mail::to("anna@oooleader.ru")->send(new OrderShipped($order));
+      return $order;
+    } else {
+      return response()->json(['errors' => ['emptyCart' => 'Корзина не должна быть пустой']], 422);
     }
-    else {
-      return redirect()->back()->withErrors(['emptyCart' => 'Корзина не должна быть пустой']);
-    }*/
+  }
+
+  public function success($number)
+  {
+    return view('order::success', ['number' => $number]);
   }
 
   /**

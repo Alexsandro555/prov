@@ -26,30 +26,30 @@ class EloquentOrderRepository implements OrderRepository
     // TODO: Implement getById() method.
   }
 
-  public function create(array $attributes)
+  public function create()
   {
-    $user = User::where('email', $attributes['email'])->first();
+    $user = User::where('email', request('email'))->first();
     if($user) {
       $user->update([
-        'name' => $attributes['surname'].' '.$attributes['firstname'].' '.$attributes['patronymiс'],
-        'company_name' => $attributes['company_name'],
-        'telephone' => $attributes['telephone']
+        'name' => request('fio'),
+        'company_name' => request('company_name'),
+        'telephone' => request('telephone')
       ]);
     }
     else {
       $user = User::Create([
-        'name' => $attributes['surname'].' '.$attributes['firstname'].' '.$attributes['patronymiс'],
-        'email' => $attributes['email'],
-        'company_name' => $attributes['company_name'],
+        'name' => request('fio'),
+        'email' => request('email'),
+        'company_name' => request('company_name'),
         'password' => bcrypt(str_random(10)),
-        'telephone' => $attributes['telephone']
+        'telephone' => request('telephone')
       ]);
     }
 
     return $this->model->create([
       'number' => strtoupper(substr(uniqid(sha1(time())),0,5)),
       'user_id' => $user->id,
-      'note' => $attributes['note']
+      'note' => request('note')
     ]);
   }
 
