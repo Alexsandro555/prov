@@ -81,7 +81,7 @@
                           :counter="50"
                           :rules="getRules({max: 50})"
                           :error-messages="messages.IEC"></v-text-field>
-                        <v-select
+                        <!--<v-select
                           name="product_category_id"
                           :items="productCategories"
                           label="Категория продукта"
@@ -92,8 +92,50 @@
                           :rules="getRules({required: true})"
                           required
                           :error-messages="messages.product_category_id"
-                          v-model="form.product_category_id"></v-select>
-                        <v-select
+                          v-model="form.product_category_id"></v-select>-->
+                          <v-autocomplete
+                            v-model="form.product_category_id"
+                            :items="productCategories"
+                            :search-input.sync="searchProductCategory"
+                            color="white"
+                            hide-no-data
+                            item-text="title"
+                            item-value="id"
+                            label="Категория продукта"
+                            placeholder="Введите название категории продукта для поиска">
+                            <template slot="selection" slot-scope="data">
+                              {{ data.item.title }}
+                            </template>
+                          </v-autocomplete>
+                          <v-autocomplete
+                            v-model="form.type_product_id"
+                            :items="getTypeProducts"
+                            :search-input.sync="searchTypeProduct"
+                            color="white"
+                            hide-no-data
+                            item-text="title"
+                            item-value="id"
+                            label="Типы продукта"
+                            placeholder="Введите название типа продукта для поиска">
+                            <template slot="selection" slot-scope="data">
+                                {{ data.item.title }}
+                            </template>
+                          </v-autocomplete>
+                        <v-autocomplete
+                          v-model="form.line_product_id"
+                          :items="getLineProducts"
+                          :search-input.sync="searchLineProduct"
+                          color="white"
+                          hide-no-data
+                          item-text="title"
+                          item-value="id"
+                          label="Линейки продукции"
+                          placeholder="Введите название линейки продукции для поиска">
+                          <template slot="selection" slot-scope="data">
+                            {{ data.item.title }}
+                          </template>
+                        </v-autocomplete>
+                        <!--<v-select
                           name="type_product_id"
                           :items="getTypeProducts"
                           label="Типы продукта"
@@ -101,15 +143,15 @@
                           no-data-text="Нет данных"
                           @change="changeTypeProducts"
                           item-value="id"
-                          v-model="form.type_product_id"></v-select>
-                        <v-select
+                          v-model="form.type_product_id"></v-select>-->
+                        <!--<v-select
                           name="line_product_id"
                           :items="getLineProducts"
                           label="Линейки продукции"
                           item-text="title"
                           no-data-text="Нет данных"
                           item-value="id"
-                          v-model="form.line_product_id"></v-select>
+                          v-model="form.line_product_id"></v-select>-->
                         <wysiwyg
                           :element-id="id"
                           name="description"
@@ -175,6 +217,9 @@
         valid: false,
         isSending: false,
         validationConvert: new ValidationConvert(),
+        searchTypeProduct: '',
+        searchProductCategory: '',
+        searchLineProduct: ''
         //attributes: []
       }
     },
