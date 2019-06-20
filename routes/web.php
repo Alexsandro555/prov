@@ -29,6 +29,10 @@ Route::get('/find/{text?}', ['uses' => 'FindController@index', 'as' => 'find']);
 //Auth::routes();
 //Route::post('/register', 'Auth\RegisterController@create');
 
+Route::get('/test', function() {
+  phpinfo();
+});
+
 
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/{slug}', '\Modules\Page\Http\Controllers\PagesController@show');
