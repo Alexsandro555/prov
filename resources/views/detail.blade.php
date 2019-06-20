@@ -17,15 +17,19 @@
 @section('content')
   <div class="content-wrapper">
     <div class="content">
-      <v-flex xs11 offset-xs1 md9 offset-md3>
-        <v-card class="detail-info" style="min-height: 700px; font-size: 1.2em;">
+      <v-flex xs12 md9 offset-md3>
+        <v-card class="detail-info">
           <v-layout row wrap>
             <v-flex pa-3 xs6>
               <detail-image :stock="{{$product->special?$product->special:'false'}}" :url="'/files/product-image/{{$product->id}}'" :id="{{$product->id}}"/>
             </v-flex>
-            <v-flex class="detail__title text-xs-left" px-2 xs6 md6>
+            <v-flex class="detail__title text-xs-left" px-3 xs11 md6>
               <h1>{{$product->title}}</h1>
-              <calculate-price :product="{{$product}}"/>
+              @if($product->need_order)
+                <a @click="discoverDiscount(`Добрый день! \nПрошу сообщить стоимость и наличие {{$product->title}}.\nСпасибо!`)" class="product-order-req" href="#">Запросить цену</a>
+              @else
+                <calculate-price :product="{{$product}}"/>
+              @endif
             </v-flex>
             <v-flex class="detail__tabs" pa-3 xs12>
               <br>

@@ -1412,6 +1412,7 @@ ul.footer-top-menu:first-child {
   padding: 0px 60px;
   -mox-border-radius: 10px;
   border-radius: 10px;
+  font-size: 1.2em;
   text-align: justify;
 }
 
