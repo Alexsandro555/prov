@@ -7,6 +7,8 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Callback\Http\Requests\CallbackRequest;
 use Modules\Callback\Models\Callback;
+use Modules\Callback\Emails\CallbackShipped;
+use Illuminate\Support\Facades\Mail;
 
 class CallbackController extends Controller
 {
@@ -17,12 +19,14 @@ class CallbackController extends Controller
    */
   public function store(CallbackRequest $request)
   {
-    return Callback::create([
+    $model = Callback::create([
       'name' => $request->fio,
       'company_name' => $request->company_name,
       'telephone' => $request->telephone,
       'email' => $request->email,
       'comment' => $request->comment
     ]);
+    Mail::to("xanmaster08@rambler.ru")->send(new CallbackShipped($model));
+    return [];
   }
 }
