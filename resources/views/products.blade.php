@@ -12,7 +12,7 @@
             @foreach($product->productCategory->files->random()->config as $filesItem)
               @foreach($filesItem as $key => $fileItem)
                 @if($key == 'medium')
-                  <img src="/storage/{{$fileItem['filename']}}"/>
+                  <img src="/storage/{{$fileItem['filename']}}" style="margin: 0px auto;"/>
                 @endif
               @endforeach
             @endforeach
@@ -20,7 +20,7 @@
             @foreach($product->typeProduct->files->random()->config as $filesItem)
               @foreach($filesItem as $key => $fileItem)
                 @if($key == 'medium')
-                  <img src="/storage/{{$fileItem['filename']}}"/>
+                  <img src="/storage/{{$fileItem['filename']}}" style="margin: 0px auto;"/>
                 @endif
               @endforeach
             @endforeach
@@ -28,7 +28,7 @@
             @foreach($product->lineProduct->files->random()->config as $filesItem)
               @foreach($filesItem as $key => $fileItem)
                 @if($key == 'medium')
-                  <img src="/storage/{{$fileItem['filename']}}"/>
+                  <img src="/storage/{{$fileItem['filename']}}" style="margin: 0px auto;"/>
                 @endif
               @endforeach
             @endforeach
@@ -36,12 +36,12 @@
             @foreach($product->files->random()->config as $filesItem)
               @foreach($filesItem as $key => $fileItem)
                 @if($key == 'medium')
-                  <img src="/storage/{{$fileItem['filename']}}"/>
+                  <img src="/storage/{{$fileItem['filename']}}" style="margin: 0px auto;"/>
                 @endif
               @endforeach
             @endforeach
           @else
-            <img src="{{asset('images/no-image-medium.png')}}"/>
+            <img src="{{asset('images/no-image-medium.png')}}" style="margin: 0px auto;"/>
           @endif
         </v-layout>
       </div>
@@ -49,7 +49,11 @@
       <v-layout col wrap class="special-product__mcart">
         <v-flex xs8 class="special-product__price text-xs-center">
           <!--<span class="old-price">145 800</span> руб.<br>-->
-          <span class="current-price">{{$product->price}}</span> <span class="rub">руб.</span>
+          @if($product->need_order)
+            <span class="current-price">{{$product->price}}</span> <span class="rub">руб.</span>
+          @else
+            <a @click="discoverDiscount(`Добрый день! \nПрошу сообщить стоимость и наличие {{$product->title}}. \nСпасибо!`)" class="product-order-req" href="#">Запросить цену</a>
+          @endif
         </v-flex>
         <v-flex xs4 class="special-product__cart">
           <img @click="addCart({{$product->id}})" src="{{asset('images/product-cart.png')}}"/>

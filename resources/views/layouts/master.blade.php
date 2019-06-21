@@ -43,6 +43,18 @@
                     <v-flex xl2 lg2 md2>
                       <a href="/"><img src="{{asset('images/logo-layer.png')}}"/></a>
                     </v-flex>
+                    <v-flex xs2 hidden-md-and-up justify-center>
+                      <v-menu  :close-on-content-click="false" offset-x>
+                        <template slot="activator">
+                          <img class="find" src="{{asset('images/find.png')}}"/>
+                        </template>
+                        <v-list>
+                          <v-list-tile>
+                            <v-text-field name="find" label="Введите поисковый запрос"  @keyup.enter="search"  v-model="searchText"></v-text-field>
+                          </v-list-tile>
+                        </v-list>
+                      </v-menu>
+                    </v-flex>
                     <v-flex xl6 lg6 md5 sm5 xs6 class="hidden-sm-and-down">
                       <v-layout row wrap>
                         <v-flex md12 lg8 xl8 class="text-md-center">
