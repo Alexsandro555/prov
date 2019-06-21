@@ -56,7 +56,9 @@
           @endif
         </v-flex>
         <v-flex xs4 class="special-product__cart">
-          <img @click="addCart({{$product->id}})" src="{{asset('images/product-cart.png')}}"/>
+          <a href="/catalog/detail/{{$product->url_key}}">
+            <img src="{{asset('images/product-cart.png')}}"/>
+          </a>
         </v-flex>
       </v-layout>
     </div>

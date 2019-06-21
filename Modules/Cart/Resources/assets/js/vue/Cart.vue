@@ -1,8 +1,8 @@
 <template>
-    <div class="cart" ref="cart">
-        <h2>Корзина</h2>
-        <div class="cart__content--wrapper">
-            <div class="cart__content">
+    <v-flex ref="cart" xs12>
+        <h1 class="white--text">Корзина</h1><br>
+        <v-flex pa-4 xs12>
+            <v-flex class="xs12 cart__content">
                 <table class="cart-table">
                     <thead>
                         <th class="center">фото</th>
@@ -22,9 +22,9 @@
                 <div class="cart-order">
                     <a href="/order">Оформить заказ</a>
                 </div>
-            </div>
-        </div>
-    </div>
+            </v-flex>
+        </v-flex>
+    </v-flex>
 </template>
 <script>
     import { mapState, mapGetters } from 'vuex'

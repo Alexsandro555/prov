@@ -180,7 +180,6 @@
 }
 
 .cart__content {
-  width: 964px;
   margin: auto;
   background-color: #ffff;
   -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);

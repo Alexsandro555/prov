@@ -8,7 +8,11 @@
       <v-chip v-if="product.vendor" color="yellow">арт. {{product.vendor}}</v-chip>
     </p>
     <div class="figure-button__wrapper">
-      <a class="figure-button" @click="addCart(product.id)" href="#">
+      <a class="figure-button hidden-md-and-up"  href="/cart">
+        Заказать
+        <img src="/images/btn-sale-image.png" align="center"/>
+      </a>
+      <a class="figure-button hidden-sm-and-down"  @click="addCart(product.id)" href="#">
         Заказать
         <img src="/images/btn-sale-image.png" align="center"/>
       </a>

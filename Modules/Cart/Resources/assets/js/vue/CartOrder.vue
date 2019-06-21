@@ -1,5 +1,5 @@
 <template>
-  <div class="cart" ref="cart">
+  <v-flex ref="cart" xs10>
     <h1>Корзина</h1>
     <div>
       <div style="background-color: white">
@@ -21,7 +21,7 @@
         </table>
       </div>
     </div>
-  </div>
+  </v-flex>
 </template>
 <script>
   import { mapState, mapGetters } from 'vuex'
