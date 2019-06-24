@@ -26,7 +26,7 @@
             <v-flex class="detail__title text-xs-left" px-3 xs11 md6>
               <h1>{{$product->title}}</h1>
               @if($product->need_order)
-                <a @click="discoverDiscount(`Добрый день! \nПрошу сообщить стоимость и наличие {{$product->title}}.\nСпасибо!`)" class="product-order-req" href="#">Запросить цену</a>
+               <product-order :product="{{$product}}"/>
               @else
                 <calculate-price :product="{{$product}}"/>
               @endif
