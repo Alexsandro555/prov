@@ -50,7 +50,25 @@
                 :rules="getRules(field.validations)"
                 :required="getRequired(field.validations)"
                 :error-messages="messages[''+num+'']"></v-checkbox>
-    <v-select
+    <v-autocomplete
+      v-else-if="field.type=='selectbox'"
+      :value="items[num+'_id']"
+      @change="updateItem($event,num+'_id')"
+      :items="getItems"
+      color="white"
+      hide-no-data
+      item-text="title"
+      item-value="id"
+      :label="field.label"
+      :rules="getRules(field.validations)"
+      :required="getRequired(field.validations)"
+      :error-messages="messages[''+num+'_id']"
+      placeholder="Введите поисковую фразу">
+      <template slot="selection" slot-scope="data">
+        {{ data.item.title }}
+      </template>
+    </v-autocomplete>
+    <!--<v-select
       v-else-if="field.type=='selectbox'"
       :name="num+'_id'"
       :items="getItems"
@@ -62,7 +80,7 @@
       :required="getRequired(field.validations)"
       :error-messages="messages[''+num+'_id']"
       :value="items[num+'_id']"
-      @change="updateItem($event,num+'_id')"></v-select>
+      @change="updateItem($event,num+'_id')"></v-select>-->
   </div>
 </template>
 <script>
@@ -77,6 +95,9 @@
       relations: {
         type: Array,
         default: () => []
+      },
+      search: {
+
       }
     },
     data: function () {

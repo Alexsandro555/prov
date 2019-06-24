@@ -9,7 +9,83 @@
           </v-card-title>
           <v-card-text>
             <v-form ref="form" lazy-validation v-model="validRemainAttr">
-              <v-select
+              <v-autocomplete
+                name="product_category_id"
+                :items="productCategories"
+                color="white"
+                hide-no-data
+                item-text="title"
+                item-value="id"
+                label="Категория продукта"
+                no-data-text="Нет данных"
+                :rules="getRules({required: true})"
+                @change="changeProductCategories"
+                :error-messages="messages.product_category_id"
+                v-model="form.product_category_id"
+                placeholder="Введите название категории продукции для поиска">
+                <template slot="selection" slot-scope="data">
+                  {{ data.item.title }}
+                </template>
+              </v-autocomplete>
+              <v-autocomplete
+                name="type_product_id"
+                :items="getTypeProducts"
+                color="white"
+                hide-no-data
+                item-text="title"
+                item-value="id"
+                label="Типы продукта"
+                no-data-text="Нет данных"
+                @change="changeTypeProducts"
+                v-model="form.type_product_id"
+                placeholder="Введите название типа продукции для поиска">
+                <template slot="selection" slot-scope="data">
+                  {{ data.item.title }}
+                </template>
+              </v-autocomplete>
+              <v-autocomplete
+                name="line_product_id"
+                :items="getLineProducts"
+                color="white"
+                hide-no-data
+                item-text="title"
+                item-value="id"
+                label="Линейки продукции"
+                no-data-text="Нет данных"
+                v-model="form.line_product_id"
+                placeholder="Введите название линейки продукции для поиска">
+                <template slot="selection" slot-scope="data">
+                  {{ data.item.title }}
+                </template>
+              </v-autocomplete>
+              <v-autocomplete
+                name="attribute_ids"
+                :items="getRemainsAttributes"
+                color="white"
+                hide-no-data
+                item-text="title"
+                item-value="id"
+                :menu-props="{maxHeight: '400'}"
+                label="Атрибуты"
+                multiple
+                persistent-hint
+                chips
+                :rules="getRules({selected: true})"
+                no-data-text="Нет данных"
+                v-model="form.selectedRemainAttr"
+                placeholder="Введите название атрибута для поиска">
+                <template slot="selection" slot-scope="data">
+                  <v-chip
+                    close
+                    @input="data.parent.selectItem(data.item)"
+                    :selected="data.selected"
+                    class="chip--select-multi"
+                    :key="JSON.stringify(data.item)">
+                    {{ data.item.title }}
+                  </v-chip>
+                </template>
+              </v-autocomplete>
+              <!--<v-select
                 name="product_category_id"
                 :items="productCategories"
                 label="Категория продукта"
@@ -22,8 +98,8 @@
                 :error-messages="messages.product_category_id"
                 v-model="form.product_category_id"
                 single-line>
-              </v-select>
-              <v-select
+              </v-select>-->
+              <!--<v-select
                 name="type_product_id"
                 :items="getTypeProducts"
                 label="Типы продукта"
@@ -33,8 +109,8 @@
                 item-value="id"
                 v-model="form.type_product_id"
                 single-line>
-              </v-select>
-              <v-select
+              </v-select>-->
+              <!--<v-select
                 name="line_product_id"
                 :items="getLineProducts"
                 label="Линейки продукции"
@@ -43,8 +119,8 @@
                 item-value="id"
                 v-model="form.line_product_id"
                 single-line>
-              </v-select>
-              <v-select
+              </v-select>-->
+              <!--<v-select
                 label="Атрибуты"
                 :items="getRemainsAttributes"
                 v-model="form.selectedRemainAttr"
@@ -67,7 +143,7 @@
                     {{ data.item.title }}
                   </v-chip>
                 </template>
-              </v-select>
+              </v-select>-->
               <v-btn large color="primary" :disabled="!validRemainAttr || isSending" @click.prevent="onSaveAttributes()">Сохранить</v-btn>
             </v-form>
             <v-form ref="formProductCategoryAttr" lazy-validation v-model="validProdCatAttr">
