@@ -23,6 +23,7 @@
         "maatwebsite/excel": "^3.1",
         "mlezcano1985/laravel-pivot-soft-deletes": "^1.0",
         "nwidart/laravel-modules": "^4.0",
+        "spatie/laravel-backup": "^5.0.0",
         "spatie/pdf-to-text": "^1.1",
         "staudenmeir/eloquent-has-many-deep": "^1.6",
         "tymon/jwt-auth": "dev-develop",
