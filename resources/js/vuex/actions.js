@@ -50,6 +50,7 @@ export default {
   [GLOBAL.ADD]: ({ commit, state, getters }, data) => {
     return new Promise((resolve, reject) => {
       api.post(getters.config.load+'/default', data).then(response => {
+        console.log(response)
         commit('UPDATE_ARRAY_BY_KEY',{module:getters.config.module,variable:getters.config.items,key:getters.config.primary_key,value:response}, { root: true })
         resolve(response)
       }).catch(error => {
