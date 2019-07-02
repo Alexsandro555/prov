@@ -56,6 +56,9 @@
                                 @if($attribute->attribute_type_id == 3)
                                   <dt>{{$attribute->title}}</dt><dd class="tabs__characteristics--value">{{$attribute->pivot->integer_value}} {{$attribute->attribute_unit?$attribute->attribute_unit->title:""}}</dd>
                                 @endif
+                                @if($attribute->attribute_type_id == 2)
+                                  <dt>{{$attribute->title}}</dt><dd class="tabs__characteristics--value">{{$attribute->pivot->string_value}} {{$attribute->attribute_unit?$attribute->attribute_unit->title:""}}</dd>
+                                @endif
                                 @if($attribute->attribute_type_id == 4)
                                   <dt>{{$attribute->title}}</dt><dd class="tabs__characteristics--value">{{$attribute->pivot->double_value}} {{$attribute->attribute_unit?$attribute->attribute_unit->title:""}}</dd>
                                 @endif
