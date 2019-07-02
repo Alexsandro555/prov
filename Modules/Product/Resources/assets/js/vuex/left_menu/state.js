@@ -13,7 +13,7 @@ const state = {
   name: 'MenuLeft',
   items: [],
   loading: true,
-  section: 0,
+  section: parseInt(localStorage['section']) || 0,
   sections: [
     {
       id: 1,

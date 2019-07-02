@@ -118,22 +118,26 @@ const app = new Vue({
     changeSlide(val) {
       switch (val) {
         case 'chickens':
-          this.$store.commit('SET_VARIABLE', {module: 'left_menu', variable: 'section', value: 1})
+          this.setVariableLeftMenu(1)
           break
         case 'cows':
-          this.$store.commit('SET_VARIABLE', {module: 'left_menu', variable: 'section', value: 2})
+          this.setVariableLeftMenu(2)
           break
         case 'pigs':
-          this.$store.commit('SET_VARIABLE', {module: 'left_menu', variable: 'section', value: 3})
+          this.setVariableLeftMenu(3)
           break
         case 'rams':
-          this.$store.commit('SET_VARIABLE', {module: 'left_menu', variable: 'section', value: 4})
+          this.setVariableLeftMenu(4)
           break
         default:
-          this.$store.commit('SET_VARIABLE', {module: 'left_menu', variable: 'section', value: 0})
+          this.setVariableLeftMenu(0)
           break
       }
       this.$store.dispatch('sliderFullPage/change',val)
+    },
+    setVariableLeftMenu(val) {
+      this.$store.commit('SET_VARIABLE', {module: 'left_menu', variable: 'section', value: val})
+      localStorage.setItem('section', val)
     },
     search(event) {
       const text = event.target.value.replace('/','_')
