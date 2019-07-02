@@ -1321,43 +1321,14 @@ ul.footer-top-menu:first-child {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.detail__advanced-info {
-  color: #346e1d;
+.tabs__characteristics {
+  display: inline-block;
+  margin-left: 30px;
 }
 
-.detail__advanced-info h2 {
-  font-family: "OpenSans-CondensedBold", sans-serif;
-  text-transform: uppercase;
-}
-
-.detail__characteristics .tabs__container {
-  background-color: #346e1d;
-  color: #ffff;
-  font-family: "OpenSans-Semibold", sans-serif;
-}
-
-.detail__characteristics .tabs__item {
-  color: #ffff;
-}
-
-.detail__characteristics .tabs__item--active {
-  background-color: #ffbf00;
-}
-
-.detail__padding,
-.detail__characteristics-description,
-.detail__characteristics-characteristics {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.detail__characteristics-description {
-  text-align: left;
-  min-height: 200px;
-}
-
-.detail__characteristics-characteristics {
-  text-align: left;
+.detail-characteristics .v-window {
+  background-color: rgba(255, 255, 255, 0.6);
+  min-height: 250px;
 }
 
 @supports (display: grid) {
@@ -1366,31 +1337,27 @@ ul.footer-top-menu:first-child {
 @media (min-width: 14em) {
     /* если окно браузера больше 14em */
 
-    .detail__characteristics-characteristics dl {
+    dl.tabs__characteristics-attributes {
       display: grid;
       grid-template-columns: auto 1fr;
       /* auto определяет ширину первой колонки, которая равна самому широкому элементу <dt> (auto можно заменить на fit-content(10em), если необходимо её ограничить) */
     }
 
-    .detail__characteristics-characteristics dt {
+    .tabs__characteristics-attributes dt {
       min-width: 0;
       /* более привычное поведение при переполнении */
     }
 
-    .detail__characteristics-characteristics dd {
+    .tabs__characteristics-attributes dd {
       margin: 0 0 0 1em;
       font-weight: bold;
     }
 }
 }
 
-.detail__characteristics--value {
-  padding-left: 20px;
-}
-
-.detail__characteristics .v-tabs__item--active {
-  color: white;
-  background-color: #346e1d;
+.detail-characteristics__content {
+  font-size: 1.2em;
+  padding: 10px 5px;
 }
 
 .application .theme--light.card,

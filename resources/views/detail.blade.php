@@ -44,7 +44,7 @@
                   </div>
                 </v-tab-item>
                 @foreach($groups as $group)
-                  <v-tab-item class="tabs-content" key="tabs-group-{{$group->id}}">
+                  <v-tab-item class="tabs-content text-xs-left detail-characteristics__content" key="tabs-group-{{$group->id}}">
                     <!--<v-card height="300px">
                       <v-card-text class="text-xs-left">-->
                         @foreach($product->attributes->filter(function($attribute, $key) use (&$group){

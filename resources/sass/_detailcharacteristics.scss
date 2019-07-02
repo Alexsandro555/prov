@@ -1,66 +1,30 @@
-.detail__advanced-info {
-  color: $color-green;
+.tabs__characteristics {
+  display: inline-block;
+  margin-left: 30px;
 }
 
-.detail__advanced-info h2 {
-  font-family: $font-os-condenced-bold;
-  text-transform: uppercase;
-}
-
-.detail__characteristics .tabs__container{
-  background-color: $color-green;
-  color: $color-white;
-  font-family: $font-os-semibold;
-}
-
-.detail__characteristics .tabs__item {
-  color: $color-white;
-}
-
-.detail__characteristics .tabs__item--active {
-  background-color: $color-yell;
-}
-
-.detail__padding {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.detail__characteristics-description {
-  text-align: left;
-  min-height: 200px;
-  @extend .detail__padding;
-}
-
-.detail__characteristics-characteristics {
-  text-align: left;
-  @extend .detail__padding;
+.detail-characteristics .v-window {
+  background-color: rgba(255, 255, 255, 0.6);
+  min-height: 250px;
 }
 
 @supports (display: grid) {  /* если браузер поддерживает Гриды */
   @media (min-width: 14em) {  /* если окно браузера больше 14em */
-    .detail__characteristics-characteristics dl {
+    dl.tabs__characteristics-attributes {
       display: grid;
       grid-template-columns: auto 1fr;  /* auto определяет ширину первой колонки, которая равна самому широкому элементу <dt> (auto можно заменить на fit-content(10em), если необходимо её ограничить) */
     }
-    .detail__characteristics-characteristics dt {
+    .tabs__characteristics-attributes dt {
       min-width: 0;  /* более привычное поведение при переполнении */
     }
-    .detail__characteristics-characteristics dd {
+    .tabs__characteristics-attributes dd {
       margin: 0 0 0 1em;
       font-weight: bold;
     }
   }
 }
 
-.detail__characteristics-characteristics-attributes {
-}
-
-.detail__characteristics--value {
-  padding-left: 20px;
-}
-
-.detail__characteristics .v-tabs__item--active {
-  color: white;
-  background-color: $color-green;
+.detail-characteristics__content {
+  font-size: 1.2em;
+  padding: 10px 5px;
 }
