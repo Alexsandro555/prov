@@ -7,7 +7,8 @@
   top: 1px;
   left: 1px;
   width: 259px;
-  background: url('#{$path}/stock-bottom-line.png') bottom center repeat-x, url('#{$path}/stock-botom-layer.png') bottom center repeat-x,  url('#{$path}/stocks.png') center center no-repeat;
+  background: url('#{$path}/stock-bottom-line.png') bottom center repeat-x, url('#{$path}/stock-botom-layer.png') bottom center repeat-x,  url('#{$path}/corm.jpg') center center no-repeat;
+  background-size: 1px 1px, 100% 70px, cover;
   @include border-radius(10px 10px 0px 0px);
   -webkit-clip-path: polygon(0% 0%, 45% 0%, 50% 5%, 55% 0%, 100% 0%, 100% 100%, 0% 100%);
   clip-path: polygon(0% 0%, 45% 0%, 50% 5%, 55% 0%, 100% 0%, 100% 100%, 0% 100%);
@@ -15,6 +16,8 @@
   position: relative;
   margin: auto;
 }
+
+
 
 .stock__content {
   height: 270px;

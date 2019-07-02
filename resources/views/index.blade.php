@@ -74,25 +74,21 @@
                 <v-flex xs3 class="hidden-md-and-down">
                   <p class="about__header text-md-left low-font">Внимание! <span class="content__subheader">акция</span></p>
                   <div class="stock-wrapper">
-                    <div class="stock">
+                    <div class="stock stock__img">
                       <div class="stock__rocwell-banner">
                         <v-layout row wrap>
-                          <v-flex xs4 class="stock__pr">
-                            <span>Скидка</span>
-                            15%
-                          </v-flex>
-                          <v-flex xs8 class="stock__desc text-xs-left">
-                            Поилки для кур rocwell
+                          <v-flex xs12 class="stock__desc text-xs-left">
+                            Ленты пометоудаления
                           </v-flex>
                         </v-layout>
                       </div>
                       <div class="stock__rocwell-banner--footer">
                         <v-layout row wrap>
                           <v-flex xs6 class="stock__price">
-                            148,80 <span style="color: white; font-size: 0.6em;">руб.</span>
+                            <!--148,80 <span style="color: white; font-size: 0.6em;">руб.</span>-->
                           </v-flex>
                           <v-flex xs6 pa-2>
-                            <a class="stock__btn" href="#">Подробнее</a>
+                            <a class="stock__btn" href="/catalog/detail/lenta-pometoudaleniya-polipropilenovaya">Подробнее</a>
                           </v-flex>
                         </v-layout>
                       </div>
