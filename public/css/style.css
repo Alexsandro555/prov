@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 .application.theme--light.leader {
   font-family: 'PT Sans', sans-serif;
 }
@@ -1319,62 +1321,76 @@ ul.footer-top-menu:first-child {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.detail-characteristics__left-table {
-  float: left;
+.detail__advanced-info {
+  color: #346e1d;
 }
 
-.detail-characteristics__right-table {
-  float: right;
+.detail__advanced-info h2 {
+  font-family: "OpenSans-CondensedBold", sans-serif;
+  text-transform: uppercase;
 }
 
-.detail-characteristics__table {
-  color: white;
-  width: 380px;
-  border: none;
-  border-collapse: collapse;
+.detail__characteristics .tabs__container {
+  background-color: #346e1d;
+  color: #ffff;
+  font-family: "OpenSans-Semibold", sans-serif;
 }
 
-.detail-characteristics__table tr {
-  line-height: 20px;
+.detail__characteristics .tabs__item {
+  color: #ffff;
 }
 
-.detail-characteristics__table thead th {
+.detail__characteristics .tabs__item--active {
+  background-color: #ffbf00;
+}
+
+.detail__padding,
+.detail__characteristics-description,
+.detail__characteristics-characteristics {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.detail__characteristics-description {
+  text-align: left;
+  min-height: 200px;
+}
+
+.detail__characteristics-characteristics {
   text-align: left;
 }
 
-.detail-characteristics__table tbody tr:nth-child(2n+1) {
-  background: rgba(255, 255, 255, 0.1);
+@supports (display: grid) {
+  /* если браузер поддерживает Гриды */
+
+@media (min-width: 14em) {
+    /* если окно браузера больше 14em */
+
+    .detail__characteristics-characteristics dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      /* auto определяет ширину первой колонки, которая равна самому широкому элементу <dt> (auto можно заменить на fit-content(10em), если необходимо её ограничить) */
+    }
+
+    .detail__characteristics-characteristics dt {
+      min-width: 0;
+      /* более привычное поведение при переполнении */
+    }
+
+    .detail__characteristics-characteristics dd {
+      margin: 0 0 0 1em;
+      font-weight: bold;
+    }
+}
 }
 
-.detail-characteristics__table tbody tr td {
-  padding: 5px 10px;
-  font-family: "OpenSans-Lisght", sans-serif;
-  font-size: 0.9em;
+.detail__characteristics--value {
+  padding-left: 20px;
 }
 
-.detail-characteristics__table thead tr th {
-  padding: 5px 10px;
-  font-family: "OpenSans-Lisght", sans-serif;
-  font-size: 0.9em;
-}
-
-.detail-characteristics-marg {
-  margin-left: 70px;
-}
-
-.detail-characteristics-marg p {
-  display: block;
-  margin-right: 20px;
-  line-height: 20px;
-}
-
-.detail-characteristics .card__text {
-  background-color: red;
-}
-
-.detail-characteristics .v-window {
-  background-color: rgba(255, 255, 255, 0.6);
-  min-height: 250px;
+.detail__characteristics .v-tabs__item--active {
+  color: white;
+  background-color: #346e1d;
 }
 
 .application .theme--light.card,

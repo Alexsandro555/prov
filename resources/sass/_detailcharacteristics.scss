@@ -1,57 +1,66 @@
-.detail-characteristics__left-table {
-  float: left;
+.detail__advanced-info {
+  color: $color-green;
 }
 
-.detail-characteristics__right-table {
-  float: right;
+.detail__advanced-info h2 {
+  font-family: $font-os-condenced-bold;
+  text-transform: uppercase;
 }
 
-.detail-characteristics__table {
-  color: white;
-  width: 380px;
-  border: none;
-  border-collapse: collapse;
+.detail__characteristics .tabs__container{
+  background-color: $color-green;
+  color: $color-white;
+  font-family: $font-os-semibold;
 }
 
-.detail-characteristics__table tr{
-  line-height: 20px;
+.detail__characteristics .tabs__item {
+  color: $color-white;
 }
 
-.detail-characteristics__table thead th {
+.detail__characteristics .tabs__item--active {
+  background-color: $color-yell;
+}
+
+.detail__padding {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.detail__characteristics-description {
   text-align: left;
+  min-height: 200px;
+  @extend .detail__padding;
 }
 
-.detail-characteristics__table tbody tr:nth-child(2n+1) {
-  background: rgba(255, 255, 255, 0.1);
+.detail__characteristics-characteristics {
+  text-align: left;
+  @extend .detail__padding;
 }
 
-.detail-characteristics__table tbody tr td {
-  padding: 5px 10px;
-  font-family: $font-os-light;
-  font-size: 0.9em;
+@supports (display: grid) {  /* если браузер поддерживает Гриды */
+  @media (min-width: 14em) {  /* если окно браузера больше 14em */
+    .detail__characteristics-characteristics dl {
+      display: grid;
+      grid-template-columns: auto 1fr;  /* auto определяет ширину первой колонки, которая равна самому широкому элементу <dt> (auto можно заменить на fit-content(10em), если необходимо её ограничить) */
+    }
+    .detail__characteristics-characteristics dt {
+      min-width: 0;  /* более привычное поведение при переполнении */
+    }
+    .detail__characteristics-characteristics dd {
+      margin: 0 0 0 1em;
+      font-weight: bold;
+    }
+  }
 }
 
-.detail-characteristics__table thead tr th {
-  padding: 5px 10px;
-  font-family: $font-os-light;
-  font-size: 0.9em;
+.detail__characteristics-characteristics-attributes {
 }
 
-.detail-characteristics-marg {
-  margin-left: 70px;
+.detail__characteristics--value {
+  padding-left: 20px;
 }
 
-.detail-characteristics-marg p {
-  display: block;
-  margin-right: 20px;
-  line-height: 20px;
-}
-
-.detail-characteristics .card__text{
-  background-color: red;
-}
-
-.detail-characteristics .v-window {
-  background-color: rgba(255, 255, 255, 0.6);
-  min-height: 250px;
+.detail__characteristics .v-tabs__item--active {
+  color: white;
+  background-color: $color-green;
 }
