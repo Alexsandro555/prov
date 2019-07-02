@@ -12,6 +12,7 @@ use Modules\Initializer\Traits\ClearCacheTrait;
 //use Fico7489\Laravel\Pivot\Traits\PivotEventTrait;
 use Modules\Initializer\Traits\UrlKeyTrait;
 use Modules\Product\Traits\AttributeValueDeleteTrait;
+use Modules\Product\Entities\Section;
 
 class LineProduct extends Model
 {
@@ -56,6 +57,10 @@ class LineProduct extends Model
 
   public function producers() {
     return $this->belongsToMany(Producer::class);
+  }
+
+  public function sections() {
+    return $this->belongsToMany(Section::class);
   }
 
   public function products() {

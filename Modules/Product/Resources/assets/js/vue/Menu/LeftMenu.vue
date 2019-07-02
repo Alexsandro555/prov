@@ -88,13 +88,13 @@
       getSection() {
         switch (this.section) {
           case 1:
-            return 'chicken'
+            return 'catalog/section-birds'
           case 2:
-            return 'cow'
+            return 'catalog/section-cows'
           case 3:
-            return 'pigs'
+            return 'catalog/section-pigs'
           case 4:
-            return 'rams'
+            return 'catalog/section-other'
           default:
             return 'catalog'
         }
