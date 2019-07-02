@@ -9,5 +9,5 @@ export default {
     obj.upLinks=state.relations
     return obj
   },
-  items: state => state.items
+  items: state => state.items,
 }

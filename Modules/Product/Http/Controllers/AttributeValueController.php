@@ -43,7 +43,7 @@ class AttributeValueController extends Controller
       case AttributeType::INTEGER:
         return (integer)$value;
       case AttributeType::DOUBLE:
-        return (double)$value;
+        return doubleval(str_replace(',','.', $value));
       case AttributeType::TEXT:
         return (string)$value;
       case AttributeType::DECIMAL:

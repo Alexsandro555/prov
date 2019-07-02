@@ -13,6 +13,7 @@
 
 Route::get('/', 'SiteController@index')->name('main');
 Route::get('/menu-left', 'SiteController@menuLeft');
+Route::get('/left-menu', 'SiteController@menuLeft');
 
 Route::get('/catalog/{slug}', ['uses'=>'SiteController@catalog', 'as'=>'catalog.product-category']);
 Route::get('/catalog/detail/{slug}',['uses' => 'SiteController@detail', 'as' => 'catalog.detail']);
@@ -30,7 +31,6 @@ Route::get('/find/{text?}', ['uses' => 'FindController@index', 'as' => 'find']);
 //Route::post('/register', 'Auth\RegisterController@create');
 
 Route::get('/test', function() {
-  phpinfo();
 });
 
 

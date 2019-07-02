@@ -34,10 +34,15 @@
             <v-flex class="detail__tabs" pa-3 xs12>
               <br>
               <v-tabs class="detail-characteristics" color="green darken-4" dark slider-color="yellow">
+                <v-tab key="description">Описание</v-tab>
                 @foreach($groups as $group)
                   <v-tab key="#tabs-group-{{$group->id}}">{{$group->title}}</v-tab>
                 @endforeach
-                <v-tab key="description">Описание</v-tab>
+                <v-tab-item key="description">
+                  <div class="text-xs-left" style="color: white; padding: 10px;">
+                    {!! $product->description !!}
+                  </div>
+                </v-tab-item>
                 @foreach($groups as $group)
                   <v-tab-item class="tabs-content" key="tabs-group-{{$group->id}}">
                     <!--<v-card height="300px">
@@ -71,11 +76,6 @@
                     </v-card>-->
                   </v-tab-item>
                 @endforeach
-                <v-tab-item key="description">
-                  <div class="text-xs-left" style="color: black; padding: 10px;">
-                     {!! $product->description !!}
-                  </div>
-                </v-tab-item>
               </v-tabs>
             </v-flex>
           </v-layout>

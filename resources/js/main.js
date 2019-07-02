@@ -20,7 +20,8 @@ import createStore from "./vuex/states";
 Vue.use(Vuetify)
 
 //=========LeftMenu========================================
-import LeftMenu from '@/components/menu/LeftMenu'
+//import LeftMenu from '@/components/menu/LeftMenu'
+import LeftMenu from '@product/vue/Menu/LeftMenu'
 Vue.component('left-menu', LeftMenu)
 
 //========DetailImage======================================
@@ -47,12 +48,15 @@ import sliderFullPage from '@/vuex/slider-full-page/state'
 import initializer from '@initializer/vuex/initializer/state'
 
 import cart from '@cart/vuex/store'
+import left_menu from '@product/vuex/left_menu/state'
+
 const store = new Vuex.Store({
   modules: {
     cart,
     callback,
     sliderFullPage,
-    initializer
+    initializer,
+    left_menu
   },
   mutations,
   getters
@@ -112,6 +116,23 @@ const app = new Vue({
       this.showCartModal()
     },
     changeSlide(val) {
+      switch (val) {
+        case 'chickens':
+          this.$store.commit('SET_VARIABLE', {module: 'left_menu', variable: 'section', value: 1})
+          break
+        case 'cows':
+          this.$store.commit('SET_VARIABLE', {module: 'left_menu', variable: 'section', value: 2})
+          break
+        case 'pigs':
+          this.$store.commit('SET_VARIABLE', {module: 'left_menu', variable: 'section', value: 3})
+          break
+        case 'rams':
+          this.$store.commit('SET_VARIABLE', {module: 'left_menu', variable: 'section', value: 4})
+          break
+        default:
+          this.$store.commit('SET_VARIABLE', {module: 'left_menu', variable: 'section', value: 0})
+          break
+      }
       this.$store.dispatch('sliderFullPage/change',val)
     },
     search(event) {
