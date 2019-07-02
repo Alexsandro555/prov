@@ -41,7 +41,7 @@
                       </v-layout>
                     </v-flex>
                     <v-flex xl2 lg2 md2>
-                      <a @click.prevent="changeSlide('main')" href="/"><img src="{{asset('images/logo-layer.png')}}"/></a>
+                      <a href="/" @click="changeSlide('main')"><img src="{{asset('images/logo-layer.png')}}"/></a>
                     </v-flex>
                     <v-flex xs2 hidden-md-and-up justify-center>
                       <v-menu  :close-on-content-click="false" offset-x>

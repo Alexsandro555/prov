@@ -20,7 +20,7 @@
               </v-list-tile>
               <v-list-tile v-for="typeProduct in productCategory.type_products" :key="typeProduct.id">
                 <v-list-tile-content>
-                  <v-list-tile-title @click="goToPage('/catalog/'+productCategory.url_key+'/'+typeProduct.url_key)" class="menu-left-item-el" slot="activator">
+                  <v-list-tile-title @click="goToPage('/'+getSection+'/'+productCategory.url_key+'/'+typeProduct.url_key)" class="menu-left-item-el" slot="activator">
                     <img src="/images/menu-left-item-sub-arr.png"/>
                     {{ limit(typeProduct.title, 27)}}
                   </v-list-tile-title>
@@ -84,6 +84,20 @@
       ...mapGetters('left_menu', ['allowedLineProductsIds']),
       getMenus() {
        return this.handleElements(this.items, this.allowedLineProductsIds)
+      },
+      getSection() {
+        switch (this.section) {
+          case 1:
+            return 'chicken'
+          case 2:
+            return 'cow'
+          case 3:
+            return 'pigs'
+          case 4:
+            return 'rams'
+          default:
+            return 'catalog'
+        }
       }
     },
     mounted() {
