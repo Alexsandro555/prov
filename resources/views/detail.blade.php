@@ -39,7 +39,7 @@
                   <v-tab key="#tabs-group-{{$group->id}}">{{$group->title}}</v-tab>
                 @endforeach
                 <v-tab-item key="description">
-                  <div class="text-xs-left" style="color: white; padding: 10px;">
+                  <div class="text-xs-left" style="color: #253c25; font-size: 1.2em; padding: 10px;">
                     {!! $product->description !!}
                   </div>
                 </v-tab-item>
