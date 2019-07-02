@@ -190,7 +190,7 @@
                           </span>
                         </v-flex>
                         <v-flex xs4 class="footer__address text-xs-right">
-                          <v-flex offset-md4 class="text-xs-right footer__address--margbot10 footer-right">
+                          <v-flex offset-md3 class="text-xs-right footer__address--margbot10 footer-right">
                             <a class="text-xs-center footer__mail" href="/admin">Личный кабинет</a><br>
                             <span>
                                  <img align="top" src="{{asset('images/footer-mail-img.png')}}"/>
