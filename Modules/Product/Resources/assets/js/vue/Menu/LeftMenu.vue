@@ -80,8 +80,9 @@
       }
     },
     computed: {
-      ...mapState('left_menu', ['items','section']),
-      ...mapGetters('left_menu', ['allowedLineProductsIds']),
+      ...mapState('left_menu', ['items']),
+      ...mapState('sections', ['section']),
+      ...mapGetters('sections', ['allowedLineProductsIds']),
       getMenus() {
        return this.handleElements(this.items, this.allowedLineProductsIds)
       },

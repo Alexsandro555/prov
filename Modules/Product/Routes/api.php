@@ -121,3 +121,5 @@ Route::middleware('auth:api')->prefix('attribute_sku_options')->group(function()
   Route::get('/', 'SkuOptionsController@index');
 });
 
+
+

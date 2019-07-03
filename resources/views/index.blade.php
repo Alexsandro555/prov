@@ -69,7 +69,7 @@
                   <v-flex class="about__left about__cit" hidden-sm-and-down>
                     Главная задача нашей компании – максимальное расширение ассортимента и пополнение базы постоянных клиентов. Мы не ставим цель получить большую разовую прибыль. Мы выстраиваем с клиентами долгосрочные и взаимовыгодные отношения, в полном объеме выполняя взятые на себя обязательства.
                   </v-flex>
-                  <a class="about-official about__left" href="#">Посетить оффициальный сайт</a>
+                  <!--<a class="about-official about__left" href="#">Посетить официальный сайт</a>-->
                 </v-flex>
                 <v-flex xs3 class="hidden-md-and-down">
                   <p class="about__header text-md-left low-font">Внимание! <span class="content__subheader">акция</span></p>

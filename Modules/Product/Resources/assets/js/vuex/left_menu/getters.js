@@ -8,7 +8,7 @@ export default {
     return obj
   },
   items: state => state.items,
-  allowedLineProductsIds: state => {
+  /*allowedLineProductsIds: state => {
     return (state.sections.find(item => item.id === state.section) || []).line_products || []
-  }
+  }*/
 }

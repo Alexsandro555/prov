@@ -13,13 +13,13 @@ const state = {
   name: 'MenuLeft',
   items: [],
   loading: true,
-  section: parseInt(localStorage['section']) || 0,
+  /*section: parseInt(localStorage['section']) || 0,
   sections: [
     {
       id: 1,
       title: 'Птицеводство',
       sort: 1,
-      line_products: [4]
+      line_products: [4, 13, 14, 15]
     },
     {
       id: 2,
@@ -39,7 +39,7 @@ const state = {
       sort: 4,
       line_products: []
     }
-  ]
+  ]*/
 }
 
 const module = {

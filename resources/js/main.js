@@ -7,6 +7,7 @@ window.Vue = Vue
 import Vuex from 'vuex'
 import { mapActions, mapMutations } from 'vuex'
 import {ACTIONS, MUTATIONS} from '@cart/constants'
+import {ACTIONS as PRODUCT_ACTIONS} from '@product/constants'
 import mutations from "./vuex/mutations";
 import getters from "./vuex/getters";
 Vue.use(Vuex)
@@ -50,13 +51,19 @@ import initializer from '@initializer/vuex/initializer/state'
 import cart from '@cart/vuex/store'
 import left_menu from '@product/vuex/left_menu/state'
 
+
+
+// Sections
+import sections from '@product/vuex/sections/state'
+
 const store = new Vuex.Store({
   modules: {
     cart,
     callback,
     sliderFullPage,
     initializer,
-    left_menu
+    left_menu,
+    sections
   },
   mutations,
   getters
@@ -78,8 +85,6 @@ Vue.component('product-order', ProductOrder)
 import OrderForm from '@order/vue/OrderForm'
 Vue.component('order-form', OrderForm)
 
-
-
 const app = new Vue({
   el: '#app',
   data: {
@@ -87,6 +92,7 @@ const app = new Vue({
   },
   created() {
     store.dispatch('initializer/init')
+    this.loadSections()
   },
   computed: {
     chickens() {
@@ -136,7 +142,7 @@ const app = new Vue({
       this.$store.dispatch('sliderFullPage/change',val)
     },
     setVariableLeftMenu(val) {
-      this.$store.commit('SET_VARIABLE', {module: 'left_menu', variable: 'section', value: val})
+      this.$store.commit('SET_VARIABLE', {module: 'sections', variable: 'section', value: val})
       localStorage.setItem('section', val)
     },
     search(event) {
@@ -152,6 +158,7 @@ const app = new Vue({
       this.$store.commit('SET_VARIABLE', {module: 'callback', variable: 'form.comment', value: commentText})
     },
     ...mapActions('cart',{addCartItem: ACTIONS.ADD_CART}),
-    ...mapMutations('cart', {showCartModal: MUTATIONS.SHOW_MODAL})
+    ...mapMutations('cart', {showCartModal: MUTATIONS.SHOW_MODAL}),
+    ...mapActions('sections', {loadSections: PRODUCT_ACTIONS.LOAD_SECTIONS})
   }
 })
