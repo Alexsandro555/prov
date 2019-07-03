@@ -130,8 +130,8 @@
               <div class="wrapper">
                 <div class="animal-panel hidden-md-and-down">
                   <a href="#"><img @click.stop="changeSlide('chickens')" src="{{asset('images/chicken-img-panel.png')}}"/></a>
-                  <a href="#"><img @click.stop="changeSlide('cows')" src="{{asset('images/cow-img-panel.png')}}"/></a>
                   <a href="#"><img @click.stop="changeSlide('pigs')" src="{{asset('images/pig-img-panel.png')}}"/></a>
+                  <a href="#"><img @click.stop="changeSlide('cows')" src="{{asset('images/cow-img-panel.png')}}"/></a>
                   <a href="#"><img @click.stop="changeSlide('rams')" src="{{asset('images/bar-img-panel.png')}}"/></a>
                 </div>
                 @yield('breadcrumbs')
