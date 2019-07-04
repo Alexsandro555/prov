@@ -146,6 +146,7 @@ const app = new Vue({
     setVariableLeftMenu(val) {
       this.$store.commit('SET_VARIABLE', {module: 'sections', variable: 'section', value: val})
       localStorage.setItem('section', val)
+      window.location.href='/'
     },
     search(event) {
       const text = event.target.value.replace('/','_')

@@ -17,7 +17,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
       view()->composer('layouts.master', function($view) {
-        $typeProducts = TypeProduct::with('product_category')->take(8)->get();
+        $typeProducts = TypeProduct::with('product_category')->limit(21)->get();
+        //dd($typeProducts);
         $view->with('typeProducts', $typeProducts);
       });
     }
