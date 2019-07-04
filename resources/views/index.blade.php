@@ -14,14 +14,14 @@
     <div class="content">
       <v-flex class="content__info" xs12>
         <v-layout row wrap>
-          <v-flex offset-xs3 xs6 class="hidden-md-and-down">
+          <!--<v-flex offset-xs3 xs6 class="hidden-md-and-down">
             <p class="content__header text-md-left">Наши акции и <span class="content__subheader">спецпредложения</span></p>
             <div class="banner"></div>
           </v-flex>
           <v-flex xs3 px-5 class="text-md-right hidden-md-and-down">
-            <!--<a class="content__buttom" href="#">Все акции <v-icon color="yellow darken-2" medium>keyboard_arrow_right</v-icon></a>-->
+            <a class="content__buttom" href="#">Все акции <v-icon color="yellow darken-2" medium>keyboard_arrow_right</v-icon></a>
           </v-flex>
-          <v-flex class="text-md-left hidden-md-and-down" offset-md3 xs9><img class="content__banner" src="{{asset('images/banner.png')}}"/></v-flex>
+          <v-flex class="text-md-left hidden-md-and-down" offset-md3 xs9><img class="content__banner" src="{{asset('images/banner.png')}}"/></v-flex>-->
           <v-flex  offset-md3 xs8 md6>
             <p class="content__header text-sm-left">Рекомендуемые <span class="content__subheader hidden-sm-and-down">товары</span></p>
             <div class="banner"></div>
