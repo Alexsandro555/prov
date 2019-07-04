@@ -13,5 +13,6 @@
 Route::group(['middleware' => 'web', 'prefix' => 'products'], function()
 {
   Route::get('/special', 'ProductController@specialProducts');
+  Route::get('/new', 'ProductController@new');
   Route::get('/sections', 'SectionsController@index');
 });

@@ -104,6 +104,18 @@ class SiteController extends Controller
     return view('lineProduct', compact('model', 'products', 'attributes'));
   }
 
+  public function sale() {
+    $products = Product::with(['attributes','files', 'lineProduct.files' => function($query) {
+      $query->doesntHave('figure');
+    }, 'typeProduct.files' => function($query) {
+      $query->doesntHave('figure');
+    }, 'productCategory.files' => function($query) {
+      $query->doesntHave('figure');
+    }])->where('onsale', 1)->get();
+    $attributes = [];
+    return view('sale', compact('products', 'attributes'));
+  }
+
   public function menuLeft() {
     return ProductCategory::with(['typeProducts' => function($query) {
       $query->where('active',1)->orderBy('sort');

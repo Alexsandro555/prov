@@ -5,7 +5,7 @@
       <v-list class="list-menu-left">
         <v-list-tile class="menu-left__header">
           <v-list-tile-content>
-            <v-list-tile-title @click="clickToggle" class="text-md-center">Каталог продукции</v-list-tile-title>
+            <v-list-tile-title @click="clickToggle" class="text-md-center">{{selectedCatalog}}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
         <template v-if="toggle" v-for="productCategory in section === 0?items:getMenus">
@@ -98,6 +98,20 @@
             return 'catalog/section-other'
           default:
             return 'catalog'
+        }
+      },
+      selectedCatalog() {
+        switch (this.section) {
+          case 1:
+            return 'Птицеводство'
+          case 2:
+            return 'Скотоводство'
+          case 3:
+            return 'Свиноводство'
+          case 4:
+            return 'Прочее'
+          default:
+            return 'Каталог продукции'
         }
       }
     },

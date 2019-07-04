@@ -97,3 +97,8 @@
   text-transform: uppercase;
 }
 
+
+.borderSel {
+  //border: 4px solid yellow;
+  filter: drop-shadow(5px 5px 10px yellow);
+}

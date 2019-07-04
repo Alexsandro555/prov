@@ -113,52 +113,10 @@
                 <p class="delivery__header text-xs-left">Новинки <span class="delivery__subheader">каталога</span></p>
               </v-flex>
               <v-flex xs5 sm4 xl4 class="text-md-right hidden-sm-and-down">
-                <a class="delivery__button" href="#">В каталог <v-icon color="green darken-2" medium>keyboard_arrow_right</v-icon></a>
+                <a class="delivery__button" href="/sale">В каталог <v-icon color="green darken-2" medium>keyboard_arrow_right</v-icon></a>
               </v-flex>
               <v-flex xs10 sm6 md10 lg12 class="text-xs-left">
-                @foreach($ourProducts as $product)
-                  <div class="product-wrapper">
-                    <img class="product__new-label" src="{{asset('images/product-new-label.png')}}"/>
-                    <img class="product__new-label-coal" src="{{asset('images/product-new-label-coal.png')}}"/>
-                    <div class="product text-xs-center" align="center">
-                      <div class="special-product__header text-xs-center">
-                        <a href="/catalog/detail/{{$product->url_key}}">
-                          {{str_limit($product->title, $limit = 50, $end="...")}}
-                        </a>
-                      </div>
-                      <div class="special-product__img">
-                        <v-layout aligin-center row wrap>
-                          <a href="#" class="img-shadow">
-                            @if($product->files->count()>0)
-                              @foreach($product->files as $fileRecord)
-                                @foreach($fileRecord->config as $files)
-                                  @foreach($files as $key => $file)
-                                    @if($key == 'medium')
-                                      <img src="/storage/{{$file['filename']}}"/>
-                                    @endif
-                                  @endforeach
-                                @endforeach
-                                @break
-                              @endforeach
-                            @else
-                              <img src="{{asset('images/no-image-medium.png')}}"/>
-                            @endif
-                          </a>
-                        </v-layout>
-                      </div>
-                      <div class="special-product__desc text-xs-center">Сделан на заказ</div>
-                      <v-layout col wrap class="special-product__mcart">
-                        <v-flex xs8 class="special-product__price text-xs-center">
-                          <span class="old-price">{{$product->price}}</span> руб.<br>
-                          <span class="current-price">{{$product->price}}</span> <span class="rub">руб.</span>
-                        </v-flex>
-                        <v-flex xs4 class="special-product__cart">
-                          <img @click="addCart({{$product->id}})" src="{{asset('images/product-cart.png')}}"/>
-                        </v-flex>
-                      </v-layout>
-                    </div>
-                  </div>
-                @endforeach
+                <leader-slider :perpage=2 url="/products/new" :per-custom="[[200, 1], [480, 1], [720, 2], [960, 2], [1280, 2]]">
               </v-flex>
             </v-layout>
           </v-flex>

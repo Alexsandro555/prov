@@ -18,7 +18,7 @@
   <v-app class="v-cloak--hidden leader">
     <v-container fluid grid-list-xs text-xs-center>
       <v-layout column wrap>
-          <header ref="header" :class="{header: true, chickens: chickens, cows: cows, pigs: pigs, rams:rams, 'main-layout': main}">
+          <header ref="header" :class="{header: true, chickens: section===1, cows: section===2, pigs: section===3, rams:section===4, 'main-layout': section===0}">
               <div class="header-menu">
                 <div class="wrapper">
                   <v-layout row wrap>
@@ -36,7 +36,9 @@
                           <v-list-tile class="top-menu__item">
                             <a class="header-menu__link"  href="/article/list">статьи</a>
                           </v-list-tile>
-                          <v-list-tile class="top-menu__item">Акции</v-list-tile>
+                          <v-list-tile class="top-menu__item">
+                            <a class="header-menu__link"  href="/sale">Акции</a>
+                          </v-list-tile>
                         </v-list>
                       </v-layout>
                     </v-flex>
@@ -129,10 +131,10 @@
               </div>
               <div class="wrapper">
                 <div class="animal-panel hidden-md-and-down">
-                  <a href="#"><img @click.stop="changeSlide('chickens')" src="{{asset('images/chicken-img-panel.png')}}"/></a>
-                  <a href="#"><img @click.stop="changeSlide('pigs')" src="{{asset('images/pig-img-panel.png')}}"/></a>
-                  <a href="#"><img @click.stop="changeSlide('cows')" src="{{asset('images/cow-img-panel.png')}}"/></a>
-                  <a href="#"><img @click.stop="changeSlide('rams')" src="{{asset('images/bar-img-panel.png')}}"/></a>
+                  <a href="#"><img :class="{borderSel: section===1}" @click.stop="changeSlide('chickens')" src="{{asset('images/chicken-img-panel.png')}}"/></a>
+                  <a href="#"><img :class="{borderSel: section===3}" @click.stop="changeSlide('pigs')" src="{{asset('images/pig-img-panel.png')}}"/></a>
+                  <a href="#"><img :class="{borderSel: section===2}" @click.stop="changeSlide('cows')" src="{{asset('images/cow-img-panel.png')}}"/></a>
+                  <a href="#"><img :class="{borderSel: section===4}" @click.stop="changeSlide('rams')" src="{{asset('images/bar-img-panel.png')}}"/></a>
                 </div>
                 @yield('breadcrumbs')
               </div>
@@ -150,7 +152,7 @@
                       <v-list class="footer-top-menu text-xs-left">
                         <v-list-tile class="footer-top-menu__item"><a class="header-menu__link"  href="/about">О компании</a></v-list-tile>
                         <v-list-tile class="footer-top-menu__item"><a class="header-menu__link"  href="/news/list">Новости</a></v-list-tile>
-                        <v-list-tile class="footer-top-menu__item"><a class="header-menu__link"  href="/sale">Акция</a></v-list-tile>
+                        <v-list-tile class="footer-top-menu__item"><a class="header-menu__link"  href="/sale">Акции</a></v-list-tile>
                         <v-list-tile class="footer-top-menu__item"><a class="header-menu__link"  href="/delivery">Доставка и оплата</a></v-list-tile>
                         <v-list-tile class="footer-top-menu__item"><a class="header-menu__link"  href="/contacts">Контакты</a></v-list-tile>
                       </v-list>

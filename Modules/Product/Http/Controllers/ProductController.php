@@ -37,6 +37,16 @@ class ProductController extends Controller
     }])->where('active',1)->where('special', 1)->get();
   }
 
+  public function new() {
+    return Product::with(['files', 'lineProduct.files' => function($query) {
+      $query->doesntHave('figure');
+    }, 'typeProduct.files' => function($query) {
+      $query->doesntHave('figure');
+    }, 'productCategory.files' => function($query) {
+      $query->doesntHave('figure');
+    }])->where('active',1)->where('onsale', 1)->get();
+  }
+
   public function import(Request $request)
   {
     if($request->hasFile('file')) {

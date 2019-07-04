@@ -25,15 +25,13 @@ Route::get('/catalog/{slugProductCategory}/{slugTypeProduct}/{slug}', ['uses' =>
 Route::get('/admin', ['uses' => '\Modules\Auth\Http\Controllers\AdminController@index', 'as' => 'master']);
 
 Route::get('/find/{text?}', ['uses' => 'FindController@index', 'as' => 'find']);
+Route::get('/sale', ['uses' => 'SiteController@sale', 'as' => 'sale']);
 
 //Route::get('/news/{slug}', '\Modules\News\Http\Controllers\NewsController@show');
 //Route::get('/{slug}', '\Modules\Page\Http\Controllers\PageController@show');
 
 //Auth::routes();
 //Route::post('/register', 'Auth\RegisterController@create');
-
-Route::get('/test', function() {
-});
 
 
 //Route::get('/home', 'HomeController@index')->name('home');

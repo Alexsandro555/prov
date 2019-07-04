@@ -1496,3 +1496,8 @@ ul.footer-top-menu:first-child {
   text-transform: uppercase;
 }
 
+.borderSel {
+  -webkit-filter: drop-shadow(5px 5px 10px yellow);
+          filter: drop-shadow(5px 5px 10px yellow);
+}
+

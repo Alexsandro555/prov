@@ -5,7 +5,7 @@ window.Vue = Vue
 
 //===========Vuex==========================================
 import Vuex from 'vuex'
-import { mapActions, mapMutations } from 'vuex'
+import { mapActions, mapMutations, mapState } from 'vuex'
 import {ACTIONS, MUTATIONS} from '@cart/constants'
 import {ACTIONS as PRODUCT_ACTIONS} from '@product/constants'
 import mutations from "./vuex/mutations";
@@ -85,6 +85,7 @@ Vue.component('product-order', ProductOrder)
 import OrderForm from '@order/vue/OrderForm'
 Vue.component('order-form', OrderForm)
 
+
 const app = new Vue({
   el: '#app',
   data: {
@@ -95,6 +96,7 @@ const app = new Vue({
     this.loadSections()
   },
   computed: {
+    ...mapState('sections', ['section']),
     chickens() {
       return this.$store.state.sliderFullPage.slides.chickens
     },
