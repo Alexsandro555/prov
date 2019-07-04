@@ -26,7 +26,7 @@ class CallbackController extends Controller
       'email' => $request->email,
       'comment' => $request->comment
     ]);
-    Mail::to("xanmaster08@rambler.ru")->send(new CallbackShipped($model));
+    Mail::to(config('info.email'))->send(new CallbackShipped($model));
     return [];
   }
 }
