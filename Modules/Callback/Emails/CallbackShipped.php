@@ -30,7 +30,7 @@ class CallbackShipped extends Mailable
    */
   public function build()
   {
-    return $this->from('anna@oooleader.ru')->view('callback::emails.callback-shipped')->with([
+    return $this->from(config('info.admin_email'))->view('callback::emails.callback-shipped')->with([
       'callback' => $this->callback
     ]);
   }

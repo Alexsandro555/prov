@@ -31,7 +31,7 @@ class OrderShipped extends Mailable
    */
   public function build()
   {
-    return $this->from('alexsandro@oooleader.ru')->view('order::emails.order-shipped')->with([
+    return $this->from(config('info.admin_email'))->view('order::emails.order-shipped')->with([
       'number' => $this->order->number,
       'email' => $this->order->user->email,
       'telephone' => $this->order->user->telephone,
