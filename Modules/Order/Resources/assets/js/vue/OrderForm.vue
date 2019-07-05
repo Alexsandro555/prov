@@ -85,7 +85,7 @@
           axios.post('/order', this.form)
             .then(response => response.data)
             .then(response => {
-              window.location.href = '/order/'+response.number
+              window.location.href = '/order/success/'+response.number
             })
             .catch(error => {
               this.isSending = false

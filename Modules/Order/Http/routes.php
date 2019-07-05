@@ -5,5 +5,5 @@ Route::group(['middleware' => 'web', 'prefix' => 'order', 'namespace' => 'Module
     Route::get('/', 'OrderController@index');
     Route::post('/', 'OrderController@store');
     Route::get('/items', 'OrderController@items');
-    Route::get('/{number}', 'OrderController@success');
+    Route::get('/success/{number}', ['uses' => 'OrderController@success', 'as' => 'order-success']);
 });
