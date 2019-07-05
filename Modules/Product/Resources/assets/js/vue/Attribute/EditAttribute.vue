@@ -42,15 +42,27 @@
                     <br>
                     <v-form ref="formList" lazy-validation v-model="validList">
                       <v-layout row wrap>
-                        <v-text-field
-                          name="title"
-                          label="Значение списка"
-                          v-model="titleList"
-                          :counter="255"
-                          :rules="[v => !!v || 'Обязательно для заполнения',v => v && v.length <=255 || 'Наименование должно иметь длину не более 255 символов']"
-                          :error-messages="messages.titleList"
-                          required></v-text-field>
+                        <v-flex xs8>
+                          <v-text-field
+                            name="title"
+                            label="Значение списка"
+                            v-model="titleList"
+                            :counter="255"
+                            :rules="[v => !!v || 'Обязательно для заполнения',v => v && v.length <=255 || 'Наименование должно иметь длину не более 255 символов']"
+                            :error-messages="messages.titleList"
+                            required>
+                          </v-text-field>
+                        </v-flex>
+                        <v-flex xs1>
+                          <v-checkbox
+                            label="Значение по-умолчанию"
+                            v-model="defaultList"
+                            :error-messages="messages.defaultList">
+                          </v-checkbox>
+                        </v-flex>
+                        <v-flex xs2>
                           <v-btn large :class="{primary: validList, 'red lighten-3': !validList}" :disabled="isSending" @click.prevent="onSaveListVal">Добавить</v-btn>
+                        </v-flex>
                       </v-layout>
                     </v-form>
                   </div>
@@ -81,6 +93,7 @@
         loader: true,
         isSending: false,
         titleList: '',
+        defaultList: false,
         headers: [
           {
             text: 'Значение',
@@ -153,11 +166,12 @@
       onSaveListVal() {
         if (this.$refs.formList.validate()) {
           this.isSending = true
-          this.add({'attribute_id': Number(this.id), 'title': this.titleList}).then(response => {
-            this.resetError();
-            this.isSending = false
-            this.$refs.formList.reset()
-          })
+          this.add({'attribute_id': Number(this.id), 'title': this.titleList, 'default': this.defaultList})
+              .then(response => {
+                this.resetError();
+                this.isSending = false
+                this.$refs.formList.reset()
+              })
         }
       }
     }

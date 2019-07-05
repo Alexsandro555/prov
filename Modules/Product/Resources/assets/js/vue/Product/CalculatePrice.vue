@@ -75,7 +75,7 @@
       this.getAttributes.forEach(attribute => {
         if(attribute.attribute_list_value.length > 0) {
           let obj = {};
-          obj[attribute.id] = attribute.attribute_list_value[0].id
+          obj[attribute.id] = (attribute.attribute_list_value.find(item => item.default === 1) || []).id
           this.attributesValue = Object.assign({}, this.attributesValue, obj)
         }
       })

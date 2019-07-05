@@ -10,9 +10,9 @@
                 :label="attribute.title"
                 :items="attribute.attribute_list_value"
                 item-text="title"
-                item-value="title"
+                item-value="id"
                 no-data-text="Нет данных"
-                v-model="attributesValue[attribute.title]">
+                v-model="attributesValue[attribute.id]">
       </v-select>
     </v-flex>
     <a @click="formCallback()" class="product-order-req yellow darken-1" href="#">Запросить цену</a>
@@ -29,6 +29,7 @@
     data() {
       return {
         attributesValue: {},
+        allElements: {}
       }
     },
     computed: {
@@ -43,13 +44,28 @@
       },
       getAttributes() {
         return this.getProductCategoryAttributes.concat(this.getTypeProductAttributes).concat(this.getLineProductAttributes)
-      },
+      }
+    },
+    created() {
+      this.getAttributes.forEach(item => {
+        let arr = []
+        arr.push(item)
+        this.allElements[item.id] = arr
+      })
+      this.getAttributes.forEach(attribute => {
+        if(attribute.attribute_list_value.length > 0) {
+          let obj = {};
+          obj[attribute.id] = (attribute.attribute_list_value.find(item => item.default === 1) || []).id
+          this.attributesValue = Object.assign({}, this.attributesValue, obj)
+        }
+      })
     },
     methods: {
       formCallback() {
         let commentText = 'Добрый день! \nПрошу сообщить стоимость и наличие товара:\n'+this.product.title
+        let that = this
         for(let key in this.attributesValue) {
-          commentText = commentText+'\n'+key+':'+this.attributesValue[key]
+          commentText = commentText+'\n'+that.allElements[key].find(item => item.id == key).title+': '+that.allElements[key].find(item => item.id == key).attribute_list_value.find(item => item.id === that.attributesValue[key]).title
         }
         commentText = commentText+'\nСпасибо!'
         this.$store.commit('SET_VARIABLE', {module: 'callback', variable: 'isVisible', value: true})
