@@ -53,14 +53,15 @@
                             required>
                           </v-text-field>
                         </v-flex>
-                        <v-flex xs1>
+                        <v-flex xs2>
                           <v-checkbox
-                            label="Значение по-умолчанию"
+                            class="text-xs-center"
+                            label="по-умолчанию"
                             v-model="defaultList"
                             :error-messages="messages.defaultList">
                           </v-checkbox>
                         </v-flex>
-                        <v-flex xs2>
+                        <v-flex xs1>
                           <v-btn large :class="{primary: validList, 'red lighten-3': !validList}" :disabled="isSending" @click.prevent="onSaveListVal">Добавить</v-btn>
                         </v-flex>
                       </v-layout>

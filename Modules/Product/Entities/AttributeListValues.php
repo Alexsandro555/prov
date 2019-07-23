@@ -19,5 +19,7 @@ class AttributeListValues extends Model
     return $this->bolongsTo(Attribute::class);
   }
 
-  private $_defaultField = 'attribute_id';
+  public $matched = ['attribute_id'];
+
+  public $unmatched = ['id'];
 }

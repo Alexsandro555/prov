@@ -65,6 +65,7 @@
         let commentText = 'Добрый день! \nПрошу сообщить стоимость и наличие товара:\n'+this.product.title
         let that = this
         for(let key in this.attributesValue) {
+          if(this.attributesValue[key] === undefined) break;
           commentText = commentText+'\n'+that.allElements[key].find(item => item.id == key).title+': '+that.allElements[key].find(item => item.id == key).attribute_list_value.find(item => item.id === that.attributesValue[key]).title
         }
         commentText = commentText+'\nСпасибо!'
