@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
-@section('title', 'статьи')
+@section('title', 'Статьи. '.config('info.site_name'))
+@section('meta-description', 'Статьи. Купить '.config('info.site_name'))
+@section('meta-keywords', config('info.keywords'))
 
 @section('content')
   <div class="content-wrapper articles">

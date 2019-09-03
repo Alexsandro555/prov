@@ -1,5 +1,10 @@
 @extends('layouts.master')
 
+@section('title', 'Купить '.$product->title.' по доступным ценам')
+@section('meta-description', 'Купить '.$product->title.' '.str_limit(strip_tags($product->description), $limit = 160, $end="..."))
+@section('meta-keywords', $product->keywords?$product->keywords:config('info.keywords'))
+
+
 @section('breadcrumbs')
   <div class="abs-breadcrumbs">
     {{ Breadcrumbs::render() }}

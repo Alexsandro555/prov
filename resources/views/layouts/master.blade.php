@@ -6,6 +6,8 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="@yield('meta-description')">
+  <meta name="keywords" content="@yield('meta-keywords')">
   <link rel="stylesheet" type="text/css" href="{{asset('css/vuetify.min.css')}}">
   <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{mix('css/style.css')}}">

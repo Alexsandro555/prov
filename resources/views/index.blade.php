@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title', 'Купить '.config('info.site_name').' по доступным ценам')
+@section('meta-description', 'Купить '.config('info.site_name').' высокого качества, производителей Lubing, Barbieri')
+@section('meta-keywords', config('info.keywords'))
+
 @section('menu')
   <div class="menu-wrapper wrapper">
     <div class="abs-position">

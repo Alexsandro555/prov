@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title', 'Закзаать '.config('info.site_name'))
+@section('meta-description', 'Заказать '.config('info.site_name'))
+@section('meta-keywords', 'Заказать, '.config('info.keywords'))
+
 @section('menu')
   <div class="menu-wrapper wrapper">
     <div class="abs-position">

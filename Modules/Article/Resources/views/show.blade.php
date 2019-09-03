@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
 @section('title', $article->title)
+@section('meta-description', $article->title)
+@section('meta-keywords', $article->keywords?$article->keywords:config('info.keywords'))
 
 @section('content')
   <div class="content-wrapper text-xs-left">
