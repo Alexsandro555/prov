@@ -74,7 +74,7 @@
             ...mapState('pages', ['items', 'fields', 'relations', 'typeFiles']),
             ...mapGetters('pages', {getItem: GLOBAL.GET_ITEM, getModel: 'getModel'}),
             form() {
-                return _.pick(this.getItem(Number(this.id)), ['id','title','url_key','content'])
+                return _.pick(this.getItem(Number(this.id)), ['id','title','url_key','content', 'meta_title', 'meta_description', 'meta_keywords'])
             }
         },
         components: {

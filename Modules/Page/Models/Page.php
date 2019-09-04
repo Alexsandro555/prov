@@ -29,6 +29,15 @@ class Page extends Model
         'max' => 255
       ]
     ],
+    'meta_title' => [
+      'enabled' => true,
+    ],
+    'meta_description' => [
+      'enabled' => true,
+    ],
+    'meta_keywords' => [
+      'enabled' => true,
+    ],
     'url_key' => [
       'enabled' => true,
       'validations' => [

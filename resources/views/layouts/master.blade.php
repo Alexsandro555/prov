@@ -200,7 +200,7 @@
                             <a class="text-xs-center footer__mail" href="/admin">Личный кабинет</a><br>
                             <span>
                                  <img align="top" src="{{asset('images/footer-mail-img.png')}}"/>
-                                 <span class="footer__mail"> {{config('info.email')}}</span>
+                                 <span class="footer__mail"> {{config('info.manager_email')}}</span>
                             </span><br>
                             <span>
                               <img align="top" src="{{asset('images/footer-map-marker-img.png')}}"/>

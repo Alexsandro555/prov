@@ -15,9 +15,7 @@ class CallbackRequest extends FormRequest
   {
     return [
       'fio' => 'required|max:255',
-      'company_name' => 'max:50',
       'telephone' => 'required|max:50',
-      'email' => 'email'
     ];
   }
 

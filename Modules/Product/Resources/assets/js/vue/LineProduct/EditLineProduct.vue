@@ -80,7 +80,7 @@
       ...mapState('line_products', ['items', 'fields', 'relations','typeFiles']),
       ...mapGetters('line_products', {getItem: GLOBAL.GET_ITEM, getModel: 'getModel'}),
       form() {
-        return _.pick(this.getItem(Number(this.id)), ['id', 'title', 'sort', 'active', 'description', 'type_product_id', 'price_amount'])
+        return _.pick(this.getItem(Number(this.id)), ['id', 'title', 'sort', 'active', 'description', 'type_product_id', 'price_amount', 'meta_title', 'meta_description', 'meta_keywords'])
       }
     },
     components: {

@@ -1,8 +1,8 @@
 @extends('layouts.master')
 
-@section('title', 'Купить '.$product->title.' по доступным ценам')
-@section('meta-description', 'Купить '.$product->title.' '.str_limit(strip_tags($product->description), $limit = 160, $end="..."))
-@section('meta-keywords', $product->keywords?$product->keywords:config('info.keywords'))
+@section('title', $product->meta_title?$product->meta_title:'Купить '.$product->title.' по доступным ценам')
+@section('meta-description', $product->meta_description?$product->meta_description:'Купить '.$product->title.' '.str_limit(strip_tags($product->description), $limit = 160, $end="..."))
+@section('meta-keywords', $product->meta_keywords?$product->meta_keywords:config('info.keywords'))
 
 
 @section('breadcrumbs')

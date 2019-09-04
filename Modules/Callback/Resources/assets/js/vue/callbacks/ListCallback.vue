@@ -19,9 +19,7 @@
               <template slot="items" slot-scope="props">
                 <td>{{ props.item.id }}</td>
                 <td class="text-xs-left">{{ props.item.name }}</td>
-                <td class="text-xs-left">{{ props.item.company_name }}</td>
                 <td class="text-xs-left">{{ props.item.telephone }}</td>
-                <td class="text-xs-left">{{ props.item.email }}</td>
                 <td class="text-xs-left">{{ props.item.comment }}</td>
                 <!--<td class="justify-center layout px-0">
                   <v-btn icon class="mx-0" @click="$router.push('/callbacks/edit/'+props.item.id)">
@@ -76,22 +74,12 @@
           },
           {
             text: 'ФИО',
-            value: 'name',
-            sortable: true
-          },
-          {
-            text: 'Название компании',
-            value: 'company_name',
+            value: 'fio',
             sortable: true
           },
           {
             text: 'Телефон',
             value: 'telephone',
-            sortable: true
-          },
-          {
-            text: 'Email',
-            value: 'email',
             sortable: true
           },
           {

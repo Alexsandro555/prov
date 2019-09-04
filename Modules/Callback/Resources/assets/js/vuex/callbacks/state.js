@@ -16,13 +16,7 @@ const state = {
   fields: [],
   loading: true,
   isVisible: false,
-  form: {
-    fio:'',
-    company_name: '',
-    telephone: '',
-    email: '',
-    comment: ''
-  }
+  form: {}
 }
 
 const module = {

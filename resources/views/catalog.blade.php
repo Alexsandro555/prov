@@ -1,8 +1,8 @@
 @extends('layouts.master')
 
-@section('title', 'Купить '.$model->title.' по доступным ценам')
-@section('meta-description', 'Купить '.$model->title.' '.str_limit(strip_tags($model->description), $limit = 160, $end="..."))
-@section('meta-keywords', $model->keywords?$model->keywords:config('info.keywords'))
+@section('title', $model->meta_title?$model->meta_title:'Купить '.$model->title.' по доступным ценам')
+@section('meta-description', $model->meta_description?$model->meta_description:'Купить '.$model->title.' '.str_limit(strip_tags($model->description), $limit = 160, $end="..."))
+@section('meta-keywords', $model->meta_keywords?$model->meta_keywords:config('info.keywords'))
 
 @section('breadcrumbs')
   <div class="abs-breadcrumbs">

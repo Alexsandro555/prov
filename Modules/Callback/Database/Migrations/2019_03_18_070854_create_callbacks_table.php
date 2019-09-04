@@ -17,10 +17,8 @@ class CreateCallbacksTable extends Migration
   {
     Schema::create($this->tableName, function (Blueprint $table) {
       $table->increments('id')->comment('Идентефикатор');
-      $table->string('name', 255)->comment('Клиент');
-      $table->string('company_name', 50)->nullable()->comment('Название компании');
+      $table->string('fio', 255)->comment('Ф.И.О.');
       $table->string('telephone', 50)->comment('Телефон');
-      $table->string('email', 50)->comment('Email');
       $table->text('comment')->nullable()->comment('Комментарий');
       $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
       $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

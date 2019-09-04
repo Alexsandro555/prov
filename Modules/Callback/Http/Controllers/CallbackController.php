@@ -19,14 +19,8 @@ class CallbackController extends Controller
    */
   public function store(CallbackRequest $request)
   {
-    $model = Callback::create([
-      'name' => $request->fio,
-      'company_name' => $request->company_name,
-      'telephone' => $request->telephone,
-      'email' => $request->email,
-      'comment' => $request->comment
-    ]);
-    Mail::to(config('info.email'))->send(new CallbackShipped($model));
+    $model = Callback::create($request->all());
+    Mail::to(config('info.manager_email'))->send(new CallbackShipped($model));
     return [];
   }
 }

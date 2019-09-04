@@ -30,6 +30,30 @@
                           :error-messages="messages.title"
                           required></v-text-field>
                         <v-text-field
+                          name="meta_title"
+                          label="Шаблон META TITLE"
+                          v-model="form.meta_title"
+                          :counter="80"
+                          :rules="getRules({ max: 80})"
+                          :error-messages="messages.meta_title">
+                        </v-text-field>
+                        <v-text-field
+                          name="meta_description"
+                          label="Шаблон META DESCRIPTION"
+                          v-model="form.meta_description"
+                          :counter="80"
+                          :rules="getRules({ max: 80})"
+                          :error-messages="messages.meta_description">
+                        </v-text-field>
+                        <v-text-field
+                          name="meta_keywords"
+                          label="Шаблон META KEYWORDS"
+                          v-model="form.meta_keywords"
+                          :counter="80"
+                          :rules="getRules({ max: 80})"
+                          :error-messages="messages.meta_keywords">
+                        </v-text-field>
+                        <v-text-field
                           name="price"
                           label="Цена"
                           v-model="form.price"
@@ -311,7 +335,7 @@
         if (this.$refs.form.validate()) {
           this.isSending = true
           this.save(_.pick(this.form, [
-            'id', 'title', 'price', 'description','qty', 'active', 'sort', 'onsale', 'special', 'need_order', 'product_category_id', 'type_product_id', 'line_product_id', 'vendor', 'IEC', 'sku'
+            'id', 'title', 'price', 'description','qty', 'active', 'sort', 'onsale', 'special', 'need_order', 'product_category_id', 'type_product_id', 'line_product_id', 'vendor', 'IEC', 'sku', 'meta_title', 'meta_description', 'meta_keywords'
           ])).then(response => {
             this.isSending = false
             //this.$router.push('list-product')

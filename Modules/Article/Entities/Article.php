@@ -29,6 +29,15 @@ class Article extends Model
         'max' => 255
       ]
     ],
+    'meta_title' => [
+      'enabled' => true,
+    ],
+    'meta_description' => [
+      'enabled' => true,
+    ],
+    'meta_keywords' => [
+      'enabled' => true,
+    ],
     'content' => [
       'enabled' => true
     ]
