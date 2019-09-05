@@ -66,7 +66,7 @@ class OrderController extends Controller
         $order->products()->attach($cartProduct->id, ['qty' => $cartProduct->qty, 'price' => $cartProduct->price]);
       }
       $this->cartRepository->deleteAll();
-      Mail::to(config('info.email'))->send(new OrderShipped($order));
+      Mail::to(config('info.manager_email'))->send(new OrderShipped($order));
       return $order;
     } else {
       return response()->json(['errors' => ['emptyCart' => 'Корзина не должна быть пустой']], 422);
