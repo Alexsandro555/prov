@@ -4,6 +4,7 @@
               :style="{ height: '428px'}"
               :pagination-enabled=false
               :navigation-enabled=true
+              :spacePaddingMaxOffsetFactor="0"
               navigationNextLabel = '<img src="/images/slider-right-arrow.png" class="slider-right-arrow">'
               navigationPrevLabel = '<img src="/images/slider-left-arrow.png" class="slider-left-arrow">'
               :per-page=perpage
@@ -104,12 +105,24 @@
   }
 
   .slider-left-arrow {
-    margin-right: -40px;
+    margin-right: -55px;
   }
+
 
   .slider-right-arrow {
-    margin-left: -75px;
+   margin-left: -45px;
   }
 
+  @media (max-width: 1280px) {
+    .slider-right-arrow {
+      //margin-left: -255px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .slider-right-arrow {
+      //margin-left: -165px;
+    }
+  }
   /* Конец добавления размытия по-краям */
 </style>

@@ -120,7 +120,7 @@
                 <a class="delivery__button" href="/sale">В каталог <v-icon color="green darken-2" medium>keyboard_arrow_right</v-icon></a>
               </v-flex>
               <v-flex xs10 sm6 md10 lg12 class="text-xs-left">
-                <leader-slider :perpage=2 url="/products/new" :per-custom="[[200, 1], [480, 1], [720, 2], [960, 2], [1280, 2]]">
+                <leader-slider :perpage=2 url="/products/new" :per-custom="[[200, 1], [480, 1], [720, 2], [960, 3], [1280, 3]]">
               </v-flex>
             </v-layout>
           </v-flex>
