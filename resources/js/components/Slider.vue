@@ -1,6 +1,13 @@
 <template>
   <div>
-    <carousel name="carousel" :style="{ height: '428px'}" :pagination-enabled=false :navigation-enabled=true :per-page=perpage :per-page-custom="perCustom">
+    <carousel name="carousel"
+              :style="{ height: '428px'}"
+              :pagination-enabled=false
+              :navigation-enabled=true
+              navigationNextLabel = '<img src="/images/slider-right-arrow.png" class="slider-right-arrow">'
+              navigationPrevLabel = '<img src="/images/slider-left-arrow.png" class="slider-left-arrow">'
+              :per-page=perpage
+              :per-page-custom="perCustom">
       <slide v-for="item in items" :key="item.id">
           <slot :product="item" :getImages="getImages" :addCart="addCart" :getUrl="getUrl"></slot>
       </slide>
@@ -94,6 +101,14 @@
 
   .img-shadow img {
     float: left;
+  }
+
+  .slider-left-arrow {
+    margin-right: -40px;
+  }
+
+  .slider-right-arrow {
+    margin-left: -75px;
   }
 
   /* Конец добавления размытия по-краям */
