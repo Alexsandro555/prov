@@ -1,3 +1,2 @@
 User-agent: *
 Disallow:
-Host: https://leader-agro.ru

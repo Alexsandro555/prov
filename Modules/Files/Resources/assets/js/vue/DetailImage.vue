@@ -118,7 +118,7 @@
   }
 
   .image-wrapper {
-    height: 320px;
+    height: 350px;
     position: relative;
     display: table-cell;
     vertical-align: middle;
