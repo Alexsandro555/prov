@@ -25,7 +25,7 @@
                     <template>
                       <v-data-table :headers="headers" :items="getAttributeListValues" class="elevation-1">
                         <template slot="items" slot-scope="props">
-                          <td class="text-xs-left">{{ props.item.title}}</td>
+                          <td class="text-xs-left">{{ props.item.title}}<v-icon v-if="props.item.default" color="pink">starts</v-icon></td>
                           <td class="text-xs-right">
                             <v-btn icon class="mx-0" @click="deleteItem(props.item.id)">
                               <v-icon color="pink">delete</v-icon>
