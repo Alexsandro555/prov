@@ -8,7 +8,7 @@
                 dark
                 :name="attribute.id+'_id'"
                 :label="attribute.title"
-                :items="attribute.attribute_list_value"
+                :items="sorting(attribute.attribute_list_value)"
                 item-text="title"
                 item-value="id"
                 no-data-text="Нет данных"
@@ -71,6 +71,9 @@
         commentText = commentText+'\nСпасибо!'
         this.$store.commit('SET_VARIABLE', {module: 'callback', variable: 'isVisible', value: true})
         this.$store.commit('SET_VARIABLE', {module: 'callback', variable: 'form.comment', value: commentText})
+      },
+      sorting(items) {
+        return _.orderBy(items, ['sort'], ['asc'])
       },
     }
   }

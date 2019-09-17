@@ -25,7 +25,7 @@
         dark
         :name="attribute.id+'_id'"
         :label="attribute.title"
-        :items="attribute.attribute_list_value"
+        :items="sorting(attribute.attribute_list_value)"
         item-text="title"
         item-value="id"
         no-data-text="Нет данных"
@@ -85,6 +85,9 @@
         const count = 1
         this.addCartItem({id, count, price:this.$refs.price.innerHTML })
         this.showCartModal()
+      },
+      sorting(items) {
+        return _.orderBy(items, ['sort'], ['asc'])
       },
       ...mapActions('cart',{addCartItem: ACTIONS.ADD_CART}),
       ...mapMutations('cart', {showCartModal: MUTATIONS.SHOW_MODAL})
