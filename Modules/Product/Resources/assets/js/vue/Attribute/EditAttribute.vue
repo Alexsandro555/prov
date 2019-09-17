@@ -23,7 +23,7 @@
                   <br>
                   <div v-if="form.attribute_type_id == 8">
                     <template>
-                      <v-data-table :headers="headers" :items="getAttributeListValues" class="elevation-1">
+                      <v-data-table :headers="headers" :items="getAttributeListValues" :rows-per-page-items="[20, 50, { 'text': '$vuetify.dataIterator.rowsPerPageAll', 'value': -1 } ]" class="elevation-1">
                         <template slot="items" slot-scope="props">
                           <td class="text-xs-left">{{ props.item.id}}</td>
                           <td class="text-xs-left">{{ props.item.title}}&nbsp;&nbsp;<v-icon v-if="props.item.default" color="pink">starts</v-icon></td>
@@ -178,6 +178,10 @@
                 this.resetError();
                 this.isSending = false
                 this.$refs.formList.reset()
+              })
+              .catch(error => {
+                console.error(error)
+                this.isSending = false
               })
         }
       }
