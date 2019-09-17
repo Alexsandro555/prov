@@ -249,6 +249,7 @@
     <callback/>
   </v-app>
 </div>
+<script src="{{mix('/js/main.js')}}" type="application/javascript"></script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
   (function (m, e, t, r, i, k, a) {
@@ -270,6 +271,5 @@
   <div><img src="https://mc.yandex.ru/watch/54321909" style="position:absolute; left:-9999px;" alt=""/></div>
 </noscript>
 <!-- /Yandex.Metrika counter -->
-<script src="{{mix('/js/main.js')}}" type="application/javascript"></script>
 </body>
 </html>

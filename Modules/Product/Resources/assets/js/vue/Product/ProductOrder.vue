@@ -43,7 +43,7 @@
         return (this.product.line_product && this.product.line_product.attributes) || []
       },
       getAttributes() {
-        return this.getProductCategoryAttributes.concat(this.getTypeProductAttributes).concat(this.getLineProductAttributes)
+        return _.orderBy(this.getProductCategoryAttributes.concat(this.getTypeProductAttributes).concat(this.getLineProductAttributes), ['sort'], ['asc'])
       }
     },
     created() {
