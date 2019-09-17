@@ -25,7 +25,7 @@
         dark
         :name="attribute.id+'_id'"
         :label="attribute.title"
-        :items="_.orderBy(attribute.attribute_list_value, ['sort'], ['asc'])"
+        :items="attribute.attribute_list_value"
         item-text="title"
         item-value="id"
         no-data-text="Нет данных"
