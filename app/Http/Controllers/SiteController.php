@@ -141,7 +141,7 @@ class SiteController extends Controller
           $query->where('title', 'Списковый');
         }, 'productCategory.attributes.attributeListValue',
         'skus.attributes'
-      ])->where('url_key',$slug)->first();
+      ])->where('url_key',$slug)->firstOrFail();
     return view('detail', compact('product', 'groups'));
   }
 
