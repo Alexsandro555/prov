@@ -80,12 +80,14 @@ const app = new Vue({
   },
   data() {
     return {
-      dark: true
+      dark: localStorage.getItem('dark') == "true"?true:false
     }
   },
   methods: {
     chengeColor() {
+      console.log('chengeColor')
       this.dark = !this.dark
+      localStorage.setItem('dark', this.dark)
     }
   }
 });
