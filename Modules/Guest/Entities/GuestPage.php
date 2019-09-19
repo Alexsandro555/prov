@@ -29,10 +29,33 @@ class GuestPage extends Model
     ],
     'ip' => [
       'enabled' => true,
+    ],
+    'utm_source' => [
+      'enabled' => true,
+    ],
+    'utm_medium' => [
+      'enabled' => true,
+    ],
+    'utm_campaign' => [
+      'enabled' => true,
+    ],
+    'utm_content' => [
+      'enabled' => true,
+    ],
+    'utm_term' => [
+      'enabled' => true,
+    ],
+    'params' => [
+      'enabled' => true,
     ]
   ];
 
   public function guest() {
     return $this->belongsTo(Guest::class);
   }
+
+
+  protected $casts = [
+    'params' => 'collection'
+  ];
 }
