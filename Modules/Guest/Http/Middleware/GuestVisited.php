@@ -28,7 +28,7 @@ class GuestVisited
         Cookie::queue('user_uuid', $model->id, 60 * 24 * 30);
     } else {
       $model = Guest::find(Cookie::get('user_uuid'));
-      $model? $model->storePath():Log::error('Не найден пользователь с uuid: '.Cookie::get('user_uuid'));
+      $model? $model->storePath($request->all(), $request->ip(), $request->path(), $request->header('referer')):Log::error('Не найден пользователь с uuid: '.Cookie::get('user_uuid'));
     }
     return $next($request);
   }
