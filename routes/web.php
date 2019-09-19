@@ -15,7 +15,7 @@ Route::get('/menu-left', 'SiteController@menuLeft');
 Route::get('/left-menu', 'SiteController@menuLeft');
 Route::get('/admin', ['uses' => '\Modules\Auth\Http\Controllers\AdminController@index', 'as' => 'master']);
 
-Route::middleware(['visitor'])->group(function() {
+//Route::middleware(['visitor'])->group(function() {
   Route::get('/', 'SiteController@index')->name('main');
   Route::get('/catalog/{slug}', ['uses'=>'SiteController@catalog', 'as'=>'catalog.product-category']);
   Route::get('/catalog/detail/{slug}',['uses' => 'SiteController@detail', 'as' => 'catalog.detail']);
@@ -25,7 +25,7 @@ Route::middleware(['visitor'])->group(function() {
   Route::get('/find/{text?}', ['uses' => 'FindController@index', 'as' => 'find']);
   Route::get('/sale', ['uses' => 'SiteController@sale', 'as' => 'sale']);
   Route::get('/{slug}', '\Modules\Page\Http\Controllers\PagesController@show');
-});
+//});
 
 
 
