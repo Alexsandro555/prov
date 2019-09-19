@@ -48,7 +48,7 @@ class GuestVisited
 
         $model->pages()->create([
           'url' => $request->path(),
-          'referer' => $request->header('referer'),
+          //'referer' => $request->header('referer'),
           'ip' => $request->ip()
         ]);
         Cookie::queue('user_uuid', $model->id, 60 * 24 * 30);
@@ -57,7 +57,7 @@ class GuestVisited
       if ($model) {
         $model->pages()->create([
           'url' => $request->path(),
-          'referer' => $request->header('referer'),
+          //'referer' => $request->header('referer'),
           'ip' => $request->ip()
         ]);
       } else {
