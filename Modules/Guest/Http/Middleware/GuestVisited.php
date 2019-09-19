@@ -26,7 +26,7 @@ class GuestVisited
         $uuid = (string) Str::uuid();
         $model->id = $uuid;
         $model->user_agent = $request->header('User-Agent');
-        $params = $request->all();
+        /*$params = $request->all();
         foreach($params as $key => $param) {
           switch ($key) {
             case 'utm_source':
@@ -43,7 +43,7 @@ class GuestVisited
               break;
           }
         }
-        $model->params = collect($request->all());
+        $model->params = collect($request->all());*/
         $model->save();
 
         $model->pages()->create([
