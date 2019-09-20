@@ -1,7 +1,9 @@
 import './bootstrap'
 
+//===========Vue===========================================
 import Vue from 'vue'
 window.Vue = Vue
+//===========Конец Vue=====================================
 
 //===========Vuex==========================================
 import Vuex from 'vuex'
@@ -11,51 +13,51 @@ import {ACTIONS as PRODUCT_ACTIONS} from '@product/constants'
 import mutations from "./vuex/mutations";
 import getters from "./vuex/getters";
 Vue.use(Vuex)
+//==========Конец Vuex=====================================
 
 //==========Vuetify========================================
 import Vuetify from 'vuetify'
 // Импорт CSS-файлов, которые могут потребоваться
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import 'vuetify/dist/vuetify.min.css'
-import createStore from "./vuex/states";
 Vue.use(Vuetify)
+//=========Конец Vuetify===================================
 
-//=========LeftMenu========================================
-//import LeftMenu from '@/components/menu/LeftMenu'
+//=========Global components========================================
 import LeftMenu from '@product/vue/Menu/LeftMenu'
 Vue.component('left-menu', LeftMenu)
-
-//========DetailImage======================================
 import DetailImage from '@file/vue/DetailImage'
 Vue.component('detail-image', DetailImage)
-
-//========Cart==============================================
 import CartWidget from '@cart/vue/Widget'
 Vue.component('cart-widget',CartWidget)
 import CartModal from '@cart/vue/CartModal'
 Vue.component('cart-modal', CartModal)
 import CartPage from '@cart/vue/Cart'
 Vue.component('cart-page', CartPage)
-
-// Обратный звонок
 import Callback from '@callback/vue/callbacks/Callback.vue'
-import callback from '@callback/vuex/callbacks/state'
 Vue.component('callback', Callback)
+import FilterProducts from '@product/vue/Product/FilterProducts'
+Vue.component('filter-products', FilterProducts)
+import NamvigationMenu  from '@/vue/NavigationMenu.vue'
+Vue.component('navigation-menu', NamvigationMenu)
+import LeaderSlider from '@/components/Slider.vue'
+Vue.component('leader-slider', LeaderSlider)
+import CalculatePrice from '@product/vue/Product/CalculatePrice'
+Vue.component('calculate-price', CalculatePrice)
+import ProductOrder from '@product/vue/Product/ProductOrder'
+Vue.component('product-order', ProductOrder)
+import OrderForm from '@order/vue/OrderForm'
+Vue.component('order-form', OrderForm)
+//=========Конец Global components=================================
 
-import sliderFullPage from '@/vuex/slider-full-page/state'
 
-
-// Initializer
-import initializer from '@initializer/vuex/initializer/state'
-
+//========State=====================================================
 import cart from '@cart/vuex/store'
 import left_menu from '@product/vuex/left_menu/state'
-
-
-
-// Sections
+import callback from '@callback/vuex/callbacks/state'
+import initializer from '@initializer/vuex/initializer/state'
+import sliderFullPage from '@/vuex/slider-full-page/state'
 import sections from '@product/vuex/sections/state'
-
 const store = new Vuex.Store({
   modules: {
     cart,
@@ -69,21 +71,7 @@ const store = new Vuex.Store({
   getters
   }
 )
-
-import FilterProducts from '@product/vue/Product/FilterProducts'
-Vue.component('filter-products', FilterProducts)
-import NamvigationMenu  from '@/vue/NavigationMenu.vue'
-Vue.component('navigation-menu', NamvigationMenu)
-import LeaderSlider from '@/components/Slider.vue'
-Vue.component('leader-slider', LeaderSlider)
-import CalculatePrice from '@product/vue/Product/CalculatePrice'
-Vue.component('calculate-price', CalculatePrice)
-import ProductOrder from '@product/vue/Product/ProductOrder'
-Vue.component('product-order', ProductOrder)
-
-// Order
-import OrderForm from '@order/vue/OrderForm'
-Vue.component('order-form', OrderForm)
+//======Конец State================================================
 
 
 const app = new Vue({

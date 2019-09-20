@@ -10,7 +10,7 @@ var getters = Object.assign({}, module_getters, standart_getters)
 var mutations = Object.assign({}, module_mutations, standart_mutations)
 
 const state = {
-  name: 'guests',
+  name: 'Guest',
   items: [],
   fields: [],
   loading: true,

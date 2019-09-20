@@ -33,6 +33,7 @@ import ProductImport from '@product/vue/Product/ProductImport'
 import Images from '@file/vue/Images'
 import EditImages from '@file/vue/EditImages'
 import Orders from '@order/vue/Orders'
+import ListGuest from '@guest/vue/ListGuest'
 //import SectionList from '@product/vue/Section/SectionList'
 //const EditProducer = () => import('@product/vue/Producer/EditProducer')
 
@@ -246,6 +247,11 @@ export const routes = [
         name: 'Orders',
         component: Orders
       },
+      {
+        path: '/guests',
+        name: 'guests',
+        component: ListGuest
+      }
       /*{
         path: '/sections',
         name: 'Sections',

@@ -4,6 +4,8 @@ namespace Modules\Guest\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Guest\Entities\GuestPage;
+use Modules\Guest\Entities\Guest;
 
 class GuestServiceProvider extends ServiceProvider
 {
@@ -35,7 +37,13 @@ class GuestServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->register(RouteServiceProvider::class);
+      $this->app->bind('Guest', function ($app) {
+        return new Guest();
+      });
+      $this->app->bind('GuestPage', function ($app) {
+        return new GuestPage();
+      });
+      $this->app->register(RouteServiceProvider::class);
     }
 
     /**
