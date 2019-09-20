@@ -36,6 +36,9 @@
                                   class="elevation-1">
                       <template slot="items" slot-scope="props">
                         <td class="text-xs-left">{{ props.item.id }}</td>
+                        <td class="text-xs-left">{{ props.item.id }}</td>
+                        <td class="text-xs-left">{{ props.item.url }}</td>
+                        <td class="text-xs-left">{{ props.item.ip }}</td>
                         <td class="text-xs-left">{{ props.item['utm_source'] }}</td>
                         <td class="text-xs-left">{{ props.item['utm_medium'] }}</td>
                         <td class="text-xs-left">{{ props.item['utm_campaign'] }}</td>
@@ -101,6 +104,18 @@
             align: 'left',
             sortable: true,
             value: 'id'
+          },
+          {
+            text: 'url',
+            align: 'left',
+            sortable: false,
+            value: 'url'
+          },
+          {
+            text: 'ip',
+            align: 'left',
+            sortable: false,
+            value: 'ip'
           },
           {
             text: 'Источник перехода',
