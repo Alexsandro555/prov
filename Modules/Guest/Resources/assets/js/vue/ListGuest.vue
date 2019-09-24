@@ -36,7 +36,6 @@
                                   class="elevation-1">
                       <template slot="items" slot-scope="props">
                         <td class="text-xs-left">{{ props.item.id }}</td>
-                        <td class="text-xs-left">{{ props.item.id }}</td>
                         <td class="text-xs-left">{{ props.item.url }}</td>
                         <td class="text-xs-left">{{ props.item.ip }}</td>
                         <td class="text-xs-left">{{ props.item['utm_source'] }}</td>

@@ -17,7 +17,6 @@ Vue.use(Vuex)
 
 //==========Vuetify========================================
 import Vuetify from 'vuetify'
-// Импорт CSS-файлов, которые могут потребоваться
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import 'vuetify/dist/vuetify.min.css'
 Vue.use(Vuetify)
