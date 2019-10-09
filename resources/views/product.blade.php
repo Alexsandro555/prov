@@ -23,10 +23,10 @@
           <template v-if="!product.need_order">
             <span class="current-price">@{{Math.floor(product.price)}}</span> <span class="rub">руб.</span>
           </template>
-          <a v-else onclick="ym(54321909,'reachGoal','requestPrice74951233321'); return true;" @click="discoverDiscount(`Добрый день! \nПрошу сообщить стоимость и наличие ${product.title}.\nСпасибо!`)" class="product-order-req" href="#">Запросить цену</a>
+          <a v-else onclick="ym(54321909,'reachGoal','requestPrice74951233321'); gtag('event', 'click', {'event_category': 'requestPrice','event_label': 'request price','value': 5}); return true;" @click="discoverDiscount(`Добрый день! \nПрошу сообщить стоимость и наличие ${product.title}.\nСпасибо!`)" class="product-order-req" href="#">Запросить цену</a>
         </v-flex>
         <v-flex v-if="!product.need_order" xs4 class="special-product__cart">
-          <a onclick="ym(54321909,'reachGoal','cartClick74951233321'); return true;" :href="'/catalog/detail/'+product.url_key">
+          <a :href="'/catalog/detail/'+product.url_key">
             <img src="/images/product-cart.png"/>
           </a>
         </v-flex>

@@ -81,7 +81,7 @@
                                 <table>
                                   <tbody>
                                   <tr>
-                                    <td rowspan="2"><a href="/cart"><img onclick="ym(54321909,'reachGoal','cartClick74951233321'); return true;" class="cart__img" src="/images/cart.png"/></a>
+                                    <td rowspan="2"><a href="/cart"><img onclick="ym(54321909,'reachGoal','cartClick74951233321'); gtag('event', 'click', {'event_category': 'cart','event_label': 'cart click main page','value': 1}); return true;" class="cart__img" src="/images/cart.png"/></a>
                                     </td>
                                     <td><span class="cart__col-yell">@{{count}}</span> товара на</td>
                                   </tr>
@@ -131,8 +131,8 @@
                   <v-flex sm3 offset-sm3 class="hidden-md-and-down">
                     <div class="phone text-xs-right">
                       Работаем с <b>{{config('info.time_start')}}</b> до <b>{{config('info.time_end')}}</b><br>
-                      <a onclick="ym(54321909,'reachGoal','phoneClick74951233321'); return true;" class="phone__number" href="tel: {{config('info.telephone')}}">{{config('info.telephone')}}</a><br>
-                      <a class="phone__callback" onclick="ym(54321909,'reachGoal','callback74951233321'); return true;" @click="showCallback" href="#">Заказать звонок</a>
+                      <a onclick="ym(54321909,'reachGoal','phoneClick74951233321'); gtag('event', 'click', {'event_category': 'phone','event_label': 'click phone header','value': 5}); return true;" class="phone__number" href="tel: {{config('info.telephone')}}">{{config('info.telephone')}}</a><br>
+                      <a class="phone__callback" onclick="ym(54321909,'reachGoal','callback74951233321'); gtag('event', 'click', {'event_category': 'callback','event_label': 'click callback header','value': 2}); return true;" @click="showCallback" href="#">Заказать звонок</a>
                     </div>
                   </v-flex>
                 </v-layout>
@@ -208,8 +208,8 @@
                       <v-flex xs8>
                           <a class="footer__phone footer-right">
                               Работаем с <b>{{config('info.time_start')}}</b> до <b>{{config('info.time_end')}}</b><br>
-                              <a onclick="ym(54321909,'reachGoal','phoneClick74951233321'); return true;" class="phone__number" href="tel: {{config('info.telephone')}}">{{config('info.telephone')}}</a><br>
-                              <a onclick="ym(54321909,'reachGoal','callback74951233321'); return true;" class="phone__callback text-xs-center" @click="showCallback"
+                              <a onclick="ym(54321909,'reachGoal','phoneClick74951233321'); gtag('event', 'click', {'event_category': 'phone','event_label': 'click phone footer','value': 5}); return true;" class="phone__number" href="tel: {{config('info.telephone')}}">{{config('info.telephone')}}</a><br>
+                              <a onclick="ym(54321909,'reachGoal','callback74951233321'); gtag('event', 'click', {'event_category': 'callback','event_label': 'click callback footer','value': 2}); return true;" class="phone__callback text-xs-center" @click="showCallback"
                                  href="#">Заказать звонок</a>
                           </span>
                       </v-flex>
@@ -218,7 +218,7 @@
                           <a class="text-xs-center footer__mail" href="/admin">Личный кабинет</a><br>
                           <span>
                                  <img align="top" src="{{asset('images/footer-mail-img.png')}}"/>
-                                 <a class="footer__mail" onclick="ym(54321909,'reachGoal','mailClick74951233321'); return true;" href="mailto:{{config('info.manager_email')}}">{{config('info.manager_email')}}</a>
+                                 <a class="footer__mail" onclick="ym(54321909,'reachGoal','mailClick74951233321'); gtag('event', 'click', {'event_category': 'email','event_label': 'click email footer','value': 5}); return true;" href="mailto:{{config('info.manager_email')}}">{{config('info.manager_email')}}</a>
                             </span><br>
                           <span>
                               <img align="top" src="{{asset('images/footer-map-marker-img.png')}}"/>
@@ -271,5 +271,15 @@
   <div><img src="https://mc.yandex.ru/watch/54321909" style="position:absolute; left:-9999px;" alt=""/></div>
 </noscript>
 <!-- /Yandex.Metrika counter -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149664847-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149664847-1');
+</script>
 </body>
 </html>

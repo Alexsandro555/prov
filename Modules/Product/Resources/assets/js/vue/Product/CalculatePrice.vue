@@ -8,11 +8,11 @@
       <v-chip v-if="product.vendor" color="yellow">арт. {{product.vendor}}</v-chip>
     </p>
     <div class="figure-button__wrapper">
-      <a onclick="ym(54321909,'reachGoal','cartClick74951233321'); return true;" class="figure-button hidden-md-and-up" href="/cart">
+      <a onclick="ym(54321909,'reachGoal','cartClick74951233321'); gtag('event', 'click', {'event_category': 'cart','event_label': 'cart click detail page','value': 5}); return true;" class="figure-button hidden-md-and-up" href="/cart">
         Заказать
         <img src="/images/btn-sale-image.png" align="center"/>
       </a>
-      <a onclick="ym(54321909,'reachGoal','cartClick74951233321'); return true;" class="figure-button hidden-md-and-up" @click="addCart(product.id)" href="#">
+      <a onclick="ym(54321909,'reachGoal','cartClick74951233321'); gtag('event', 'click', {'event_category': 'cart','event_label': 'cart click detail page','value': 5}); return true;" class="figure-button hidden-md-and-up" @click="addCart(product.id)" href="#">
         Заказать
         <img src="/images/btn-sale-image.png" align="center"/>
       </a>

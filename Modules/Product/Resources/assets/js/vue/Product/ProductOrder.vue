@@ -15,7 +15,7 @@
                 v-model="attributesValue[attribute.id]">
       </v-select>
     </v-flex>
-    <a onclick="ym(54321909,'reachGoal','requestPrice74951233321'); return true;" @click="formCallback()" class="product-order-req yellow darken-1" href="#">Запросить цену</a>
+    <a onclick="ym(54321909,'reachGoal','requestPrice74951233321'); gtag('event', 'click', {'event_category': 'requestPrice','event_label': 'request price detail page','value': 5}); return true;" @click="formCallback()" class="product-order-req yellow darken-1" href="#">Запросить цену</a>
   </div>
 </template>
 <script>
@@ -74,7 +74,7 @@
       },
       sorting(items) {
         return _.orderBy(items, ['sort'], ['asc'])
-      },
+      }
     }
   }
 </script>
