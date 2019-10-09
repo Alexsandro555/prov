@@ -45,6 +45,7 @@
       </v-textarea>
       <v-flex xs2>
         <v-btn text-xs-left
+               onclick="ym(54321909,'reachGoal','order74951233321'); return true;"
                large
                :class="{primary: valid, 'red': !valid}"
                :disabled="isSending"
