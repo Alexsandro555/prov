@@ -12,10 +12,15 @@
 }
 
 .phone__number {
+}
+
+.application.theme--light a.phone__number {
+  text-decoration: none;
   font-family: $font-os-condenced-bold;
   font-size: 2.2em;
   text-shadow: 1px 1px 1px black, 0 0 1em black;
   text-transform: uppercase;
+  color: white;
 }
 
 .phone__callback {

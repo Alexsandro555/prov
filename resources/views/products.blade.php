@@ -52,12 +52,12 @@
           @if($product->need_order)
             <span class="current-price">{{$product->price}}</span> <span class="rub">руб.</span>
           @else
-            <a @click="discoverDiscount(`Добрый день! \nПрошу сообщить стоимость и наличие {{$product->title}}. \nСпасибо!`)" class="product-order-req" href="#">Запросить цену</a>
+            <a onclick="ym(54321909,'reachGoal','requestPrice74951233321'); return true;" @click="discoverDiscount(`Добрый день! \nПрошу сообщить стоимость и наличие {{$product->title}}. \nСпасибо!`)" class="product-order-req" href="#">Запросить цену</a>
           @endif
         </v-flex>
         <v-flex xs4 class="special-product__cart">
           <a href="/catalog/detail/{{$product->url_key}}">
-            <img src="{{asset('images/product-cart.png')}}"/>
+            <img onclick="ym(54321909,'reachGoal','cartClick74951233321'); return true;" src="{{asset('images/product-cart.png')}}"/>
           </a>
         </v-flex>
       </v-layout>

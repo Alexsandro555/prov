@@ -81,7 +81,7 @@
                                 <table>
                                   <tbody>
                                   <tr>
-                                    <td rowspan="2"><a href="/cart"><img class="cart__img" src="/images/cart.png"/></a>
+                                    <td rowspan="2"><a href="/cart"><img onclick="ym(54321909,'reachGoal','cartClick74951233321'); return true;" class="cart__img" src="/images/cart.png"/></a>
                                     </td>
                                     <td><span class="cart__col-yell">@{{count}}</span> товара на</td>
                                   </tr>
@@ -131,8 +131,8 @@
                   <v-flex sm3 offset-sm3 class="hidden-md-and-down">
                     <div class="phone text-xs-right">
                       Работаем с <b>{{config('info.time_start')}}</b> до <b>{{config('info.time_end')}}</b><br>
-                      <span class="phone__number">{{config('info.telephone')}}</span><br>
-                      <a class="phone__callback" @click="showCallback" href="#">Заказать звонок</a>
+                      <a onclick="ym(54321909,'reachGoal','phoneClick74951233321'); return true;" class="phone__number" href="tel: {{config('info.telephone')}}">{{config('info.telephone')}}</a><br>
+                      <a class="phone__callback" onclick="ym(54321909,'reachGoal','callback74951233321'); return true;" @click="showCallback" href="#">Заказать звонок</a>
                     </div>
                   </v-flex>
                 </v-layout>
@@ -206,10 +206,10 @@
                   <v-flex xs11 offset-xs1 sm11 md3 class="text-xs-left text-md-right">
                     <v-layout column wrap>
                       <v-flex xs8>
-                          <span class="footer__phone footer-right">
+                          <a class="footer__phone footer-right">
                               Работаем с <b>{{config('info.time_start')}}</b> до <b>{{config('info.time_end')}}</b><br>
-                              <span class="phone__number">{{config('info.telephone')}}</span><br>
-                              <a class="phone__callback text-xs-center" @click="showCallback"
+                              <a onclick="ym(54321909,'reachGoal','phoneClick74951233321'); return true;" class="phone__number" href="tel: {{config('info.telephone')}}">{{config('info.telephone')}}</a><br>
+                              <a onclick="ym(54321909,'reachGoal','callback74951233321'); return true;" class="phone__callback text-xs-center" @click="showCallback"
                                  href="#">Заказать звонок</a>
                           </span>
                       </v-flex>
@@ -218,7 +218,7 @@
                           <a class="text-xs-center footer__mail" href="/admin">Личный кабинет</a><br>
                           <span>
                                  <img align="top" src="{{asset('images/footer-mail-img.png')}}"/>
-                                 <span class="footer__mail"> {{config('info.manager_email')}}</span>
+                                 <a class="footer__mail" onclick="ym(54321909,'reachGoal','mailClick74951233321'); return true;" href="mailto:{{config('info.manager_email')}}">{{config('info.manager_email')}}</a>
                             </span><br>
                           <span>
                               <img align="top" src="{{asset('images/footer-map-marker-img.png')}}"/>
@@ -226,11 +226,11 @@
                             </span>
                         </v-flex>
                         <v-flex xs12 class="text-xs-right">
-                          <v-layout row wrap>
-                            <v-flex xs6>
+                          <v-layout column wrap>
+                            <v-flex xs12>
                               <img align="middle" class="footer__logo" src="{{asset('images/logo-small.png')}}"/>&nbsp;&nbsp;&nbsp;
                             </v-flex>
-                            <v-flex xs5 text-xs-right>
+                            <v-flex xs12 text-xs-right>
                               <span>© Copyright 2019</span><br>
                             </v-flex>
                           </v-layout>

@@ -8,28 +8,28 @@
       <v-chip v-if="product.vendor" color="yellow">арт. {{product.vendor}}</v-chip>
     </p>
     <div class="figure-button__wrapper">
-      <a class="figure-button hidden-md-and-up"  href="/cart">
+      <a onclick="ym(54321909,'reachGoal','cartClick74951233321'); return true;" class="figure-button hidden-md-and-up" href="/cart">
         Заказать
         <img src="/images/btn-sale-image.png" align="center"/>
       </a>
-      <a class="figure-button hidden-sm-and-down"  @click="addCart(product.id)" href="#">
+      <a onclick="ym(54321909,'reachGoal','cartClick74951233321'); return true;" class="figure-button hidden-md-and-up" @click="addCart(product.id)" href="#">
         Заказать
         <img src="/images/btn-sale-image.png" align="center"/>
       </a>
     </div>
     <v-flex xs10 v-if="product.sku && getAttributes.length > 0">
       <v-select v-for="attribute in getAttributes"
-        :key="attribute.id"
-        height="35px"
-        color="black"
-        dark
-        :name="attribute.id+'_id'"
-        :label="attribute.title"
-        :items="sorting(attribute.attribute_list_value)"
-        item-text="title"
-        item-value="id"
-        no-data-text="Нет данных"
-        v-model="attributesValue[attribute.id]">
+                :key="attribute.id"
+                height="35px"
+                color="black"
+                dark
+                :name="attribute.id+'_id'"
+                :label="attribute.title"
+                :items="sorting(attribute.attribute_list_value)"
+                item-text="title"
+                item-value="id"
+                no-data-text="Нет данных"
+                v-model="attributesValue[attribute.id]">
       </v-select>
     </v-flex>
   </div>
