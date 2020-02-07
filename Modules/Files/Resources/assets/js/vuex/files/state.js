@@ -13,7 +13,9 @@ const state = {
     name: 'Files',
     items: [],
     loading: true,
-    relations: []
+    up: [],
+    down: [],
+    count: null
 }
 
 const module = {

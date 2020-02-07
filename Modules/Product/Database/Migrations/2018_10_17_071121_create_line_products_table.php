@@ -18,13 +18,13 @@ class CreateLineProductsTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
           $table->increments('id')->comment('Идентефикатор');
           $table->integer('remote_id')->nullable();
-          $table->string('title')->comment('Наименование линейки');
+          $table->string('title')->nullable()->comment('Наименование линейки');
           $table->integer('sort')->nullable()->comment('Сорт.');
-          $table->unsignedInteger('type_product_id')->length(11)->nullable()->comment('Тип производителя');
           $table->boolean('active')->default(true)->comment('Актив.');
+          $table->unsignedInteger('type_product_id')->length(11)->nullable()->comment('Тип производителя');
           $table->text('description')->nullable()->comment('Описание');
           $table->string('price_amount')->nullable()->comment('Размерность');
-          $table->string('url_key', 255)->comment('Путь');
+          $table->string('url_key', 255)->nullable()->comment('Путь');
           $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
           $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
           $table->foreign('type_product_id')->references('id')->on('type_products')->onDelete('cascade');

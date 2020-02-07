@@ -1,0 +1,28 @@
+#top-menu {
+    width: 100%;
+    background: none;
+    color: $color-white;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+
+    .top-menu--item {
+      height: 57px;
+      display: inline-block !important;
+      background: url('#{$path}/menu-devider.png') left center no-repeat;
+      font-family: $font-os-condenced-bold;
+      text-transform: uppercase;
+      padding-left: 30px;
+      font-size:0.99em;
+
+      a {
+        line-height: 57px;
+        text-decoration: none;
+        color: $color-white;
+      }
+    }
+
+    :first-child {
+      background: none;
+    }
+
+}

@@ -65,5 +65,13 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('api')
             ->namespace($this->namespace)
             ->group(__DIR__ . '/../Routes/api.php');
+
+      $files = glob(__DIR__ . '/../Routes/api/*.php');
+      foreach ($files as $file) {
+        Route::prefix('api')
+          ->middleware('api')
+          ->namespace($this->namespace)
+          ->group($file);
+      }
     }
 }

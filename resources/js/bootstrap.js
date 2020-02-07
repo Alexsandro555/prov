@@ -19,7 +19,6 @@ try {
  */
 
 window.axios = require('axios');
-
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
@@ -42,6 +41,27 @@ if (token) {
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
  */
+
+//==========Vue=============================================
+import Vue from 'vue'
+window.Vue = Vue
+//==========End Vue=========================================
+
+//==========Vee-validate====================================
+import ru from 'vee-validate/dist/locale/ru';
+import VeeValidate, { Validator } from 'vee-validate'
+Vue.use(VeeValidate)
+Validator.localize('ru', ru)
+//==========End Vee-validate================================
+
+
+
+//==========Date============================================
+import dateFns from 'date-fns'
+Vue.mixin({data() { return { dateFns } }})
+//==========End Date========================================
+
+
 
 // import Echo from 'laravel-echo'
 

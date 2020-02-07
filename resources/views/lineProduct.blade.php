@@ -5,39 +5,40 @@
 @section('meta-keywords', $model->meta_keywords?$model->meta_keywords:config('info.keywords'))
 
 @section('breadcrumbs')
-  <div class="abs-breadcrumbs">
+  <!--<div class="abs-breadcrumbs">
     {{ Breadcrumbs::render() }}
-  </div>
+  </div>-->
 @endsection
 
 @section('menu')
-  <div class="menu-wrapper wrapper">
+  <!--<div class="menu-wrapper wrapper">
     <div class="abs-position">
       <left-menu/>
     </div>
-  </div>
+  </div>-->
 @endsection
 
 @section('content')
   <div class="content-wrapper">
-    <div class="content" style="position: relative">
-      <v-layout row wrap>
-        <v-flex xs11 offset-xs1 md9 offset-md3 text-xs-left>
-          <v-layout column wrap>
-            <p class="content__header text-md-left">
-              {{$model->title}}
-            </p>
-            <p class="content-discription">
-              {!! $model->description !!}
-            </p>
-          </v-layout>
-          <v-flex xs12 class="text-xs-left">
-            <filter-products :products="{{$products}}" :attributes="{{$attributes}}">
-              @include('product')
-            </filter-products>
-          </v-flex>
-        </v-flex>
-      </v-layout>
+    <v-container class="content hidden-md-and-down">
+      <v-row class="no-gutters">
+        <v-col cols="12">
+          <h1 class="header-title">{{$model->title}}</h1>
+          <v-card>
+            <v-card-text style="min-height: 700px;">
+              <filter-products :model-id="{{$model->id}}" :model-column-name="'type_product_id'"/>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+    <div class="hidden-lg-and-up">
+      <v-container no-gutter class="ma-0 pa-3">
+        <v-row>
+          <v-col cols="12">
+          </v-col>
+        </v-row>
+      </v-container>
     </div>
   </div>
 @endsection

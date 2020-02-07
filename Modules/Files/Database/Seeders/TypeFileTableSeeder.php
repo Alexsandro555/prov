@@ -38,6 +38,12 @@ class TypeFileTableSeeder extends Seeder
             "resize": [
               {
 			          "name": "main",
+                "width": "550",
+                "height": "320",
+                "absolute": false
+              },
+              {
+			          "name": "mobile-main",
                 "width": "350",
                 "height": "320",
                 "absolute": false
@@ -65,6 +71,12 @@ class TypeFileTableSeeder extends Seeder
             "resize": [
               {
 			          "name": "main",
+                "width": "550",
+                "height": "320",
+                "absolute": false
+              },
+              {
+			          "name": "mobile",
                 "width": "350",
                 "height": "320",
                 "absolute": false

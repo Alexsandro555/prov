@@ -15,5 +15,6 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->prefix('files')->group(function() {
   Route::get('/', 'FilesController@index');
-  Route::post('/', 'FilesController@createFigure');
+  Route::post('/', 'FilesController@load');
+  Route::post('/figure', 'FilesController@createFigure');
 });

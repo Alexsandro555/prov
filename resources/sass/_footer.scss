@@ -1,53 +1,36 @@
-.theme--light.footer, .theme--light .footer {
+footer {
   background: url('#{$path}/footer-top-lay.png') top left repeat-x, linear-gradient(to left, rgba(78,100,42,1), rgba(78,100,42,0.6)), url('#{$path}/footer-layout.png') bottom center repeat-x;
 }
 
 .footer-wrapper {
+  color: $color-white;
   margin: 0 auto;
   max-width: $main-width;
   background: url('#{$path}/stock-bottom-line.png') bottom center repeat-x;
 }
 
-.theme--light.v-list.footer-top-menu, .v-list.footer-top-menu {
-  height: 57px;
-  background: none;
-}
-
-.footer-top-menu__item {
-  display:inline-block;
-  background: url('#{$path}/menu-devider.png') left center no-repeat;
-}
-
-.footer-top-menu__item:first-child {
-  background: none;
-}
-
-.footer-top-menu .v-list__tile {
-  font-family: $font-os-condenced-bold;
-  text-transform: uppercase;
-  list-style-type: disc;
-  padding: 0px 30px 0px 40px;
-  color: $color-white;
-
-}
-
-ul.footer-top-menu:first-child {
-  background: none;
-}
-
-
-.footer__sicial-icons {
-  padding-top: 15px;
-}
-
-.footer__chicken {
-  margin-top: -20px;
+#footer__menu {
+  .footer-list {
+    background: none;
+    .footer-item {
+      background: url('#{$path}/footer-menu-ava.png') left center no-repeat;
+      padding-left: 20px;
+      height: 38px;
+      a {
+        color: $color-white;
+        font-family: $font-os;
+        font-size: 0.8em;
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 .footer__phone {
   display: block;
   color: $color-white;
   margin-top: 10px;
+  font-size: 0.8em;
 }
 
 a.footer__mail {
@@ -59,52 +42,18 @@ a.footer__mail {
 
 .footer__address {
   margin-top: 10px;
-  font-size: 1em;
+  font-size: 0.8em;
 }
 
 .footer__address--margbot10 {
   margin-bottom: 10px;
 }
 
-.theme--light.footer__menu.v-list, .theme--light .footer__menu .v-list {
-  background: none;
-  width: 200px;
+.footer-info {
+  .footer__phone, .footer__address {
+    a {
+      color: white;
+    }
+  }
 }
 
-.footer__menu .list__tile {
-  background: url('#{$path}/footer-menu-ava.png') left center no-repeat;
-  padding-left: 20px;
-  height: 38px;
-}
-
-.footer__menu .v-list__tile a {
-  color: $color-white;
-  font-family: $font-os;
-  font-size: 0.9em;
-  text-decoration: none;
-}
-
-.footer-menu-ava {
-  margin-right: 10px;
-}
-
-.footer__copyright {
-  font-size: 0.8em;
-  margin-right: 30px;
-}
-
-.footer__logo {
-
-}
-
-.footer-right {
-  //margin-right: 30px;
-}
-
-.footer__address--margin30 {
-  margin-left: 30px;
-}
-
-.footer__content {
-  margin-top: 20px;
-}

@@ -1,14 +1,16 @@
 export default {
-	config: (state, getters, rootState, rootGetters) => {
-    let obj=new Object()
-    obj.items='items'
-    obj.load='/api/callbacks'
-    obj.module='callbacks'
-    obj.primary_key='id'
-    obj.model='Modules\\Callback\\Models\\Callback'
-    // obj.upLinks=[{column:'type_product_id',module:'type_products'},{column:'line_product_id',module:'line_products'}]
-    // obj.loadByKey={id:1}
-    // obj.loadAll=true
+  config: (state, getters, rootState, rootGetters) => {
+    let obj = new Object()
+    obj.items = 'items'
+    obj.load = '/api/callbacks'
+    obj.module = "callbacks"
+    obj.loading = 'isLoading'
+    obj.primary_key = 'id'
+    obj.model = 'Modules\\Callback\\Models\\Callback'
+    obj.upLinks = state.up
+    obj.downLinks = state.down
     return obj
-	}
+  },
+  items: state => state.items,
+  primary_key: getters => (_.isEmpty(getters.config))?'id':(!_.isEmpty(getters.config.primary_key))?getters.config.primary_key:'id'
 }

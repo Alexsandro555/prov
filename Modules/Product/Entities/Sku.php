@@ -3,14 +3,14 @@
 namespace Modules\Product\Entities;
 
 use Illuminate\Database\Eloquent\Model;
-use Modules\Initializer\Traits\RelationTrait;
+use Modules\Initializer\Traits\CoreTrait;
 use Modules\Initializer\Traits\TableColumnsTrait;
 use Modules\Initializer\Traits\UuidTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Sku extends Model
 {
-  use RelationTrait, TableColumnsTrait, UuidTrait;
+  use CoreTrait, TableColumnsTrait, UuidTrait;
 
   protected $table = 'skus';
 

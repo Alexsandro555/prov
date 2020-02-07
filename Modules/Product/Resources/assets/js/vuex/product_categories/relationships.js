@@ -1,0 +1,1 @@
+export default {"typeProducts":{"type":"HasMany","table":"type_products","model":"Modules\\Product\\Entities\\TypeProduct","foreignKey":"product_category_id","ownerKey":null},"products":{"type":"HasMany","table":"products","model":"Modules\\Product\\Entities\\Product","foreignKey":"product_category_id","ownerKey":null}}

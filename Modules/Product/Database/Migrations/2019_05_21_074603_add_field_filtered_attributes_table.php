@@ -16,7 +16,7 @@ class AddFieldFilteredAttributesTable extends Migration
     public function up()
     {
         Schema::table($this->tableName, function (Blueprint $table) {
-          $table->boolean('filtered')->default(false)->comment('Фильтруемый');
+          $table->boolean('filtered')->nullable()->default(false)->comment('Фильтруемый');
         });
     }
 

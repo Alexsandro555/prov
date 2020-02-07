@@ -7,75 +7,72 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Files\Entities\File;
 use Modules\Initializer\Traits\SortTrait;
 use Modules\Initializer\Traits\TableColumnsTrait;
-use Modules\Initializer\Traits\RelationTrait;
-use Modules\Product\Traits\ProductCategoryActiveTrait;
-use Modules\Initializer\Traits\UrlKeyTrait;
-
-//use Fico7489\Laravel\Pivot\Traits\PivotEventTrait;
+use Modules\Initializer\Traits\CoreTrait;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Modules\Initializer\Traits\ActiveTrait;
+use Modules\Initializer\Scopes\ActiveScope;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
 class ProductCategory extends Model
 {
-  use SoftDeletes, TableColumnsTrait, RelationTrait, SortTrait, ProductCategoryActiveTrait, UrlKeyTrait;  //, PivotEventTrait;
+  use SoftDeletes, TableColumnsTrait, CoreTrait, SortTrait,  Sluggable, ActiveTrait, Cachable;
 
   protected $dates = ['deleted_at'];
 
-  protected $guarded = [];
+  protected $guarded = ['computed'];
 
-  public $cacheModule = 'product';
-
-  public $form = [
-    'id' => [
-      'enabled' => true
-    ],
-    'title' => [
-      'enabled' => true,
-      'validations' => [
-        'required' => true,
-        'max' => 255
-      ]
-    ],
-    'meta_title' => [
-      'enabled' => true,
-    ],
-    'meta_description' => [
-      'enabled' => true,
-    ],
-    'meta_keywords' => [
-      'enabled' => true,
-    ],
-    'active' => [
-      'enabled' => true
-    ],
-    'description' => [
-      'enabled' => true
-    ]
-  ];
-
-  public $fields = ['id','title','active','description'];
+  public $hidden = ['remote_id'];
 
   public function getRules()
   {
     return [
-      'title' => 'required|max:255'
+      'title' => 'max:50'
     ];
   }
 
-  protected $table = 'product_categories';
+  public function sluggable(): array
+  {
+    return [
+      'url_key' => [
+        'source' => 'title'
+      ]
+    ];
+  }
 
-  public function typeProducts() {
+  protected $casts = [
+    'computed' => 'collection'
+  ];
+
+  static public function load_all()
+  {
+    return true;
+  }
+
+  public function typeProducts()
+  {
     return $this->hasMany(TypeProduct::class);
   }
 
-  public function attributes() {
-    return $this->morphToMany('Modules\Product\Entities\Attribute', 'attributable');
-  }
-
-  public function products() {
+  public function products()
+  {
     return $this->hasMany(Product::class);
   }
 
-  public function files() {
+  public function attributes()
+  {
+    return $this->morphToMany(Attribute::class, 'attributable');
+  }
+
+  public function files()
+  {
     return $this->morphMany(File::class, 'fileable');
+  }
+
+  protected static function boot()
+  {
+    parent::boot();
+
+    static::addGlobalScope(new ActiveScope);
   }
 
   /*protected static function boot()

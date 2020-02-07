@@ -1,72 +1,74 @@
 <template>
-  <div>
-    <v-btn dark class="hidden-md-and-up" @click="open">
-      <v-icon>reorder</v-icon>
-    </v-btn>
-    <v-navigation-drawer v-model="drawer" temporary absolute dark
-                         style="position:fixed; top:0; left:0; overflow-y:scroll;">
-      <v-toolbar flat>
-        <v-list class="pa-0">
-          <v-list-tile>
-            Страницы
-          </v-list-tile>
-        </v-list>
-      </v-toolbar>
-      <v-list>
-        <v-list-tile>Личный кабинет</v-list-tile>
-        <v-subheader>Рубрикатор</v-subheader>
-        <v-list-tile>О компании</v-list-tile>
-        <v-list-tile>Новости</v-list-tile>
-        <v-list-tile>Оборудование</v-list-tile>
-        <v-list-tile>Доставка и оплата</v-list-tile>
-        <v-list-tile>Контакты</v-list-tile>
-        <v-subheader>Рубрикатор</v-subheader>
-      </v-list>
+  <v-navigation-drawer v-model="$root.drawer" temporary absolute style="position:fixed; top:0; left:0; overflow-y:scroll;">
+    <v-list class="navigation-menu__list">
+      <v-list-item>
+        <v-row class="justify-center align-center">
+          <v-col cols="4">
+            <v-btn @click.prevent="close" class="navigation-btn" fab icon><v-icon>close</v-icon> МЕНЮ</v-btn>
+          </v-col>
+          <v-col>
+            <a class="navigation-telephone" href="tel: 8(495)123 33 21">+7(495)123 33 21</a>
+          </v-col>
+        </v-row>
+      </v-list-item>
+      <v-list-item><a href="/about">О компании</a></v-list-item>
       <v-divider></v-divider>
-      <template v-for="itemMenu in menu">
-        <v-toolbar :key="itemMenu.id" flat>
-          <v-list class="pa-0">
-            <v-list-tile>
-              {{itemMenu.title}}
-            </v-list-tile>
-          </v-list>
-        </v-toolbar>
-        <v-list v-for="subItem in itemMenu.type_products" :key="'sub'+subItem.id">
-          <v-list-tile @click="goToPage('/catalog/'+subItem.url_key)">
-            {{subItem.title}}
-          </v-list-tile>
-        </v-list>
-      </template>
-    </v-navigation-drawer>
-  </div>
+      <v-list-item><a href="/article/list">Статьи</a></v-list-item>
+      <v-divider></v-divider>
+      <v-list-item><a href="/equipment">Акции</a></v-list-item>
+      <v-divider></v-divider>
+      <v-list-item><a href="/delivery">Доставка и оплата</a></v-list-item>
+      <v-divider></v-divider>
+      <v-list-item><a href="/contacts">Контакты</a></v-list-item>
+    </v-list>
+    <!--<v-navigation-drawer v-model="subMenu" temporary absolute style="position:fixed; top: 50px; left: 0; overflow: hidden; overflow-y: auto;">
+      <v-list>
+        <v-list-tile @click="back">Назад</v-list-tile>
+        <v-divider></v-divider>
+        <v-list-tile><a href="/article/list">Статьи</a></v-list-tile>
+        <v-divider></v-divider>
+        <v-list-tile>2</v-list-tile>
+      </v-list>
+    </v-navigation-drawer>-->
+  </v-navigation-drawer>
 </template>
 <script>
-  import axios from 'axios'
-
   export default {
     props: {},
     data: function () {
       return {
         drawer: false,
-        menu: []
+        //subMenu: false
       }
     },
-    mounted() {
-      this.getMenu()
-    },
     methods: {
-      open() {
-        this.drawer = !this.drawer
-      },
       goToPage(url) {
         window.location.href = url
       },
-      getMenu() {
-        axios.get('/menu-left').then(response => response.data).then(response => {
-          this.menu = response
-        }).catch(error => {
-        })
-      }
+      close() {
+        this.$root.drawer = false
+      },
+      /*open() {
+        this.subMenu = true
+      },
+      back() {
+        this.subMenu = false
+      }*/
     }
   }
 </script>
+
+<style scoped>
+  .navigation-menu__list a {
+    color: #000;
+    text-decoration: none;
+  }
+  .navigation-menu__list a:hover {
+    color: #0F2E5D;
+  }
+  .navigation-telephone {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+  }
+</style>

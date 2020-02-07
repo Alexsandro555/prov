@@ -1,4 +1,4 @@
-<template>
+f<template>
   <div>
     <p>
       <span class="detail__price">

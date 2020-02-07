@@ -37,9 +37,6 @@ class CallbackServiceProvider extends ServiceProvider
   public function register()
   {
     $this->app->register(RouteServiceProvider::class);
-    $this->app->bind('Callback', function ($app) {
-      return new Callback();
-    });
   }
 
   /**

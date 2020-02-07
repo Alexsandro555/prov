@@ -1,89 +1,76 @@
 <template>
-  <div>
+  <div id="callback">
     <a v-if="visible" href="#" id="popup__toggle" @click="close"></a>
     <div :class="{callbackwindow: true, callbackhidden: !visible}">
       <div v-if="visible" id="btn-cllback" @click="close">&nbsp;</div>
       <div class="callback-form">
-        <br><br><br>
-        <span class="callback-header">Форма обратной связи</span><br><br>
-        <p>
-          <input class="form-input-text"
-                 :value="form.fio"
-                 @input="errors.fio = '';
-                 form.fio = $event.target.value"
-                 type="text"
-                 placeholder=" *Ф.И.О."
-                 name="fio"/>
-          <span class="callback-error">{{errors.fio}}</span>
-        </p>
-        <p>
-          <input class="form-input-text"
-                 :value="form.telephone"
-                 @input="errors.telephone = '';
-                 form.telephone = $event.target.value"
-                 type="text"
-                 placeholder=" *Телефон"
-                 name="telephone"/>
-          <span class="callback-error">{{errors.telephone}}</span>
-        </p>
-        <p>
-          <textarea class="form-input-textarea"
-                    :value="form.comment"
-                    @input="errors.comment = '';
-                    form.comment = $event.target.value"
-                    placeholder="Комментарий"
-                    name="comment">
-          </textarea>
-        </p>
-        <button @click="send" class="callback-sbmt">Отправить</button>
+
+        <span class="callback-header">Обратный <span class="callback-subheader">звонок</span></span><br><br>
+        <v-container dark fill-height pa-0 ma-0>
+          <v-row class="no-gutters justify-start align-start">
+            <v-col cols="12">
+              <v-text-field
+                name="fio"
+                v-validate="'required'"
+                data-vv-name="fio"
+                label="*Ф.И.О."
+                :error-messages="errors.first('fio')"
+                solo
+                v-model="form.fio">
+              </v-text-field>
+              <v-text-field
+                name="telephone"
+                v-validate="'required'"
+                data-vv-name="telephone"
+                :error-messages="errors.first('telephone')"
+                label="*Телефон"
+                solo
+                v-model="form.telephone">
+              </v-text-field>
+              <v-textarea
+                solo
+                name="comment"
+                label="Комментарий"
+                placeholder="Комментарий"
+                :error-messages="errors.first('comment')"
+                v-model="form.comment">
+              </v-textarea>
+              <v-btn class="callback-btn" @click="send">Отправить</v-btn>
+            </v-col>
+          </v-row>
+        </v-container>
       </div>
     </div>
   </div>
 </template>
+
 <script>
-  import { ValidationConvert } from '@initializer/vue/validations'
   import axios from 'axios'
   import {mapState} from 'vuex'
-
+  
   export default {
-    props: {},
-    data: function () {
-      return {
-        validationConvert: new ValidationConvert(),
-        errors: {}
-      }
+    $_veeValidate: {
+      validator: 'new',
     },
     computed: {
       ...mapState('callback', {visible: 'isVisible', form: 'form'})
     },
     methods: {
-      send() {
-        this.errors = {}
-        this.validationConvert.ruleValidations({required: true, max: 50}).forEach(item => {
-          let result = item(this.form.fio)
-          if (result !== true) {
-            this.errors = Object.assign({}, this.errors, {fio: result})
-          }
-          result = item(this.form.telephone)
-          if (result !== true) {
-            this.errors = Object.assign({}, this.errors, {telephone: result})
-          }
-        })
-        if (_.isEmpty(this.errors)) {
-          axios.post('/callback', this.form).then(response => {
-            this.$store.commit('SET_VARIABLE', {module: 'callback', variable: 'form', value: {}})
-            this.$store.commit('SET_VARIABLE', {module: 'callback', variable: 'isVisible', value: false})
-          })
+      async send() {
+        let isValid = await this.$validator.validate()
+        if (!isValid) {
+          return
         }
+        axios.post('/callback', this.form).then(response => {
+          this.$store.commit('SET_VARIABLE_MODULE', {module: 'callback', variable: 'form', value: {}}, {root: true})
+          this.$store.commit('SET_VARIABLE_MODULE', {module: 'callback', variable: 'isVisible', value: false})
+        })
       },
       close() {
-        this.$store.commit('SET_VARIABLE', {module: 'callback', variable: 'isVisible', value: false})
-        this.$store.commit('SET_VARIABLE', {module: 'callback', variable: 'form', value: {}})
+        this.$store.commit('SET_VARIABLE_MODULE', {module: 'callback', variable: 'form', value: {}}, {root: true})
+        this.$store.commit('SET_VARIABLE_MODULE', {module: 'callback', variable: 'isVisible', value: false}, {root: true})
       }
     }
   }
 </script>
 
-<style lang="scss" scoped>
-  @import '../../../sass/callback.scss'
-</style>

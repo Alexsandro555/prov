@@ -8,9 +8,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class AttrVal extends Pivot
 {
   public function getValueAttribute() {
-    $attributeTypeId = $this->pivotParent->attributes['attribute_type_id'];
-    //$attributeTypeId = Attribute::find($this->attributes['attribute_id'])->attribute_type_id;
-    switch ($attributeTypeId) {
+    switch ($this->attribute->attribute_type_id) {
       case 1:
         return $this->attributes['boolean_value'];
       case 2:
@@ -27,12 +25,12 @@ class AttrVal extends Pivot
         return $this->attributes['decimal_value'];
       case 8:
         return $this->attributes['list_value'];
+      default:
+        return '';
     }
   }
 
   public function setValueAttribute($value) {
-    //$attributeTypeId = Attribute::find($this->attributes['attribute_id'])->attribute_type_id;
-    $attributeTypeId = $this->pivotParent->attributes['attribute_type_id'];
     $this->attributes['boolean_value'] = null;
     $this->attributes['string_value'] = null;
     $this->attributes['integer_value'] = null;
@@ -41,7 +39,7 @@ class AttrVal extends Pivot
     $this->attributes['text_value'] = null;
     $this->attributes['decimal_value'] = null;
     $this->attributes['list_value'] = null;
-    switch ($attributeTypeId) {
+    switch ($this->attribute->attribute_type_id) {
       case 1:
         $this->attributes['boolean_value'] = $value;
         break;
@@ -68,5 +66,10 @@ class AttrVal extends Pivot
         break;
     }
   }
+
+  public function attribute() {
+    return $this->belongsTo(Attribute::class);
+  }
+
   protected $appends = ['value'];
 }

@@ -4,22 +4,30 @@ namespace Modules\Product\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Initializer\Traits\CoreTrait;
 use Modules\Initializer\Traits\SortTrait;
 use Modules\Initializer\Traits\DefaultFieldTrait;
+use Modules\Initializer\Traits\TableColumnsTrait;
 
 class AttributeListValues extends Model
 {
-  use SoftDeletes, SortTrait, DefaultFieldTrait;
+  use SoftDeletes, SortTrait, TableColumnsTrait, CoreTrait, DefaultFieldTrait;
 
   protected $guarded = [];
 
-  protected $table = 'attribute_list_values';
-
   public function attributes() {
-    return $this->bolongsTo(Attribute::class);
+    return $this->belongsTo(Attribute::class);
   }
 
   public $matched = ['attribute_id'];
 
-  public $unmatched = ['id'];
+  protected $dates = ['deleted_at'];
+
+  public function getRules()
+  {
+    return [
+      'title' => 'max:255'
+    ];
+  }
+
 }

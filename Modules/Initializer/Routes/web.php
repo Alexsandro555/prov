@@ -12,5 +12,4 @@
 */
 
 Route::prefix('initializer')->group(function() {
-    Route::get('/fields/{name}', 'InitializerController@fields');
 });

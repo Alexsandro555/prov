@@ -1,8 +1,24 @@
 import { GLOBAL } from "@/constants"
+import store from './states.js'
+
+const checkKey = (module, key) => {
+  store.dispatch(module+'/loadByKey', key)
+}
 
 export default {
-  items: state => state.items,
   state: state => state,
+  items: state => state.items,
+  loading: state => state.isLoading,
+  formFields: state => state.formFields,
+  rules: state => state.rules,
+  headers: state => _.take(Object.keys(state.formFields).map((key) => {
+    return {
+      text: state.formFields[key].label,
+      align: 'left',
+      sortable: true,
+      value: key
+    }
+  }), state.colTableFields),
   module: state => state.module,
   getItemByKey: state => key => {
     return state.items.find( item => item.id == key)
@@ -14,7 +30,7 @@ export default {
     return getters.uniqNotNil(keys).filter( item => !state.items.map(itm => itm[getters.primary_key]).includes(item))
   },
   getModel: (state, getters, rootState, rootGetters) => (_.isNil(getters.config))?null:getters.config.model,
-  primary_key: state => (_.isEmpty(state.config))?'id':(!_.isEmpty(state.config.primary_key))?state.config.primary_key:'id',
+  //primary_key: getters => (_.isEmpty(getters.config))?'id':(!_.isEmpty(getters.config.primary_key))?getters.config.primary_key:'id',
   transformByKey: (state, getters, rootState, rootGetters)  => (obj,key) => {
     if (!_.isObject(obj)) {obj=_.isNil(getters.items)?{}:getters.items.find(item => item[getters.primary_key]==obj)}
 
@@ -32,7 +48,6 @@ export default {
       let variable=state.items.filter(item => Object.keys(key).every(mykey => key[mykey]==item[mykey]))
       if (!_.isNil(count)) {count=parseInt(count,10)
         if (variable.length<count) {
-
           checkKey(getters.module,key)}}
       return variable
     }

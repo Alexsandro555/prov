@@ -7,84 +7,77 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Files\Entities\File;
 use Modules\Initializer\Traits\SortTrait;
 use Modules\Initializer\Traits\TableColumnsTrait;
-use Modules\Initializer\Traits\RelationTrait;
-use Modules\Initializer\Traits\ClearCacheTrait;
-use Modules\Initializer\Traits\UrlKeyTrait;
-
-//use Fico7489\Laravel\Pivot\Traits\PivotEventTrait;
+use Modules\Initializer\Traits\CoreTrait;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Modules\Initializer\Traits\ActiveTrait;
+use Modules\Initializer\Scopes\ActiveScope;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
 class TypeProduct extends Model
 {
-  use SoftDeletes, TableColumnsTrait, RelationTrait, ClearCacheTrait, SortTrait, UrlKeyTrait; //, PivotEventTrait;
+  use SoftDeletes, TableColumnsTrait, CoreTrait, SortTrait, Sluggable, ActiveTrait, Cachable;
 
   protected $dates = ['deleted_at'];
 
-  protected $guarded = [];
+  protected $guarded = ['computed'];
 
-  public $cacheModule = 'product';
+  public $hidden = ['remote_id'];
 
-  protected $table = 'type_products';
+  public function getRules()
+  {
+    return [
+      'title' => 'max:255'
+    ];
+  }
 
-  public $form = [
-    'id' => [
-      'enabled' => true
-    ],
-    'title' => [
-      'enabled' => true,
-      'validations' => [
-        'required' => true,
-        'max' => 255
+  public function sluggable(): array
+  {
+    return [
+      'url_key' => [
+        'source' => 'title'
       ]
-    ],
-    'meta_title' => [
-      'enabled' => true,
-    ],
-    'meta_description' => [
-      'enabled' => true,
-    ],
-    'meta_keywords' => [
-      'enabled' => true,
-    ],
-    'description' => [
-      'enabled' => true
-    ],
-    'active' => [
-      'enabled' => true
-    ],
-    'product_category' => [
-      'enabled' => true,
-    ],
-    'tnved' => [
-      'enabled' => true,
-    ]
+    ];
+  }
+
+  protected $casts = [
+    'computed' => 'collection'
   ];
 
-  public function tnved() {
+  public function tnved()
+  {
     return $this->belongsTo(Tnved::class);
   }
 
-  public function product_category() {
+  public function productCategory()
+  {
     return $this->belongsTo(ProductCategory::class);
   }
 
-  public function products() {
+  public function products()
+  {
     return $this->hasMany(Product::class);
   }
 
-  public function lineProducts() {
+  public function lineProducts()
+  {
     return $this->hasMany(LineProduct::class);
   }
 
-  public function files() {
+  public function files()
+  {
     return $this->morphMany(File::class, 'fileable');
   }
 
-  public function attributes() {
+  public function attributes()
+  {
     return $this->morphToMany(Attribute::class, 'attributable');
   }
 
-  public function images() {
-    return $this->morphMany(File::class, 'fileable');
+  protected static function boot()
+  {
+    parent::boot();
+
+    static::addGlobalScope(new ActiveScope);
   }
 
   /*protected static function boot()

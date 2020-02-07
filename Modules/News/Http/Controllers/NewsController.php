@@ -5,11 +5,10 @@ namespace Modules\News\Http\Controllers;
 use Illuminate\Routing\Controller;
 use Modules\Initializer\Traits\ControllerTrait;
 use Modules\News\Entities\News;
-use Modules\Initializer\Traits\DefaultTrait;
 
 class NewsController extends Controller
 {
-  use ControllerTrait, DefaultTrait;
+  use ControllerTrait;
 
   public $model;
 

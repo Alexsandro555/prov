@@ -18,9 +18,9 @@ class CreateAttributesTable extends Migration
     Schema::create($this->tableName, function (Blueprint $table) {
       $table->increments('id')->comment('Идентефикатор');
       $table->unsignedInteger('remote_id')->nullable();
+      $table->string('title', 255)->nullable()->comment('Наименование');
       $table->unsignedInteger('sort')->nullable()->comment('Сорт.');
-      $table->string('title', 255)->comment('Наименование');
-      $table->string('url_key', 255)->comment('Псевдоним eng');
+      $table->string('url_key', 255)->nullable()->comment('Псевдоним eng');
       $table->boolean('active')->default(true)->nullable()->comment('Актив.');
       $table->unsignedInteger('attribute_type_id')->nullable()->comment('Тип');
       $table->unsignedInteger('attribute_group_id')->nullable()->comment('Группа атрибута');

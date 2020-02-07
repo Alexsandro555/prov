@@ -10,15 +10,12 @@ export default {
   },
   [ACTIONS.REGISTER]: ({state, commit}, data) => {
     return new Promise((resolve, reject) => {
-      //commit(MUTATIONS.AUTH_REQUEST)
       api.post('/api/register', data).then(response => {
         const token = response.success.token
         localStorage.setItem('user-token', token)
         axios.defaults.headers.common['Authorization'] = token
-        //commit(MUTATIONS.AUTH_SUCCESS, token)
         resolve(response)
       }).catch(error => {
-        //commit(MUTATIONS.AUTH_ERROR, error)
         localStorage.removeItem('user-token')
         reject(error)
       })
@@ -28,20 +25,11 @@ export default {
     return new Promise((resolve, reject) => {
       commit(MUTATIONS.AUTH_REQUEST)
       api.post('/api/login', data).then(response => {
-        const token = response.success.token
+        const token = response.access_token
         if(token) {
           localStorage.setItem('user-token', token)
           commit(MUTATIONS.AUTH_SUCCESS, token)
           axios.defaults.headers.common['Authorization'] = 'Bearer '+token
-
-          /*for(var key in rootState) {
-            if(rootState[key].init) {
-              dispatch(key+'/GLOBAL_LOAD', null, {root:true})
-            }
-            if(rootState[key].needFields) {
-              dispatch(key+'/GLOBAL_INITIALIZATION', null, {root: true})
-            }
-          }*/
         }
         resolve(response)
       }).catch(error => {
@@ -53,10 +41,14 @@ export default {
   },
   [ACTIONS.AUTH_LOGOUT]: ({state, commit}) => {
     return new Promise((resolve, reject) => {
-      localStorage.removeItem('user-token')
-      commit(MUTATIONS.AUTH_LOGOUT)
-      delete axios.defaults.headers.common['Authorization']
-      resolve()
+      api.get('/api/logout').then(response => {
+        localStorage.removeItem('user-token')
+        commit(MUTATIONS.AUTH_LOGOUT)
+        delete axios.defaults.headers.common['Authorization']
+        resolve()
+      }).catch(error => {
+        reject(error)
+      })
     })
   }
 }

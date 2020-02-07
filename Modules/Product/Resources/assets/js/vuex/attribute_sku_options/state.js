@@ -13,7 +13,8 @@ const state = {
     items: [],
     init: true,
     fields: [],
-    loading: true
+    loading: true,
+    count: null
 }
 
 const module = {

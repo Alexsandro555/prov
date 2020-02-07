@@ -3,69 +3,61 @@
 namespace Modules\Product\Entities;
 
 use Illuminate\Database\Eloquent\Model;
-use Modules\Initializer\Traits\RelationTrait;
+use Modules\Initializer\Traits\CoreTrait;
 use Modules\Initializer\Traits\SortTrait;
 use Modules\Initializer\Traits\TableColumnsTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Initializer\Traits\UrlKeyTrait;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Modules\Initializer\Traits\ActiveTrait;
 
 class Attribute extends Model
 {
-  use SoftDeletes, RelationTrait, TableColumnsTrait, SortTrait, UrlKeyTrait;
-
-  public $form = [
-    'id' => [
-      'enabled' => true
-    ],
-    'title' => [
-      'enabled' => true,
-      'validations' => [
-        'required' => true,
-        'max' => 255
-      ]
-    ],
-    'active' => [
-      'enabled' => true
-    ],
-    'sort' => [
-      'enabled' => true
-    ],
-    'attribute_unit' => [
-      'enabled' => true
-    ],
-    'filtered' => [
-      'enabled' => true
-    ],
-    'attribute_type' => [
-      'enabled' => true,
-      'validations' => [
-        'required' => true,
-      ]
-    ],
-    'attribute_group' => [
-      'enabled' => true,
-      'validations' => [
-        'required' => true,
-      ]
-    ]
-  ];
-
-  protected $table = 'attributes';
+  use SoftDeletes, CoreTrait, TableColumnsTrait, SortTrait, Sluggable, ActiveTrait;
 
   protected $dates = ['deleted_at'];
 
-  protected $guarded = [];
+  protected $guarded = ['computed'];
 
-  public function attribute_unit() {
+  public $hidden = ['remote_id', 'url_key'];
+
+  public function getRules()
+  {
+    return [
+      'title' => 'max:50'
+    ];
+  }
+
+  public function sluggable(): array
+  {
+    return [
+      'url_key' => [
+        'source' => 'title'
+      ]
+    ];
+  }
+
+  protected $casts = [
+    'computed' => 'collection'
+  ];
+
+  public function attributeUnit() {
     return $this->belongsTo(AttributeUnit::class);
   }
 
-  public function attribute_type() {
+  public function attributeType() {
     return $this->belongsTo(AttributeType::class);
   }
 
-  public function attribute_group() {
+  public function attributeGroup() {
     return $this->belongsTo(AttributeGroup::class);
+  }
+
+  public function attributeListValue() {
+    return $this->hasMany(AttributeListValues::class);
+  }
+
+  public function attributeValue() {
+    return $this->hasMany(AttributeValue::class);
   }
 
   public function productCategories() {
@@ -80,13 +72,6 @@ class Attribute extends Model
     return $this->morphedByMany(LineProduct::class, 'attributable');
   }
 
-  public function attributeListValue() {
-    return $this->hasMany(AttributeListValues::class);
-  }
-
-  public function attributeValue() {
-    return $this->hasMany(AttributeValue::class);
-  }
 
   public function prod() {
     return $this->belongsToMany(Product::class, 'attribute_values')->withPivot('boolean_value', 'date_value', 'integer_value', 'string_value', 'decimal_value', 'text_value', 'list_value', 'double_value')->using(AttrVal::class);

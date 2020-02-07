@@ -13,10 +13,3 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->prefix('pages')->group(function() {
-  Route::get('/', 'PagesController@index');
-  Route::post('/', 'PagesController@load');
-  Route::post('/default', 'PagesController@create');
-  Route::delete('/', 'PagesController@delete');
-  Route::patch('/', 'PagesController@save');
-});

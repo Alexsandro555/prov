@@ -1,0 +1,1 @@
+export default {"attributes":{"type":"HasMany","table":"attributes","model":"Modules\\Product\\Entities\\Attribute","foreignKey":"attribute_unit_id","ownerKey":null}}

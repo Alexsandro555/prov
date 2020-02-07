@@ -1,12 +1,12 @@
 <template>
-  <div class="detail__image--wrapper">
-      <div class="detail__image">
-        <v-container v-if="loading" fill-height>
-          <v-layout row wrap align-center>
-            <v-flex class="text-xs-center">
+  <div>
+      <div class="detail__image hidden-md-and-down">
+        <v-container class="detail__image--container" v-if="loading" fill-height pa-0 ma-0>
+          <v-row class="justify-center align-center no-gutter">
+            <v-col cols="12">
               <v-progress-circular  indeterminate  style="vertical-align: middle" :size="100" color="primary"></v-progress-circular>
-            </v-flex>
-          </v-layout>
+            </v-col>
+          </v-row>
         </v-container>
         <template v-else>
           <div class="image-wrapper">
@@ -14,26 +14,42 @@
             <img v-else src="/images/no-image.png"/>
           </div>
           <div v-if="items.length>0" class="thumbnails-slider">
-            <carousel :items="3" :nav="false" :dots="false" :margin="5">
-                <v-container v-for="item of items" :key="item.id" fill-height>
-                  <v-layout row wrap align-center>
-                    <v-flex class="text-xs-center">
+            <carousel :perPage="4" :centerMode="true" :paginationEnabled="false" :navigationEnabled="false">
+              <slide  v-for="item of items" :key="item.id">
+                <v-container fill-height pa-0 ma-0>
+                  <v-row class="justify-center align-center">
+                    <v-col cols="12">
                       <img @click="selectSlide(item.id)"  :src="'/storage/'+item.file"/>
-                    </v-flex>
-                  </v-layout>
+                    </v-col>
+                  </v-row>
                 </v-container>
-              <template slot="prev"><img class="nav-arrow-left" src="/images/slider-left-arrow.png"/></template>
-              <template slot="next">
-                <img  align="center" class="nav-arrow-right" src="/images/slider-right-arrow.png"/></template>
+              </slide>
             </carousel>
           </div>
         </template>
       </div>
+      <v-container class="hidden-lg-and-up pa-0 ma-0">
+        <v-row class="no-gutters">
+          <v-col cols="12">
+            <carousel :perPage="1" :centerMode="true">
+              <slide v-for="item of mediumItems" :key="item.id">
+                <v-container style="min-height: 240px;" pa-0 ma-0>
+                  <v-row class="justify-center align-center no-gutters" style="min-height: 240px;">
+                    <v-col cols="12" class="text-center">
+                        <img :src="'/storage/'+item.file">
+                    </v-col>
+                  </v-row>
+                </v-container>
+              </slide>
+            </carousel>
+          </v-col>
+        </v-row>
+      </v-container>
   </div>
 </template>
 <script>
   import axios from 'axios'
-  import carousel from 'vue-owl-carousel'
+  import {Carousel,Slide} from 'vue-carousel'
 
   export default {
     props: {
@@ -51,6 +67,8 @@
       return {
         elements: [],
         items: [],
+        mainItems: [],
+        mediumItems: [],
         curImage: '',
         loading: true
       }
@@ -60,6 +78,12 @@
         this.elements = response.data
         response.data.forEach(element => {
           this.items.push({'id': element.id, 'file': element.config.files.small.filename});
+          this.mainItems.push({'id': element.id, 'file': element.config.files.main.filename})
+          if (element.config.files.mobile) {
+            this.mediumItems.push({'id': element.id, 'file': element.config.files.mobile.filename})
+          } else {
+            this.mediumItems.push({'id': element.id, 'file': element.config.files.medium.filename})
+          }
         });
         // TODO:: утсранить дублирование
         this.curImage = this.items.length > 0 ? '/storage/' + this.elements[0].config.files.main.filename : null
@@ -69,7 +93,8 @@
       });
     },
     components: {
-      carousel
+      Carousel,
+      Slide
     },
     methods: {
       selectSlide: function (id, event) {
@@ -101,16 +126,11 @@
 </script>
 
 <style>
-  .detail__image--wrapper {
-    filter: drop-shadow(5px 5px 10px $color-blue-dark);
-    display: block;
-  }
 
   .detail__image {
-    width: 392px;
-    height: 450px;
-    top: 1px;
-    left: 1px;
+    width: 570px;
+    min-height: 490px;
+    margin-left: 10px;
     //background: url('#{$path}/product-corner.png') top left no-repeat;
     background-color: #ffffff;
     /*-webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);
@@ -122,12 +142,15 @@
     position: relative;
     display: table-cell;
     vertical-align: middle;
-    text-align: center;
     width: inherit;
+    background-color: #fff;
   }
 
   .image-wrapper img {
     margin: 0 auto;
+    //border: 1px solid #eee;
+    padding: 2px;
+    background-color: #fff;
   }
 
   .detail__image-label {
@@ -147,33 +170,15 @@
   }
 
   .thumbnails-slider {
-    height: 120px;
-    width: 320px;
+    width: 100%;
     margin: 0 auto;
-    margin-bottom: 20px;
     display: inline-block;
     position:relative;
+    padding-top: 10px;
+    padding-down: 10px;
   }
 
-  .thumbnails-slider .owl-carousel.owl-loaded{
-    width: 310px;
-    display: inline-block;
-  }
-
-  .thumbnails-slider .owl-item {
-    height: 103px;
-  }
-
-  .nav-arrow-left, .nav-arrow-right {
-    position: absolute;
-    margin-top: 30px;
-  }
-
-  .nav-arrow-left {
-    left: -15px;
-  }
-
-  .nav-arrow-right {
-    right: -15px;
+  .detail__image--container {
+    min-height: 420px;
   }
 </style>

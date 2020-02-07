@@ -2,16 +2,14 @@
 
 namespace Modules\Product\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Request;
 use Modules\Initializer\Traits\ControllerTrait;
 use Modules\Product\Entities\TypeProduct;
-use Modules\Initializer\Traits\DefaultTrait;
 
 class TypeProductController extends Controller
 {
-  Use ControllerTrait, DefaultTrait;
+  Use ControllerTrait;
 
   public $model;
 
@@ -19,4 +17,6 @@ class TypeProductController extends Controller
   {
     $this->model = new TypeProduct();
   }
+
+
 }

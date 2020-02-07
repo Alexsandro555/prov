@@ -11,6 +11,6 @@
 |
 */
 
-Route::middleware('web')->prefix('callback')->group(function() {
+Route::prefix('callback')->group(function() {
   Route::post('/', 'CallbackController@store');
 });

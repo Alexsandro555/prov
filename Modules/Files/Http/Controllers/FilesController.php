@@ -3,11 +3,10 @@
 namespace Modules\Files\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Storage;
-use Modules\Files\Classes\UploadInfo;
 use Modules\Files\Entities\Figure;
+use Modules\Files\Http\Requests\Base64ImageRequest;
+use Modules\Files\Http\Requests\FileRequest;
 use Modules\Files\Services\UploadService;
 use Modules\Files\Entities\File;
 use Modules\Product\Entities\Attribute;
@@ -16,58 +15,69 @@ use Modules\Product\Entities\LineProduct;
 use Modules\Product\Entities\Product;
 use Modules\Product\Entities\ProductCategory;
 use Modules\Product\Entities\TypeProduct;
-use SebastianBergmann\Diff\Line;
+use Modules\Initializer\Traits\ControllerTrait;
 
 class FilesController extends Controller
 {
-  public function index()
+  Use ControllerTrait;
+
+  public $model;
+
+  public function __construct()
   {
-    return File::all();
+    $this->model = new File;
   }
 
   /**
    * Upload file
    *
    * @param UploadService $uploadService
-   * @param UploadInfo $uploadInfo
+   * @param FileRequest $request
    * @return array
    * @throws \Exception
    */
-  public function store(UploadService $uploadService, UploadInfo $uploadInfo)
+  public function store(FileRequest $request, UploadService $uploadService)
   {
-    if ($uploadService->upload()) {
-      return ['id' => $uploadInfo->currentFileId, 'message' => 'Успешно загружено!'];
-    } else {
-      throw new \Exception('Загрузка не удалась - не должно возникать');
-    }
+    return $uploadService->upload($request, $request->file('file'));
   }
 
-
   /**
+   * Custom upload file
+   *
    * @param UploadService $uploadService
-   * @param UploadInfo $uploadInfo
-   * @return \Illuminate\Http\JsonResponse
+   * @param Base64ImageRequest $request
+   * @return array
    * @throws \Exception
    */
-  public function storeWysiwyg(UploadService $uploadService, UploadInfo $uploadInfo)
+  public function customStore(Base64ImageRequest $request, UploadService $uploadService)
   {
-    if ($uploadService->upload()) {
-      $file = File::find($uploadInfo->currentFileId);
-      $arrFiles = [];
-      foreach ($file->config as $files) {
-        foreach ($files as $key => $file) {
-          if ($key !== 'original') {
-            $fileItem['filename'] = $file["filename"];
-            $fileItem['width'] = $file["width"];
-            $fileItem['height'] = $file["height"];
-            $arrFiles[] = $fileItem;
-          }
+    return $uploadService->upload($request, $request->files->get('file'));
+  }
+
+  /**
+   * Upload file
+   *
+   * @param UploadService $uploadService
+   * @param FileRequest $request
+   * @return array
+   * @throws \Exception
+   */
+  public function storeWysiwyg(FileRequest $request, UploadService $uploadService)
+  {
+    return $uploadService->upload($request, $request->files->get('file'));
+    /*$file = $uploadService->upload($request, $request->file('file'));
+    $arrFiles = [];
+    foreach ($file->config as $files) {
+      foreach ($files as $key => $file) {
+        if ($key !== 'original') {
+          $fileItem['filename'] = $file["filename"];
+          $fileItem['width'] = $file["width"];
+          $fileItem['height'] = $file["height"];
+          $arrFiles[] = $fileItem;
         }
       }
-      return response()->json(['error' => false, 'files' => $arrFiles], 200);
-    } else {
-      throw new \Exception('Загрузка не удалась - не должно возникать');
     }
+    return ['files' => $arrFiles];*/
   }
 
   /**
@@ -102,18 +112,16 @@ class FilesController extends Controller
   {
     // TODO: требуется выполнить оптимизацию #1 проблема
     $product = Product::findOrFail($id);
-    return File::with('typeFile', 'figure')->where(function ($query) use (&$product) {
-      $query->where('fileable_id', $product->product_category_id)->where('fileable_type', ProductCategory::class);
-    })->orWhere(function ($query) use (&$product) {
-      $query->where('fileable_id', $product->type_product_id)->where('fileable_type', TypeProduct::class);
-    })->orWhere(function ($query) use (&$product) {
-      $query->where('fileable_id', $product->line_product_id)->where('fileable_type', LineProduct::class);
-    })->orWhere(function ($query) use (&$product) {
-      $query->where('fileable_id', $product->id)->where('fileable_type', Product::class);
-    })->get();
-    /*return File::with('typeFile', 'figure')->where(function ($query) use (&$product) {
-      $query->where('fileable_id', $product->id)->where('fileable_type', Product::class);
-    })->get();*/
+    return File::with('typeFile', 'figure')
+              ->where(function ($query) use (&$product) {
+                      $query->where('fileable_id', $product->product_category_id)->where('fileable_type', ProductCategory::class);
+            })->orWhere(function ($query) use (&$product) {
+                      $query->where('fileable_id', $product->type_product_id)->where('fileable_type', TypeProduct::class)->where('type_file_id', 2);
+            })->orWhere(function ($query) use (&$product) {
+                      $query->where('fileable_id', $product->line_product_id)->where('fileable_type', LineProduct::class)->where('type_file_id', 2);
+            })->orWhere(function ($query) use (&$product) {
+                      $query->where('fileable_id', $product->id)->where('fileable_type', Product::class)->where('type_file_id', 2);
+            })->get();
   }
 
   public function figure($id, $type = 'medium', $product_id = null)

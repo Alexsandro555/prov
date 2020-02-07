@@ -1,9 +1,24 @@
-.news__conent {
+.news {
+  .news__button {
+    @extend .main-button;
+  }
+}
+
+.news__content {
   color: $color-white;
   font-family: $font-os;
   font-size: 1em;
   margin-top:20px;
-  margin-left: 40px;
+  //margin-left: 40px;
+
+
+  .news__header a {
+    color: black;
+    font-family: $font-os-condenced-bold;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: $color-green;
+  }
 }
 
 .news__date {
@@ -22,12 +37,8 @@
   color: $color-green-dark;
 }
 
-.news__header a {
-  color: black;
-  font-family: $font-os-condenced-bold;
-  font-size: 1.2em;
-}
-
-.news__button {
-  margin-left: 40px;
+@media (max-width: 1265px) {
+  .news__date {
+    color: $color-green;
+  }
 }

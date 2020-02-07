@@ -10,9 +10,3 @@
 |
 */
 
-Route::middleware('auth:api')->prefix('news')->group(function() {
-  Route::get('/', 'NewsController@index');
-  Route::post('/', 'NewsController@load');
-  Route::post('/default', 'NewsController@create');
-  Route::patch('/', 'NewsController@save');
-});

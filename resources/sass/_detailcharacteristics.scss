@@ -1,3 +1,36 @@
+.characteristics__cell {
+  width: 56%;
+  box-sizing: border-box;
+  padding-right: 15px;
+}
+
+.characteristics__cell .table {
+  overflow-x: auto;
+}
+
+.table__box {
+  width: 100%;
+}
+
+.table__th {
+  width: 50%;
+  font-weight: 300;
+  color: #999;
+}
+
+.table__th, .table__td {
+  text-align: left;
+  vertical-align: middle;
+  font-size: 16px;
+  line-height: 1.25;
+  padding: 5px 15px;
+}
+
+.table__td {
+  font-size: 0.9em;
+  color: $color-green;
+}
+
 .tabs__characteristics {
   display: inline-block;
   margin-left: 30px;

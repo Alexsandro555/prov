@@ -4,7 +4,9 @@ namespace Modules\Initializer\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Initializer\Console\CoreLoadAllGenerate;
 use Modules\Initializer\Console\MakeVuexModule;
+use Illuminate\Console\Scheduling\Schedule;
 
 class InitializerServiceProvider extends ServiceProvider
 {
@@ -28,8 +30,14 @@ class InitializerServiceProvider extends ServiceProvider
         $this->registerFactories();
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
         $this->commands([
-          MakeVuexModule::class
+          MakeVuexModule::class,
+          CoreLoadAllGenerate::class
         ]);
+
+        $this->app->booted(function() {
+          $schedule = $this->app->make(Schedule::class);
+          $schedule->command('queue:work --once --timeout=60')->everyFiveMinutes()->withoutOverlapping();
+        });
     }
 
     /**
@@ -59,7 +67,7 @@ class InitializerServiceProvider extends ServiceProvider
 
     /**
      * Register views.
-     *
+     *php artisan queue
      * @return void
      */
     public function registerViews()

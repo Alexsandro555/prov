@@ -1,14 +1,14 @@
 {
-    "name": "Product",
-    "alias": "product",
-    "description": "",
-    "keywords": [],
-    "active": 1,
-    "order": 0,
-    "providers": [
-        "Modules\\Product\\Providers\\ProductServiceProvider"
-    ],
-    "aliases": {},
-    "files": [],
-    "requires": []
+  "name": "Product",
+  "alias": "product",
+  "description": "",
+  "keywords": [],
+  "active": 1,
+  "order": 0,
+  "providers": [
+    "Modules\\Product\\Providers\\ProductServiceProvider"
+  ],
+  "aliases": {},
+  "files": [],
+  "requires": []
 }

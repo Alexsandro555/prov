@@ -1,7 +1,7 @@
 .special-product-wrapper {
   filter: drop-shadow(3px 3px 5px gray);
+  margin: 0 auto;
   margin-bottom: 30px;
-  margin-left: 10px;
 }
 
 .special-product {
@@ -11,15 +11,39 @@
   height: 390px;
   @include border-radius(0px 0px 6px 6px);
   display: block;
-  background: url('#{$path}/special-product__item-head-lay.png') top center no-repeat;
+  background: url('#{$path}/special-product__item-head-lay.png') top center repeat-x;
   background-color: $color-white;
   -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 55% 100%, 50% 97%, 45% 100%, 0% 100%);
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 55% 100%, 50% 97%, 45% 100%, 0% 100%);
   margin: 0 auto;
   padding: 0px 0px 10px 0px;
+
+
+  .special-product__header {
+    height: 82px;
+    line-height: 82px;
+
+
+    a {
+      color: $color-green;
+      font-size: 1.1em;
+      font-family: $font-os-semibold;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1.25;
+      text-decoration: none;
+      padding: 0 30px;
+    }
+  }
+
+  .special-product__price {
+    a {
+      color: $color-green-light;
+    }
+  }
 }
 
-.special-product:first-child  {
+.special-product:first-child {
   //margin-left: 0px;
 }
 
@@ -29,30 +53,15 @@
   margin: 10px;
 }
 
-.special-product__header {
-  height: 82px;
-  line-height: 82px;
-}
-
-.special-product__header>a {
-  color: $color-green;
-  font-size: 1.1em;
-  font-family: $font-os-semibold;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1.25;
-  text-decoration: none;
-  padding: 0 30px;
-}
 
 .special-product__img {
   margin-top: 10px;
-  padding: 5px 10px;
+  //padding: 5px 10px;
   height: 180px;
   line-height: 180px;
 }
 
-.special-product__img>img {
+.special-product__img > img {
   vertical-align: middle;
 }
 
@@ -118,8 +127,8 @@
 }
 
 .product-order-req {
-    @extend .content__buttom;
-    margin-top: 7px;
-    color: $color-green;
-    border-color: #c8dac6;
+  @extend .content__buttom;
+  margin-top: 7px;
+  color: $color-green-dark;
+  border-color: #c8dac6;
 }

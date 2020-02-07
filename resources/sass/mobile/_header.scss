@@ -1,0 +1,39 @@
+.mobile__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  height: 62px;
+  //padding-right: 10px;
+  background-color: $color-green;
+  width: 100%;
+  color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+  .link-cart {
+    text-decoration: none;
+    color: $color-white;
+  }
+}
+
+.navigation-btn {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1200px){
+  .app {
+    padding-top:62px;
+  }
+}
+
+.mobile-category {
+  position: relative;
+  background-color: #ffbf00;
+  color: #000;
+  //height: 62px;
+  //margin-top: 62px;
+  width: 100%;
+  padding-top: 62px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}

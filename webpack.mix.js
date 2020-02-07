@@ -40,8 +40,11 @@ mix.webpackConfig({
       '@callback': __dirname + '/Modules/Callback/Resources/assets/js',
       '@order': __dirname + '/Modules/Order/Resources/assets/js',
       '@guest': __dirname + '/Modules/Guest/Resources/assets/js',
+      '@section': __dirname + '/Modules/Section/Resources/assets/js',
+      '@app': __dirname + '/Modules/App/Resources/assets/js',
       cartScss: path.resolve(__dirname + '/Modules/Cart/Resources/assets/scss'),
-      articleScss: path.resolve(__dirname + '/Modules/Article/Resources/assets/sass')
+      articleScss: path.resolve(__dirname + '/Modules/Article/Resources/assets/sass'),
+      callbackScss: path.resolve(__dirname + '/Modules/Callback/Resources/assets/sass')
     }
   }
 })

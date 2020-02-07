@@ -9,5 +9,23 @@
 //@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
 
+@import '~material-design-icons-iconfont/dist/material-design-icons.css';
+@import '~vuetify/dist/vuetify.css';
+
+
+@import "material-dashboard/mixins";
+@import "material-dashboard/variables";
+@import "material-dashboard/typography";
+@import "material-dashboard/sidebar";
+@import "material-dashboard/toolbar";
+@import "material-dashboard/fixed-plugin";
+@import "material-dashboard/tooltips";
+@import "material-dashboard/misc";
+@import "material-dashboard/dropdown";
+@import "material-dashboard/inputs";
+@import "material-dashboard/footer";
+@import "material-dashboard/tabs";
+@import "material-dashboard/checkboxes";
+@import "material-dashboard/buttons";
 
 

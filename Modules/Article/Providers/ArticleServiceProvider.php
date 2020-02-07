@@ -4,7 +4,6 @@ namespace Modules\Article\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
-use Modules\Article\Models\Article;
 
 class ArticleServiceProvider extends ServiceProvider
 {
@@ -37,9 +36,6 @@ class ArticleServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
-        $this->app->bind('Article', function ($app) {
-          return new Article();
-        });
     }
 
     /**

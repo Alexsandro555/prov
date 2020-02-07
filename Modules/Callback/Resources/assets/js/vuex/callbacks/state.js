@@ -12,11 +12,17 @@ var mutations = Object.assign({}, module_mutations, standart_mutations)
 
 const state = {
 	name: 'Callback',
-  items:[],
-  fields: [],
-  loading: true,
-  isVisible: false,
-  form: {}
+	items: [],
+	formFields: {},
+	up: [],
+	down: [],
+	rules: {},
+	isLoading: false,
+	isSaving: false,
+	colTableFields: 4,
+	isVisible: false,
+	form: {},
+	count: null
 }
 
 const module = {

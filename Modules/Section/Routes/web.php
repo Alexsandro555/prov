@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('section')->group(function() {
-    Route::get('/', 'SectionController@index');
+Route::prefix('sections')->group(function() {
+    Route::post('/set', 'SectionController@set');
 });

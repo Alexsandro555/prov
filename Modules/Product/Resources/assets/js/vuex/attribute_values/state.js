@@ -12,13 +12,14 @@ var mutations = Object.assign({}, module_mutations, standart_mutations)
 const state = {
     name: 'AttributeValue',
     items: [],
-    item: {},
-    url: 'api/attribute-value',
-    init: true,
-    fields: [],
-    loading: true,
-    needFields: false,
-    model: 'Modules\\Product\\Entities\\AttributeValue'
+    formFields: {},
+    up: [{column: 'attribute_id', module: "attributes"}],
+    down: [],
+    rules: {},
+    isLoading: false,
+    isSaving: false,
+    colTableFields: 4,
+    count: null
 }
 
 const module = {

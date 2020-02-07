@@ -4,7 +4,8 @@ namespace Modules\Files\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
-use Modules\Files\Classes\UploadInfo;
+use Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesser;
+use Modules\Files\Entities\File;
 
 class FilesServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,32 @@ class FilesServiceProvider extends ServiceProvider
     $this->registerViews();
     $this->registerFactories();
     $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+
+
+    /*File::macro('streamMimeType', function ($content) {
+      $mimeType = finfo_buffer(finfo_open(), $content, FILEINFO_MIME_TYPE);
+
+      return $mimeType;
+    });
+
+    File::macro('streamSize', function ($content) {
+      $size = strlen($content);
+
+      return $size;
+    });
+
+    File::macro('mimeExtension', function ($mimeType) {
+      $extension = ExtensionGuesser::getInstance()->guess($mimeType);
+
+      return $extension;
+    });
+
+    File::macro('streamExtension', function ($content) {
+      $mimeType = $this->streamMimeType($content);
+      $extension = $this->streamMimeExtension($mimeType);
+
+      return $extension;
+    });*/
   }
 
   /**
@@ -37,10 +64,6 @@ class FilesServiceProvider extends ServiceProvider
   public function register()
   {
     $this->app->register(RouteServiceProvider::class);
-    $this->app->singleton(UploadInfo::class, function () {
-      return new UploadInfo();
-    });
-    $this->app->bind('Modules\Files\Contracts\Uploader', 'Modules\Files\Classes\FileUploader');
   }
 
   /**

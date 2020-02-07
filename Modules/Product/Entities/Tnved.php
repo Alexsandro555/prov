@@ -4,36 +4,25 @@ namespace Modules\Product\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Initializer\Traits\CoreTrait;
 use Modules\Initializer\Traits\TableColumnsTrait;
-use Modules\Initializer\Traits\RelationTrait;
 
 class Tnved extends Model
 {
-  use SoftDeletes, TableColumnsTrait, RelationTrait;
+  use SoftDeletes, TableColumnsTrait, CoreTrait;
 
   protected $dates = ['deleted_at'];
 
-  protected $table = 'tnveds';
-
   protected $guarded = [];
 
-  public $form = [
-    'id' => [
-      'enabled' => true
-    ],
-    'title' => [
-      'enabled' => true,
-      'validations' => [
-        'required' => true,
-        'max' => 255
-      ]
-    ],
-    'active' => [
-      'enabled' => true
-    ]
-  ];
+  public $hidden = ['remote_id'];
 
-  public function type_products() {
+  static public function load_all()
+  {
+    return true;
+  }
+
+  public function typeProducts() {
     return $this->hasMany(TypeProduct::class);
   }
 }

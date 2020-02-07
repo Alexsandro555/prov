@@ -22,17 +22,6 @@ class AttributeValueController extends Controller
     $this->model = new AttributeValue();
   }
 
-  public function save(Request $request)
-  {
-    $request = $request->all();
-    foreach ($request['attributes'] as $attribute) {
-      $f = $this->model->firstOrNew(['id' => $attribute['id'], 'product_id' => $attribute['product_id'], 'attribute_id' => $attribute['attribute_id']]);
-      $f->fill($attribute);
-      $f->save();
-    }
-    return $this->model->all();
-  }
-
   private function checkValue($id, $value)
   {
     switch ($id) {

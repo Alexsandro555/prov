@@ -1,0 +1,1 @@
+export default {"productSections":{"type":"HasMany","table":"product_section","model":"Modules\\Section\\Entities\\ProductSection","foreignKey":"section_id","ownerKey":null}}

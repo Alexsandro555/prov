@@ -7,11 +7,11 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Initializer\Traits\ControllerTrait;
 use Modules\Product\Entities\AttributeGroup;
-use Modules\Initializer\Traits\DefaultTrait;
+
 
 class AttributeGroupController extends Controller
 {
-  Use ControllerTrait, DefaultTrait;
+  Use ControllerTrait;
 
   public $model;
 

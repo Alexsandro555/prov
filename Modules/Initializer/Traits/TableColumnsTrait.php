@@ -7,11 +7,12 @@ use Whoops\Exception\ErrorException;
 
 trait TableColumnsTrait
 {
-  public function getColumns($name)
+  public function getColumns()
   {
     $resultCollection = collect([]);
     $model = new static;
-    $tableName = $model->table ? $model->table : $name.'s';
+    $tableName = $model->table ? $model->table : $model->getTable();
+    $sort = 1;
     $columns = Schema::getColumnListing($tableName);
     if ($columns) {
       $primaryKey = \DB::select(\DB::raw("SELECT k.column_name FROM information_schema.table_constraints t JOIN information_schema.key_column_usage k USING(constraint_name, table_schema, table_name) WHERE t.constraint_type='PRIMARY KEY' AND t.table_schema=schema() AND t.table_name='" . $tableName . "'"))[0]->column_name;
@@ -22,12 +23,19 @@ trait TableColumnsTrait
         if ($column === $primaryKey) {
           $collection->put('primary',true);
         }
+        $collection->put('sort', $sort);
+        $sort++;
         $resultCollection->put($column,$collection);
       }
     }
     else {
       throw new ErrorException("Не могу получить данные из таблицы ".$tableName);
     }
+
+    $resultCollection = $resultCollection->filter(function($value, $key) use ($model) {
+      return !in_array($key, $model->hidden);
+    });
+
     return $resultCollection;
   }
 }

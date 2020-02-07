@@ -16,8 +16,8 @@ class CreateNewsTable extends Migration
   {
     Schema::create($this->tableName, function (Blueprint $table) {
       $table->increments('id')->comment('Идентефикатор');
-      $table->string('title', 255)->comment('Заголовок');
-      $table->string('url_key', 255)->unique()->comment('Путь');
+      $table->string('title', 255)->nullable()->comment('Заголовок');
+      $table->string('url_key', 255)->nullable()->unique()->comment('Путь');
       $table->text('description')->nullable()->comment('Содержимое');
       $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
       $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

@@ -2,29 +2,56 @@
 namespace Modules\Files\Entities;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesser;
+use Intervention\Image\Facades\Image;
 
 class File extends Model
 {
-  protected $fillable = [
-      'fileable_id', 'fileable_type', 'type_file_id', 'config', 'original_name'
-  ];
+  protected $guarded = [];
 
-  /**
-   * Get all the owning fileable models
-   * @return \Illuminate\Database\Eloquent\Relations\MorphTo
-   */
-  public function fileable() {
-      return $this->morphTo();
-  }
 
-  public function typeFile() {
-    return $this->belongsTo('Modules\Files\Entities\TypeFile');
+  public function typeFile()
+  {
+    return $this->belongsTo(TypeFile::class);
   }
 
   public function figure()
   {
     return $this->hasMany(Figure::class);
+  }
+
+  public static function streamMimeType($content)
+  {
+    $mimeType = finfo_buffer(finfo_open(), $content, FILEINFO_MIME_TYPE);
+
+    return $mimeType;
+  }
+
+  public static function streamSize($content)
+  {
+    $size = strlen($content);
+
+    return $size;
+  }
+
+  public static function mimeExtension($mimeType)
+  {
+    $extension = ExtensionGuesser::getInstance()->guess($mimeType);
+
+    return $extension;
+  }
+
+  public static function streamExtension($content)
+  {
+    $mimeType = $self->streamMimeType($content);
+    $extension = $self->streamMimeExtension($mimeType);
+
+    return $extension;
+  }
+
+  public static function put($path, $content)
+  {
+    file_put_contents($path, $content);
   }
 
   protected $casts = [

@@ -1,5 +1,5 @@
 import {ACTIONS} from '@product/constants'
-import {api} from '@product/api/Attributables'
+import {api} from '@/api/main'
 
 export default {
   [ACTIONS.REMOVE_BIND_ATTRIBUTES]: ({commit, dispatch, getters}, data) => {

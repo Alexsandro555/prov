@@ -11,28 +11,17 @@ use Illuminate\Support\Facades\DB;
 use Modules\Product\Entities\AttributeValue;
 use Modules\Initializer\Traits\ControllerTrait;
 use Modules\Product\Entities\LineProduct;
-use Modules\Initializer\Traits\DefaultTrait;
 use Spatie\PdfToText\Pdf;
-use Illuminate\Support\Facades\Storage;
 
 class AttributeController extends Controller
 {
-  Use ControllerTrait, DefaultTrait;
+  Use ControllerTrait;
 
   public $model;
 
   public function __construct()
   {
     $this->model = new Attribute();
-  }
-
-  /**
-   * Get all attributes
-   *
-   * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Attribute[]
-   */
-  public function index() {
-    return $this->model::with(['attributeListValue'])->orderBy('sort','asc')->get();
   }
 
   public function attributes($id) {

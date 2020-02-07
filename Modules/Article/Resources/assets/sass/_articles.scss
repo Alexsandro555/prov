@@ -1,15 +1,26 @@
 .application .theme--light.card, .theme--light .article--card {
-  min-height: 200px;
-  padding: 40px;
-  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 45%, 99% 50%, 100% 55%, 100% 100%, 0% 100%);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 45%, 99% 50%, 100% 55%, 100% 100%, 0% 100%);
-  @include border-radius(0px 13px 13px 0px);
-  background: url('#{$path}/article-block-line.png') left top repeat-y, rgba(255, 255, 255, 1);
+
+}
+
+@media (min-width: 960px) {
+  #articles__content {
+    .article--card {
+      padding: 40px;
+    }
+  }
+}
+
+#articles__content {
+  .article--card {
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 45%, 99% 50%, 100% 55%, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 45%, 99% 50%, 100% 55%, 100% 100%, 0% 100%);
+    @include border-radius(0px 13px 13px 0px);
+    background: url('#{$path}/article-block-line.png') left top repeat-y, rgba(255, 255, 255, 1);
+  }
 }
 
 .articles__content {
   font-size: 16px;
-  //font-size: 1.1em;
   border-bottom: 1px dashed $color-green-light;
   width: 100%;
   padding-bottom: 30px;
@@ -18,12 +29,12 @@
 .articles__content a {
   text-decoration: none;
   font-size: 1.1em;
-  color: $color-green;
+  color: $color-green !important;
 }
 
 .article--button {
   @extend .content__buttom;
-  color: $color-green;
+  color: $color-green !important;
   border-color: #c8dac6;
 }
 
@@ -36,6 +47,5 @@
 }
 
 .article__header {
-  //@extend .content__header;
   color: $color-green-dark;
 }

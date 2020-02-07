@@ -17,11 +17,11 @@ Route::middleware('auth:api')->get('/auth', function (Request $request) {
     return $request->user();
 });
 
-Route::post('login', 'LoginController@login');
+
+Route::post('/login', 'LoginController@login');
 Route::post('/register', 'RegisterController@register');
 
-
-
 Route::group(['middleware' => 'auth:api'], function() {
+  Route::get('logout', 'LoginController@logout');
   Route::post('get-details', 'API\PassportController@getDetails');
 });

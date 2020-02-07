@@ -22,6 +22,7 @@ class CreateTnvdsTable extends Migration
       $table->boolean('active')->default(true)->comment('Актив.');
       $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
       $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+      $table->primary('id');
       $table->softDeletes();
     });
     DB::statement("ALTER TABLE `$this->tableName` comment 'ТНВЭД'");

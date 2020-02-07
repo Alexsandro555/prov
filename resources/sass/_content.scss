@@ -2,15 +2,22 @@
   margin: 0px 24px;
 }
 
-.content-wrapper-top {
-  background: url('#{$path}/tree-layer-top.png') top center repeat;
-  height: 29px;
-}
 .content-wrapper {
   min-height: 600px;
-  width: 100%;
-  background: url('#{$path}/tree-layer.png') top center repeat;
   padding-bottom: 20px;
+  width: 100%;
+}
+
+@media (min-width: 1265px) {
+  .content-wrapper-top {
+    background: url('#{$path}/tree-layer-top.png') top center repeat;
+    height: 29px;
+  }
+  .content-wrapper {
+    width: 100%;
+    background: url('#{$path}/tree-layer.png') top center repeat;
+
+  }
 }
 
 .content {
@@ -19,23 +26,11 @@
   max-width: $main-width;
 }
 
-.content h1 {
-  color: white;
-}
 
-.content__header {
-  text-transform: uppercase;
-  font-size: 2em;
-  font-family: $font-os-condenced-bold;
-  color: $color-white;
-  background: url('#{$path}/banner-header.png') left center no-repeat;
-  height: 100px;
-  line-height: 100px;
-  padding-left: 30px;
-}
-
-.content__subheader {
-  color: $color-yell;
+@media (max-width: 1260px) {
+  .content {
+    margin-top: 57px;
+  }
 }
 
 .content__buttom {
@@ -54,21 +49,3 @@
   padding: 5px 10px;
 
 }
-
-.content--leftmargin310 {
-  margin-left: 310px;
-}
-
-.left-50 {
-  margin-left: 50px;
-}
-
-.content-discription  {
-  color: white;
-  font-size: 1.2em;
-}
-
-.content__info {
-  margin-top: -25px;
-}
-

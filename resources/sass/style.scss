@@ -1,10 +1,72 @@
-.application.theme--light.leader {
-  font-family: 'PT Sans', sans-serif;
-}
-
+@import '~material-design-icons-iconfont/dist/material-design-icons.css';
+@import '~vuetify/dist/vuetify.css';
 @import 'variables';
 @import 'mixins';
 @import 'font';
+@import 'mobile/header';
+@import 'mobile/footer';
+
+.abs-position {
+  position: absolute;
+  z-index: 100;
+  margin-top: -3px;
+}
+
+.wrapper {
+  max-width: $main-width;
+  margin: auto;
+}
+
+.header {
+  text-transform: uppercase;
+  font-size: 2em;
+  font-family: $font-os-condenced-bold;
+  color: $color-white;
+  background: url('#{$path}/banner-header.png') left center no-repeat;
+  height: 100px;
+  line-height: 100px;
+  padding-left: 30px;
+}
+
+.subheader {
+  color: $color-yell;
+}
+
+.main-button {
+  margin-top: 30px;
+  display: inline-block;
+  background: none;
+  border: 2px solid $color-yell;
+  padding: 7px;
+  font-size: 18px;
+  color: $color-yell !important;
+  text-transform: uppercase;
+  @include border-radius(6px);
+  text-decoration: none;
+  font-family: $font-os-condenced-bold;
+  margin-right: 15px;
+  padding: 5px 10px;
+}
+
+.main-button--green {
+  @extend .main-button;
+  color: $color-green-low-light !important;
+  border: 2px solid $color-green-low-light;
+}
+
+@media (max-width: 1260px) {
+    .header {
+      color: $color-green;
+    }
+}
+
+.sections {
+  margin-top: 453px;
+}
+
+.application.theme--light.leader {
+  font-family: 'PT Sans', sans-serif;
+}
 
 .logo {
   height: 198px;
@@ -13,8 +75,10 @@
 }
 
 @import 'header';
+@import 'top_menu';
 @import 'menu';
 @import '~cartScss/cart';
+@import '~callbackScss/callback';
 
 .find {
   padding-top: 19px;
@@ -60,11 +124,24 @@
 @import 'breadcrumbs';
 @import 'brands';
 
-[v-cloak] .v-cloak--block {
+/*[v-cloak] .v-cloak--block {
   display: block;
   background: url('#{$path}/cat-preloader.gif') center center no-repeat, rgba(225, 255, 255, 1);
   width: 100%;
   height: 1200px;
+}*/
+
+[v-cloak] .v-cloak--block {
+  display: flex;
+  background: url('#{$path}/cat-preloader.gif') center center no-repeat, rgba(225, 255, 255, 1);
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  height: 100%!important;
+  overflow-y: hidden;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 [v-cloak] .v-cloak--hidden {
@@ -73,13 +150,6 @@
 
 .v-cloak--block {
   display: none;
-}
-
-.abs-position {
-  position: absolute;
-  z-index: 100;
-  margin-top: -3px;
-  margin-left: -600px;
 }
 
 .figure-button {
@@ -97,8 +167,11 @@
   text-transform: uppercase;
 }
 
-
 .borderSel {
   //border: 4px solid yellow;
   filter: drop-shadow(5px 5px 10px yellow);
+}
+
+.header-title {
+  color: $color-yell;
 }

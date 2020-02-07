@@ -50,7 +50,7 @@
                 :rules="getRules(field.validations)"
                 :required="getRequired(field.validations)"
                 :error-messages="messages[''+num+'']"></v-checkbox>
-    <v-autocomplete
+    <!--<v-autocomplete
       v-else-if="field.type=='selectbox'"
       :value="items[num+'_id']"
       @change="updateItem($event,num+'_id')"
@@ -67,7 +67,7 @@
       <template slot="selection" slot-scope="data">
         {{ data.item.title }}
       </template>
-    </v-autocomplete>
+    </v-autocomplete>-->
     <!--<v-select
       v-else-if="field.type=='selectbox'"
       :name="num+'_id'"

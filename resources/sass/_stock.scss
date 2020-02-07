@@ -17,8 +17,6 @@
   margin: auto;
 }
 
-
-
 .stock__content {
   height: 270px;
 }
@@ -38,10 +36,10 @@
   padding: 0px 5px;
 }
 
-.container.grid-list-xs .layout .flex .stock__desc {
+.stock__desc {
   margin-top: 13px;
   font-family: $font-os-condenced-bold;
-  font-size: 1.8em;
+  font-size: 1.5em;
   color: $color-white;
   text-transform: uppercase;
   line-height: 1.4;
@@ -51,7 +49,6 @@
   color: $color-yell;
   font-size: 1.4em;
   font: $font-os-condenced-bold;
-
 }
 
 .stock__sub-price {

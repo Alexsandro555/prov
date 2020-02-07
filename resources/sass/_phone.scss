@@ -3,6 +3,8 @@
   height: 151px;
   margin-top: 20px;
   color: white;
+  font-size: 0.9em;
+  margin-top: -30px;
 }
 
 .phone__sun {
@@ -12,12 +14,9 @@
 }
 
 .phone__number {
-}
-
-.application.theme--light a.phone__number {
   text-decoration: none;
   font-family: $font-os-condenced-bold;
-  font-size: 2.2em;
+  font-size: 2.6em;
   text-shadow: 1px 1px 1px black, 0 0 1em black;
   text-transform: uppercase;
   color: white;

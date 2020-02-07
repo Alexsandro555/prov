@@ -14,81 +14,127 @@
 @section('menu')
   <div class="menu-wrapper wrapper">
     <div class="abs-position">
-      <left-menu></left-menu>
+      <left-menu/>
     </div>
   </div>
 @endsection
 
+
 @section('content')
-  <div class="content-wrapper">
-    <div class="content">
-      <v-flex xs12 md9 offset-md3>
-        <v-card class="detail-info">
-          <v-layout row wrap>
-            <v-flex pa-3 xs6>
-              <detail-image :stock="{{$product->special?$product->special:'false'}}" :url="'/files/product-image/{{$product->id}}'" :id="{{$product->id}}"/>
-            </v-flex>
-            <v-flex class="detail__title text-xs-left" px-3 xs11 md6>
-              <h1>{{$product->title}}</h1>
-              @if($product->need_order)
-               <product-order :product="{{$product}}"/>
-              @else
-                <calculate-price :product="{{$product}}"/>
-              @endif
-            </v-flex>
-            <v-flex class="detail__tabs" pa-3 xs12>
-              <br>
-              <v-tabs class="detail-characteristics" color="green darken-4" dark slider-color="yellow">
-                <v-tab key="description">Описание</v-tab>
-                @foreach($groups as $group)
-                  <v-tab key="#tabs-group-{{$group->id}}">{{$group->title}}</v-tab>
-                @endforeach
-                <v-tab-item key="description">
-                  <div class="text-xs-left" style="color: #253c25; font-size: 1.2em; padding: 10px;">
-                    {!! $product->description !!}
+  <div id="detail" class="content-wrapper">
+    <v-container class="content hidden-md-and-down">
+      <v-row class="no-gutters">
+        <v-col cols="12" lg="9" offset-lg="3">
+          <v-card class="detail-info" elevation="0">
+            <v-list-item>
+              <v-list-item-content>
+                <h1>{{$product->title}}</h1>
+                <span class="subheader">{{$product->productCategory->title}}</span>
+              </v-list-item-content>
+            </v-list-item>
+            <v-container class="px-3 ma-0 no-gutters">
+              <v-row>
+                <v-col cols="12" lg="8" class="no-gutters pa-0 ma-0">
+                  <detail-image style="max-width: 390px;" class="text-center"
+                                :stock="{{$product->special?$product->special:'false'}}"
+                                :url="'/files/product-image/{{$product->id}}'" :id="{{$product->id}}"/>
+                </v-col>
+                <v-col cols="12" lg="4" class="no-gutters pa-0 ma-0">
+                  <div class="detail-info__price">
+                    <v-container no-gutter class="ma-0 pa-0">
+                      <v-row class="justify-start align-start">
+                        <v-col cols="12">
+                          @if($product->need_order)
+                            <callback-price :product="{{$product}}"/>
+                          @endif
+                        </v-col>
+                      </v-row>
+                    </v-container>
                   </div>
-                </v-tab-item>
-                @foreach($groups as $group)
-                  <v-tab-item class="tabs-content text-xs-left detail-characteristics__content" key="tabs-group-{{$group->id}}">
-                    <!--<v-card height="300px">
-                      <v-card-text class="text-xs-left">-->
-                        @foreach($product->attributes->filter(function($attribute, $key) use (&$group){
-                            return $attribute->attribute_group_id == $group->id;
-                          })->sortBy('sort')->chunk(10) as $chunkAttributes)
-                          <div class="tabs__characteristics">
-                            <dl class="tabs__characteristics-attributes">
-                              @foreach($chunkAttributes as $attribute)
-                                @if($attribute->attribute_type_id == 3)
-                                  <dt>{{$attribute->title}}</dt><dd class="tabs__characteristics--value">{{$attribute->pivot->integer_value}} {{$attribute->attribute_unit?$attribute->attribute_unit->title:""}}</dd>
-                                @endif
-                                @if($attribute->attribute_type_id == 2)
-                                  <dt>{{$attribute->title}}</dt><dd class="tabs__characteristics--value">{{$attribute->pivot->string_value}} {{$attribute->attribute_unit?$attribute->attribute_unit->title:""}}</dd>
-                                @endif
-                                @if($attribute->attribute_type_id == 4)
-                                  <dt>{{$attribute->title}}</dt><dd class="tabs__characteristics--value">{{$attribute->pivot->double_value}} {{$attribute->attribute_unit?$attribute->attribute_unit->title:""}}</dd>
-                                @endif
-                                @if($attribute->attribute_type_id == 5)
-                                  <dt>{{$attribute->title}}</dt><dd class="tabs__characteristics--value">{{$attribute->pivot->date_value}} {{$attribute->attribute_unit?$attribute->attribute_unit->title:""}}</dd>
-                                @endif
-                                @if($attribute->attribute_type_id == 7)
-                                  <dt>{{$attribute->title}}</dt><dd class="tabs__characteristics--value">{{$attribute->pivot->decimal_value}} {{$attribute->attribute_unit?$attribute->attribute_unit->title:""}}</dd>
-                                @endif
-                                @if($attribute->attribute_type_id == 8)
-                                  <dt>{{$attribute->title}}</dt><dd class="tabs__characteristics--value">{{Modules\Product\Entities\AttributeListValues::find($attribute->pivot->list_value)->title}} {{$attribute->attribute_unit?$attribute->attribute_unit->title:""}}</dd>
-                                @endif
-                              @endforeach
-                            </dl>
+                </v-col>
+                <v-col cols="12">
+                  <div class="detail-info__description">
+                    <v-container no-gutter class="ma-0 pa-3">
+                      <v-row>
+                        <v-col cols="12">
+                          <h2 class="subtitle">Описание</h2><br>
+                          {!! $product->description !!}
+                        </v-col>
+                        <v-col cols="12">
+                          <div class="characteristics__cell">
+                            <h2 class="subtitle">Технические характеристики</h2>
+                            <div class="table">
+                              <table class="table__box">
+                                <tbody>
+                                @foreach($product->attributes as $attribute)
+                                  <tr class="table__tr">
+                                    <th class="table__th">{{$attribute->title}}:</th>
+                                    <td class="table__td">
+                                      @if($attribute->attribute_type_id == 3)
+                                        {{$attribute->pivot->integer_value}}
+                                      @endif
+                                      @if($attribute->attribute_type_id == 2)
+                                        {{$attribute->pivot->string_value}}
+                                      @endif
+                                      @if($attribute->attribute_type_id == 4)
+                                       {{$attribute->pivot->double_value}}
+                                      @endif
+                                      @if($attribute->attribute_type_id == 5)
+                                       {{$attribute->pivot->date_value}}
+                                      @endif
+                                      @if($attribute->attribute_type_id == 7)
+                                        {{$attribute->pivot->decimal_value}}
+                                      @endif
+                                      @if($attribute->attribute_type_id == 8)
+                                        {{Modules\Product\Entities\AttributeListValues::find($attribute->pivot->list_value)->title}}
+                                      @endif
+                                      {{$attribute->attributeUnit?$attribute->attributeUnit->title:""}}
+                                    </td>
+                                  </tr>
+                                @endforeach
+                                </tbody>
+                              </table>
+                            </div>
                           </div>
-                        @endforeach
-                      <!--</v-card-text>
-                    </v-card>-->
-                  </v-tab-item>
-                @endforeach
-              </v-tabs>
-            </v-flex>
-          </v-layout>
-        </v-card>
-      </v-flex>
+                        </v-col>
+                      </v-row>
+                    </v-container>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+    <div class="hidden-lg-and-up">
+      <v-container no-gutter class="ma-0 pa-3">
+        <v-row>
+          <v-col cols="12">
+            <h1>{{$product->title}}</h1>
+            <span class="subtitle">{{$product->productCategory->title}}</span>
+          </v-col>
+          <v-col cols="12">
+            <detail-image :stock="{{$product->special?$product->special:'false'}}" :url="'/files/product-image/{{$product->id}}'" :id="{{$product->id}}"/>
+          </v-col>
+          <v-col cols="12">
+            @if($product->need_order)
+              <callback-price :product="{{$product}}"/>
+            @endif
+          </v-col>
+          <v-col cols="12">
+            <v-container no-gutter class="ma-0 pa-3">
+              <v-row>
+                <v-col cols="12">
+                  <h2 class="subtitle">Описание</h2><br>
+                  {!! $product->description !!}
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-col>
+        </v-row>
+      </v-container>
+
     </div>
   </div>
 @endsection

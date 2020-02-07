@@ -18,7 +18,7 @@ class CreateProductCategoriesTable extends Migration
     Schema::create($this->tableName, function (Blueprint $table) {
       $table->increments('id')->comment('Идентефикатор');
       $table->unsignedInteger('remote_id')->nullable();
-      $table->string('title')->comment('Название категории');
+      $table->string('title')->nullable()->comment('Название категории');
       $table->string('url_key', 255)->nullable()->comment('url');
       $table->unsignedInteger('sort')->nullable()->comment('Сорт.');
       $table->boolean('active')->default(true)->comment('Актив.');

@@ -73,17 +73,4 @@ class InitializerController extends Controller
     {
     }
 
-    public function fields(Builder $builder, ModelService $modelService, $name) {
-      $collectionResult = collect([]);
-      //if(Cache::has($name)) {
-      //  $collectionResult = Cache::get($name);
-      //}
-      //else
-      //{
-        $model = $modelService->find($name);
-        $collectionResult = $modelService->collectionGenerate($model,$name);
-        Cache::add($name,$collectionResult,now()->addSeconds(10000000));
-     // }
-      return $collectionResult;
-    }
 }

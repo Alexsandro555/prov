@@ -10,9 +10,16 @@ var getters = Object.assign({}, module_getters, standart_getters)
 var mutations = Object.assign({}, module_mutations, standart_mutations)
 
 const state = {
+  name: 'Attributable',
   items: [],
-  loading: true,
-  relations: [{column:'attribute_id',module:'attributes'}]
+  formFields: {},
+  up: [],
+  down: [],
+  rules: {},
+  isLoading: false,
+  isSaving: false,
+  colTableFields: 4,
+  count: null
 }
 
 const module = {

@@ -13,9 +13,3 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->prefix('callbacks')->group(function() {
-  Route::get('/', 'CallbacksController@index');
-  Route::post('/', 'CallbacksController@load');
-  Route::post('/default', 'CallbacksController@create');
-  Route::patch('/', 'CallbacksController@save');
-});

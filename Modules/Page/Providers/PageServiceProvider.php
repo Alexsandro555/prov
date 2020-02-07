@@ -37,9 +37,6 @@ class PageServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
-        $this->app->bind('Page', function ($app) {
-          return new Page();
-        });
     }
 
     /**

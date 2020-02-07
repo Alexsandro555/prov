@@ -18,13 +18,13 @@ class CreateTypeProductsTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
           $table->increments('id')->comment('Идентефикатор');
           $table->unsignedInteger('remote_id')->nullable();
-          $table->unsignedInteger('product_category_id')->nullable()->comment('Категория');
-          $table->string('title')->comment('Наименование типа продукта');
-          $table->bigInteger('tnved_id')->nullable()->comment('ТНВЭД');
+          $table->string('title')->nullable()->comment('Наименование типа продукта');
           $table->unsignedInteger('sort')->nullable()->comment('Сорт.');
           $table->boolean('active')->default(true)->comment('Актив.');
+          $table->unsignedInteger('product_category_id')->nullable()->comment('Категория');
+          $table->bigInteger('tnved_id')->nullable()->comment('ТНВЭД');
           $table->text('description')->nullable()->comment('Описание');
-          $table->string('url_key', 255)->comment('Путь');
+          $table->string('url_key', 255)->nullable()->comment('Путь');
           $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
           $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
           $table->foreign('product_category_id')->references('id')->on('product_categories')->onDelete('cascade');

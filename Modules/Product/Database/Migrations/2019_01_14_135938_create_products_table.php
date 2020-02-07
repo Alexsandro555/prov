@@ -19,12 +19,13 @@ class CreateProductsTable extends Migration
       $table->increments('id')->comment('Идентефикатор');
       $table->integer('remote_id')->nullable();
       $table->string('title', 255)->comment('Название продукта');
+      $table->integer('sort')->nullable()->comment('Сорт.');
+      $table->boolean('active')->default(false)->nullable()->comment('Актив.');
       $table->string('url_key', 255)->comment('url');
       $table->decimal('price',10,2)->nullable()->comment('Цена');
       $table->text('description')->nullable()->comment('Описание');
       $table->integer('qty')->nullable()->comment('Количество');
-      $table->boolean('active')->default(false)->nullable()->comment('Актив.');
-      $table->integer('sort')->nullable()->comment('Сорт.');
+
       $table->boolean('onsale')->nullable()->comment('Скидка');
       $table->boolean('special')->nullable()->comment('Спецпредложение');
       $table->boolean('need_order')->nullable()->comment('Необходимо заказывать');

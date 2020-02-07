@@ -18,10 +18,10 @@ class CreateProducersTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
           $table->increments('id')->comment('Идентефикатор');
           $table->unsignedInteger('remote_id')->nullable();
-          $table->string('title',255)->comment('Название производителя');
-          $table->boolean('active')->default(true)->comment('Актив.');
-          $table->string('url_key', 255)->comment('Путь');
+          $table->string('title',255)->nullable()->comment('Название производителя');
           $table->unsignedInteger('sort')->nullable()->comment('Сорт.');
+          $table->boolean('active')->default(true)->comment('Актив.');
+          $table->string('url_key', 255)->nullable()->comment('Путь');
           $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
           $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
           $table->softDeletes();

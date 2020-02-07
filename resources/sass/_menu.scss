@@ -33,27 +33,3 @@
   font-size: 0.9em;
 }
 
-
-.theme--light.v-list.top-menu, .theme--light .v-list.top-menu {
-  background: none;
-  color: $color-white;
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-}
-
-.top-menu__item {
-  display: inline-block;
-  background: url('#{$path}/menu-devider.png') left center no-repeat;
-}
-
-.top-menu__item:first-child {
-  background: none;
-}
-
-.top-menu__item .v-list__tile {
-  height: 57px;
-  font-family: $font-os-condenced-bold;
-  text-transform: uppercase;
-  padding-left: 30px;
-  font-size:0.99em;
-}

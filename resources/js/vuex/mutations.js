@@ -18,7 +18,7 @@ export default {
     state.items.push(payload)
   },
   SET_ARRAY_VARIABLE: (state, {variable, value}) => {
-    _.set(state, variable, value)
+      _.set(state, variable, value)
   },
   SET_ARRAY_VARIABLE2: (state, {module, variable, value}) => {
     _.set(state[module], variable, value)
@@ -31,11 +31,13 @@ export default {
     return _.get(state, variable).filter(item => item.id === id)
   },
   // основные мутации
-  SET_VARIABLE (state,{module,variable,value}) {
+  SET_VARIABLE_MODULE (state,{module,variable,value}) {
     _.set(state[module],variable,value)
   },
-  SET_VARIABLE2: (state,{module,variable,value}) => {
-    _.set(state,variable,value)
+  SET_VARIABLE: (state,{variable,value}) => {
+    if(!_.isNil(value)) {
+      _.set(state, variable, value)
+    }
   },
   INC_VARIABLE: (state,{module,variable}) => {
     _.set(state[module],variable,_.get(state[module],variable)+1)
@@ -83,5 +85,21 @@ export default {
   REMOVE_FROM_ARRAY_BY_KEY_VALUE: (state,{module,variable,key,value}) =>
   {
     _.set(state,[module,variable],_.get(state,[module,variable]).filter( item => item[key]!=value))
+  },
+  SET_RELATIONS: (state, value) => {
+    let up = []
+    let down = []
+    for(let key in value) {
+      switch (value[key]['type']) {
+        case 'BelongsTo':
+          up.push({'column': value[key]['foreignKey'],'module': value[key]['table']})
+          break
+        case 'HasMany':
+          down.push({'column': value[key]['foreignKey'],'module': value[key]['table']})
+          break
+      }
+    }
+    if ( !(_.get(state, 'up').length > 0) && up.length > 0) _.set(state, 'up', up)
+    if (!(_.get(state, 'down').length > 0) && down.length > 0) _.set(state, 'down', down)
   }
 }

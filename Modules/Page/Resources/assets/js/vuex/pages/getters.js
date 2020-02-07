@@ -3,12 +3,14 @@ export default {
     let obj=new Object()
     obj.items='items'
     obj.load='/api/pages'
+    obj.loading = 'isLoading'
     obj.module='pages'
+    obj.load_all = true
     obj.primary_key='id'
     obj.model='Modules\\Page\\Models\\Page'
-    // obj.upLinks=[{column:'type_product_id',module:'type_products'},{column:'line_product_id',module:'line_products'}]
-    // obj.loadByKey={id:1}
-    // obj.loadAll=true
+    obj.upLinks=state.up
+    obj.downLinks=state.down
     return obj
-	}
+	},
+  items: state => state.items
 }

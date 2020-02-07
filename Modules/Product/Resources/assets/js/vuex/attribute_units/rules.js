@@ -1,0 +1,1 @@
+export default {"title":"max:255"}

@@ -13,7 +13,8 @@ const state = {
     name: 'Sku',
     items: [],
     fields: [],
-    loading: true
+    loading: true,
+    count: null
 }
 
 const module = {

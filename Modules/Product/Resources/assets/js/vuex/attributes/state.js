@@ -12,10 +12,14 @@ var mutations = Object.assign({}, module_mutations, standart_mutations)
 const state = {
   name: 'Attribute',
   items: [],
-  fields: [],
-  bindAttributes: [],
-  loading: true,
-  relations: [{column:'attribute_group_id',module:'attribute_groups'}, {column: 'attribute_unit_id', module: 'attribute_units'}, {column: 'attribute_type_id', module: 'attribute_types'}]
+  formFields: {},
+  up: [],
+  down: [],
+  rules: {},
+  isLoading: false,
+  isSaving: false,
+  colTableFields: 4,
+  count: null
 }
 
 const module = {

@@ -19,7 +19,7 @@ class CreateAttributeListValuesTable extends Migration
       $table->increments('id')->comment('Идентефикатор');
       $table->string('title', 255)->comment('Наименование');
       $table->unsignedInteger('sort')->nullable()->comment('Сорт.');
-      $table->unsignedInteger('attribute_id')->comment('Атрибут');
+      $table->unsignedInteger('attribute_id')->nullable()->comment('Атрибут');
       $table->foreign('attribute_id')->references('id')->on('attributes')->onDelete('cascade');
       $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
       $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));

@@ -5,21 +5,10 @@ namespace Modules\Product\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 
-use Modules\Initializer\Observers\ClearCacheObserver;
-use Modules\Product\Entities\Attribute;
-use Modules\Product\Entities\AttributeUnit;
-use Modules\Product\Entities\Product;
 use Modules\Product\Entities\Category;
-use Modules\Product\Entities\ProductCategory;
-use Modules\Product\Entities\TypeProduct;
-use Modules\Product\Entities\LineProduct;
-use Modules\Product\Entities\AttributeGroup;
-use Modules\Product\Entities\Tnved;
-use Modules\Product\Entities\Producer;
 use Modules\Product\Entities\Sku;
 use Modules\Product\Entities\AttributeSkuOption;
 
-use Modules\Product\Observers\UrlKeyObserver;
 use Modules\Product\Repositories\ProductCategory\ProductCategoryRepository;
 use Modules\Product\Repositories\ProductCategory\EloquentProductCategoryRepository;
 use Modules\Product\Repositories\TypeProduct\TypeProductRepository;
@@ -60,33 +49,7 @@ class ProductServiceProvider extends ServiceProvider
   public function register()
   {
     $this->app->register(RouteServiceProvider::class);
-    $this->app->bind('Product', function ($app) {
-      return new Product();
-    });
-    $this->app->bind('Attribute', function ($app) {
-      return new Attribute();
-    });
-    $this->app->bind('ProductCategory', function ($app) {
-      return new ProductCategory();
-    });
-    $this->app->bind('TypeProduct', function ($app) {
-      return new TypeProduct();
-    });
-    $this->app->bind('LineProduct', function ($app) {
-      return new LineProduct();
-    });
-    $this->app->bind('AttributeUnit', function ($app) {
-      return new AttributeUnit();
-    });
-    $this->app->bind('AttributeGroup', function ($app) {
-      return new AttributeGroup();
-    });
-    $this->app->bind('Tnved', function ($app) {
-      return new Tnved();
-    });
-    $this->app->bind('Producer', function ($app) {
-      return new Producer();
-    });
+
     $this->app->bind('TradeOffer', function ($app) {
       return new Sku();
     });
@@ -97,17 +60,8 @@ class ProductServiceProvider extends ServiceProvider
       return new AttributeSkuOption();
     });
 
-    ProductCategory::observe(UrlKeyObserver::class);
-    ProductCategory::observe(ClearCacheObserver::class);
-    TypeProduct::observe(UrlKeyObserver::class);
-    TypeProduct::observe(ClearCacheObserver::class);
-    LineProduct::observe(UrlKeyObserver::class);
-    LineProduct::observe(ClearCacheObserver::class);
-    Product::observe(UrlKeyObserver::class);
-    Producer::observe(UrlKeyObserver::class);
-    AttributeUnit::observe(UrlKeyObserver::class);
-    AttributeGroup::observe(UrlKeyObserver::class);
-    Attribute::observe(UrlKeyObserver::class);
+
+
 
     $this->app->singleton(ProductCategoryRepository::class, EloquentProductCategoryRepository::class);
     $this->app->singleton(TypeProductRepository::class, EloquentTypeProductRepository::class);

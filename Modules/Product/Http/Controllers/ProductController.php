@@ -6,19 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Product\Entities\Product;
 use Modules\Initializer\Traits\ControllerTrait;
-use Modules\Initializer\Traits\DefaultTrait;
 use Maatwebsite\Excel\Facades\Excel;
 use Modules\Product\Imports\ProductImport;
 
-/*use Illuminate\Support\Facades\Storage;
-use Modules\Files\Classes\ImageHandler;
-use Modules\Files\Entities\TypeFile;
-use Illuminate\Http\UploadedFile;
-use Modules\Files\Entities\File;*/
-
 class ProductController extends Controller
 {
-  Use ControllerTrait, DefaultTrait;
+  use ControllerTrait;
 
   public $model;
 
@@ -27,29 +20,19 @@ class ProductController extends Controller
     $this->model = new Product;
   }
 
-  public function specialProducts() {
-    return Product::with(['files', 'lineProduct.files' => function($query) {
-      $query->doesntHave('figure');
-    }, 'typeProduct.files' => function($query) {
-      $query->doesntHave('figure');
-    }, 'productCategory.files' => function($query) {
-      $query->doesntHave('figure');
-    }])->where('active',1)->where('special', 1)->get();
+  public function special()
+  {
+    return Product::withFiles()->special()->get();
   }
 
-  public function new() {
-    return Product::with(['files', 'lineProduct.files' => function($query) {
-      $query->doesntHave('figure');
-    }, 'typeProduct.files' => function($query) {
-      $query->doesntHave('figure');
-    }, 'productCategory.files' => function($query) {
-      $query->doesntHave('figure');
-    }])->where('active',1)->where('onsale', 1)->get();
+  public function new()
+  {
+    return Product::withFiles()->sale()->get();
   }
 
   public function import(Request $request)
   {
-    if($request->hasFile('file')) {
+    if ($request->hasFile('file')) {
       Excel::import(new ProductImport, $request->file('file'));
       /*$products = Product::all();
       foreach($products as $product) {

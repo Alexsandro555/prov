@@ -3,12 +3,15 @@ export default {
     let obj=new Object()
     obj.items='items'
     obj.load='/api/articles'
+    obj.loading = 'isLoading'
     obj.module='articles'
+    obj.load_all = true
     obj.primary_key='id'
+    obj.type_files = ['image-product']
     obj.model='Modules\\Article\\Models\\Article'
-    // obj.upLinks=[{column:'type_product_id',module:'type_products'},{column:'line_product_id',module:'line_products'}]
-    // obj.loadByKey={id:1}
-    // obj.loadAll=true
+    obj.upLinks=state.up
+    obj.downLinks=state.down
     return obj
-	}
+	},
+  items: state => state.items
 }

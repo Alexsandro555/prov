@@ -23,24 +23,26 @@ class AttributablesController extends Controller
   }
 
   public function save(Request $request) {
+    // todo: Данный код желательно перенести в модель - и вообще данный код лучше переделать
     if($request->line_product_id) {
       $lineProduct = LineProduct::findOrFail($request->line_product_id);
       $lineProduct->attributes()->attach($request->selectedRemainAttr);
-      return Attributable::all();
+      return Attributable::where('attributable_id', $lineProduct->id)->where('attributable_type', LineProduct::class)->get();
     }
     if($request->type_product_id) {
       $typeProduct = TypeProduct::findOrFail($request->type_product_id);
       $typeProduct->attributes()->attach($request->selectedRemainAttr);
-      return Attributable::all();
+      return Attributable::where('attributable_id', $typeProduct->id)->where('attributable_type', TypeProduct::class)->get();
     }
     if($request->product_category_id) {
       $productCategory = ProductCategory::findOrFail($request->product_category_id);
       $productCategory->attributes()->attach($request->selectedRemainAttr);
-      return Attributable::all();
+      return Attributable::where('attributable_id', $productCategory->id)->where('attributable_type', ProductCategory::class)->get();
     }
   }
 
   public function delete(Request $request) {
+    // todo: Данный код желательно перенести в модель - и вообще данный код лучше переделать
     if($request->line_product_id) {
       $lineProduct = LineProduct::findOrFail($request->line_product_id);
       $lineProduct->attributes()->detach($request->attr);

@@ -1,26 +1,42 @@
-.header {
+header {
   height: 707px;
+
+  .header-menu {
+    height: 57px;
+    background:  rgba(121,154,50,0.8);
+    width: 100%;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
 }
 
-.chickens {
-  background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/chickens-layout.png') top center no-repeat;
-}
-
-.cows {
-   background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/cows-layout.png') top center no-repeat;
- }
-
-.pigs {
-  background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/pigs-layout.png') top center no-repeat;
-}
-
-.rams {
-  background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/rams-layout.png') top center no-repeat;
-}
 
 @media (min-width: 961px) {
   .main-layout {
     background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/header-layer.png') top center no-repeat;
+  }
+
+  .birds {
+    background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/chickens-layout.png') top center no-repeat;
+  }
+
+  .cows {
+    background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/cows-layout.png') top center no-repeat;
+  }
+
+  .pigs {
+    background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/pigs-layout.png') top center no-repeat;
+  }
+
+  .others {
+    background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/rams-layout.png') top center no-repeat;
+  }
+
+  .logo {
+    background: url('#{$path}/logo-layer.png') top center no-repeat;
   }
 }
 
@@ -28,29 +44,4 @@
   .main-layout {
     background: url('#{$path}/header-shadow-top.png') top center repeat-x, url('#{$path}/header-layer-medium.png') top left no-repeat;
   }
-}
-
-.wrapper {
-  max-width: $main-width;
-  margin: auto;
-}
-
-.header--wrapper {
-  max-width: $main-width;
-  margin: auto;
-}
-
-.header-menu {
-  height: 57px;
-  background:  rgba(121,154,50,0.8);
-  width: 100%;
-}
-
-.header-menu__link {
-  text-decoration: none;
-  color: white;
-}
-
-.header-slogan {
-  margin-top: -120px;
 }

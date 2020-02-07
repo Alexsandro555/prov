@@ -17,17 +17,42 @@ class TypeFile extends Model
 
   protected $dates = ['deleted_at'];
 
-  protected $fillable = [
-    'id',
-    'name',
-    'config'
-  ];
+  protected $guarded = [];
 
   protected $casts = [
     'config' => 'collection',
   ];
 
   public function files() {
-    return $this->hasMany(File::class, 'type_file_id','id');
+    return $this->hasMany(File::class);
+  }
+
+  /**
+   * Get maxsize file
+   *
+   * @return integer
+   */
+  public function getMaxsizeAttribute()
+  {
+    return $this->config->get('maxsize')?:45*1024;
+  }
+
+  /**
+   * Get allowed extensions for file
+   * @return string
+   */
+  public function getExtensionsAttribute()
+  {
+    return $this->config->get('ext');
+  }
+
+  /**
+   * Get resize values
+   *
+   * @return null
+   */
+  public function getResizeAttribute()
+  {
+    return $this->config->get('resize');
   }
 }

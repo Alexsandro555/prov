@@ -17,11 +17,11 @@ class CreateAttributeUnitsTable extends Migration
   {
     Schema::create($this->tableName, function (Blueprint $table) {
       $table->increments('id')->comment('Идентефикатор');
+      $table->string('title', 255)->nullable()->comment('Наименование');
       $table->unsignedInteger('remote_id')->nullable();
       $table->unsignedInteger('sort')->nullable()->comment('Сорт.');
       $table->boolean('active')->default(true)->comment('Актив.');
-      $table->string('url_key', 255)->comment('Путь');
-      $table->string('title', 255)->comment('Наименование');
+      $table->string('url_key', 255)->nullable()->comment('Путь');
       $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
       $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
       $table->softDeletes();

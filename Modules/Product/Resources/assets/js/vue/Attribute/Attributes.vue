@@ -38,7 +38,7 @@
                         v-else-if="attribute.attribute_type_id==4"
                         :name="attribute.url_key"
                         :label="attribute.title"
-                        @input="updateAttribute($event, attribute.id)"
+                        @input.number="updateAttribute($event, attribute.id)"
                         :value="form[attribute.id]?form[attribute.id].value:null">
                       </v-text-field>
                       <v-checkbox
