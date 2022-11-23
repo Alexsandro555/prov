@@ -34,7 +34,7 @@
         "ioredis": "^4.14.1",
         "material-design-icons-iconfont": "^4.0.5",
         "pdfjs-dist": "^2.2.228",
-        "socket.io": "^2.3.0",
+        "socket.io": "^2.5.0",
         "socket.io-client": "^2.3.0",
         "table-selection": "^0.9.3",
         "vee-validate": "^2.2.15",
